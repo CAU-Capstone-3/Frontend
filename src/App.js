@@ -66,6 +66,7 @@ function App() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      <div className="main-bg"></div>
       <Routes>
         <Route path="/section/subject" element={<SubjectList />} />
         <Route path="/note/section/1" element={<SubjectSection />} />

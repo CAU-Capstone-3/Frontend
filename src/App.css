@@ -6,7 +6,12 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+.main-bg {
+  height: 500px;
+  background-image: url("./note.png");
+  background-size: cover;
+  background-position: center;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
