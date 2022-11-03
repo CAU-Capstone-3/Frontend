@@ -1,0 +1,27 @@
+{
+  "status": 200,
+  "success": true,
+  "message": "분석 결과 조회에 성공하였습니다.",
+  "result": {
+    "sectionId": 1,
+    "sectionName": "2-3. 프레이밍",
+    "adviceList": [
+      {
+        "adviceId": 12,
+        "advice": "유일하게 적어주신 내용이예요.",
+        "sentence": "패킷 네트워크 상에서 데이터를 끝없이 보낼 수 없음",
+        "sentenceId": 20,
+        "writerId": 2,
+        "writerName": "장훈석"
+      },
+      {
+        "adviceId": 14,
+        "advice": "상반된 내용이 있어요.",
+        "sentence": "HDLC는 바이트 단위 프로토콜이다.",
+        "sentenceId": 11,
+        "writerId": 4,
+        "writerName": "탐사수"
+      }
+    ]
+  }
+}
