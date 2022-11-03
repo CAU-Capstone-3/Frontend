@@ -1,0 +1,19 @@
+{
+  "status": 200,
+  "success": true,
+  "message": "요청에 성공하였습니다.",
+  "result": [
+    {
+      "sectionId": 1,
+      "title": "2-3. 프레이밍",
+      "updatedAt": "2022-10-27T05:42:27.000+00:00",
+      "analyzed": false
+    },
+    {
+      "sectionId": 2,
+      "title": "2-4. 윈도우슬라이딩",
+      "updatedAt": "2022-10-27T05:42:27.000+00:00",
+      "analyzed": false
+    }
+  ]
+}
