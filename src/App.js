@@ -42,7 +42,7 @@ function App() {
                 <NavDropdown.Item href="#action/3.1">목차</NavDropdown.Item>
                 <NavDropdown.Item
                   onClick={() => {
-                    navigate("/note/section/1");
+                    navigate("/note/section/:subjectId");
                   }}
                 >
                   섹션별
@@ -57,7 +57,7 @@ function App() {
                 <NavDropdown.Divider />
                 <NavDropdown.Item
                   onClick={() => {
-                    navigate("/advice/sectionId");
+                    navigate("/note/:noteId");
                   }}
                 >
                   노트분석
@@ -77,9 +77,9 @@ function App() {
           }
         />
         <Route path="/section/subject" element={<SubjectList />} />
-        <Route path="/note/section/1" element={<SubjectSection />} />
+        <Route path="/note/section/:subjectId" element={<SubjectSection />} />
         <Route path="/note/sectionId" element={<NoteWritePage />} />
-        <Route path="/detail" element={<DetailNote />} />
+        <Route path="/note/:notedId" element={<DetailNote />} />
       </Routes>
     </div>
   );
