@@ -4,6 +4,7 @@ import SubjectList from "./component/SubjectList";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import SubjectSection from "./component/SubjectSectionList";
 import NoteWritePage from "./component/NoteWritePage";
+import DetailNote from "./component/DetailNote";
 import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
 import "./App.css";
 function App() {
@@ -78,6 +79,7 @@ function App() {
         <Route path="/section/subject" element={<SubjectList />} />
         <Route path="/note/section/1" element={<SubjectSection />} />
         <Route path="/note/sectionId" element={<NoteWritePage />} />
+        <Route path="/detail" element={<DetailNote />} />
       </Routes>
     </div>
   );
