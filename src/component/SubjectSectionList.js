@@ -1,9 +1,10 @@
 import React from "react";
 import dummy from "../db/data3.json";
 import { Table } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 export default function SubjectSection() {
   const navigate = useNavigate();
+  const { subjectId } = useParams();
   return (
     <div>
       <Table>

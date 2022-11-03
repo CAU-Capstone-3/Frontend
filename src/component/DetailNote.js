@@ -1,7 +1,10 @@
 import React from "react";
 import { Avatar, List } from "antd";
+import { useParams } from "react-router-dom";
 
 export default function DetailNote() {
+  const { useerId } = useParams();
+
   const data = [
     {
       title: "프레이밍 - 개요",
