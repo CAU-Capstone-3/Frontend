@@ -9,7 +9,7 @@ import "./App.css";
 function App() {
   let navigate = useNavigate();
   return (
-    <div className="App">
+    <div>
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand
@@ -66,8 +66,15 @@ function App() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <div className="main-bg"></div>
       <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <div className="main-bg"></div>
+            </>
+          }
+        />
         <Route path="/section/subject" element={<SubjectList />} />
         <Route path="/note/section/1" element={<SubjectSection />} />
         <Route path="/note/sectionId" element={<NoteWritePage />} />
