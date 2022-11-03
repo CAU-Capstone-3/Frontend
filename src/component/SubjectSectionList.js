@@ -1,5 +1,5 @@
 import React from "react";
-import dummy from "./data3.json";
+import dummy from "../db/data3.json";
 import { Table } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 export default function SubjectSection() {
