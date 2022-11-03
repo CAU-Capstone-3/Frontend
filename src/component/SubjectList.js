@@ -1,5 +1,5 @@
 import React from "react";
-import dummy from "./data5.json";
+import dummy from "../db/data5.json";
 import { Table } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
