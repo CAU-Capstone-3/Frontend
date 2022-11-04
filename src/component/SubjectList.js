@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import dummy from "../db/data5.json";
 import { Table } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function SubjectList() {
+  const [section, setSection] = useState([]);
+  const { subjectId } = useParams();
   const navigate = useNavigate();
+  useEffect(() => {
+    fetch(`http://localhost:8080/api/section/subject/${subjectId}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setSection(data);
+      });
+  }, [subjectId]);
+
   return (
     <div>
-      <h3>과목별 리스트</h3>
+      <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+        <h2>과목별 섹션리스트</h2>
+      </div>
       <br />
       <br />
       <Table>
@@ -19,14 +33,14 @@ export default function SubjectList() {
           </tr>
         </thead>
         <tbody>
-          {dummy.result.map((section) => (
-            <tr key={section.sectionId}>
-              <td>{section.title}</td>
-              <td>{section.updatedAt}</td>
+          {section.map((data) => (
+            <tr key={data.sectionId}>
+              <td>{data.title}</td>
+              <td>{data.updatedAt}</td>
               <td>
                 <button
                   onClick={() => {
-                    navigate(`/note/section/${section.sectionId}`);
+                    navigate(`/note/section/${data.subjectId}`);
                   }}
                 >
                   이동
