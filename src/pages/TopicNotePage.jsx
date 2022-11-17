@@ -41,6 +41,7 @@ export default function TopicNotePage() {
               <td>목차</td>
               <td>이름</td>
               <td>업데이트날짜</td>
+              <td>이동</td>
             </tr>
           </thead>
           <tbody>
@@ -49,6 +50,16 @@ export default function TopicNotePage() {
                 <td>{data.noteId}</td>
                 <td>{data.ownerName}</td>
                 <td>{data.updatedAt}</td>
+                <td>{data.updatedAt}</td>
+                <td>
+                  <button
+                    onClick={() => {
+                      navigate(`/note/${data.noteId}`);
+                    }}
+                  >
+                    이동
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
