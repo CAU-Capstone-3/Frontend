@@ -26,14 +26,6 @@ const router = createBrowserRouter([
       { path: "note/topic/:topicId", element: <TopicNotePage /> }, //토픽별노트목록
       { path: "note/:noteId", element: <NoteDetailPage /> }, //노트상세조회
       { path: "advice/:topicId", element: <AnalResultPage /> }, //분석결과조회
-      { path: "table", element: <Table /> }, //분석결과조회
-      { path: "main", element: <Home /> }, //홈
-      { path: "list", element: <ListItem /> }, //홈
-      { path: "menu", element: <MenuBar /> },
-      { path: "sidebar", element: <Sidebar /> },
-      { path: "sub", element: <Subjecttopi /> },
-      { path: "analsisresult", element: <AnalsisResultPage /> }, //분석결과댓글페이지
-      { path: "grids", element: <Grids /> }, //분석결과댓글페이지
     ],
   },
 ]);
