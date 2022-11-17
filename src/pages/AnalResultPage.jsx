@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-export default function AnalsisResult() {
+export default function AnalResultPage() {
   const navigate = useNavigate();
   const { topicId } = useParams();
   const [top, setTop] = useState([""]);
@@ -21,18 +21,5 @@ export default function AnalsisResult() {
         console.log(error);
       });
   }
-  return (
-    <div>
-      <div>
-        <div className="w-[770px] h-[151px]">
-          <p className="w-[569px] absolute left-[436px] top-[152px] text-[40px] font-bold text-center capitalize text-[#212b36]">
-            Topic
-          </p>
-          <p className="absolute left-[648px] top-[120px] text-lg font-semibold text-center text-[#3056d3]"></p>
-        </div>
-        <br />
-        <br />
-      </div>
-    </div>
-  );
+  return <div></div>;
 }

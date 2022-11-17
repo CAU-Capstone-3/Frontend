@@ -1,9 +1,11 @@
+import React from "react";
 import { Outlet } from "react-router-dom";
-import Bar from "./components/Bar";
+import SearchHeader from "./components/SearchHeader";
+
 function App() {
   return (
     <>
-      <Bar />
+      <SearchHeader />
       <Outlet />
     </>
   );

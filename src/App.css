@@ -1,43 +1,40 @@
-.App {
+.DiaryList_container {
+  border: 1px solid gray;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.DiaryList_container h2 {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-.main-bg {
-  height: 500px;
-  background-image: url("./note.png");
-  background-size: cover;
-  background-position: center;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* List Item */
+
+.DiaryItem_container {
+  background-color: rgb(240, 240, 240);
+  margin-bottom: 10px;
+  padding: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.DiaryItem_container span {
+  margin-right: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.DiaryItem_container .info {
+  border-bottom: 1px solid gray;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.DiaryItem_container .date {
+  color: gray;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.DiaryItem_container .content {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+.DiaryItem_container textarea {
+  padding: 10px;
 }
