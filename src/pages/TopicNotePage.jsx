@@ -3,7 +3,7 @@ import axios from "axios";
 import { Table } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 export default function TopicNotePage() {
-  const { topicId } = useParams();
+  const { topicId, noteId } = useParams();
   const navigate = useNavigate();
   const [top, setTop] = useState([""]);
   useEffect(() => {
@@ -49,7 +49,6 @@ export default function TopicNotePage() {
               <tr key={data.noteId}>
                 <td>{data.noteId}</td>
                 <td>{data.ownerName}</td>
-                <td>{data.updatedAt}</td>
                 <td>{data.updatedAt}</td>
                 <td>
                   <button
