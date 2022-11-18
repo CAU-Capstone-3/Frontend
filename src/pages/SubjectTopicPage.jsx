@@ -33,8 +33,8 @@ export default function SubjectTopicPage() {
             <tr>
               <th>주차</th>
               <th>title</th>
-              <th>업데이트날짜</th>
               <th>상태</th>
+              <th>업데이트날짜</th>
               <th>노트보러가기</th>
             </tr>
           </thead>
@@ -43,7 +43,7 @@ export default function SubjectTopicPage() {
               <tr key={data.topicId}>
                 <td>{data.topicId}</td>
                 <td>{data.title}</td>
-                <td>{data.updatedAt}</td>
+                <td>{data.analyzed}</td>
                 <td>{data.updatedAt}</td>
                 <td>
                   <button
