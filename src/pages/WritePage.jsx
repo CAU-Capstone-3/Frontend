@@ -1,26 +1,30 @@
 import axios from "axios";
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function WritePage() {
   const [text, setText] = useState();
   const textChangeHandler = (e) => {
     setText(e.target.vaule);
   };
-  useEffect(()=>{
-    const body={
-      "writeId":1,
-      "content":setText
-    }
-    axios.post(`http://18.189.150.89:8080/api/note/`,)
-`)
-  })
+  const textSubmitHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div>
-      <form onSubmit={textSubmitHandler}>
-        <title></title>
-        <textarea value={text} onChange={textChangeHandler} />
-        <button type="submit"></button>
-      </form>
+      <div class="flex p-5 m-3">
+        <form onSubmit={textSubmitHandler}>
+          <title></title>
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+            value={text}
+            onChange={textChangeHandler}
+          />
+          <button type="submit">저장</button>
+        </form>
+      </div>
     </div>
   );
 }
