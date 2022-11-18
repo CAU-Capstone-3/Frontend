@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import axios from "axios";
 import { Table } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
@@ -6,6 +7,7 @@ export default function SubjectTopicPage() {
   const navigate = useNavigate();
   const { subjectId, noteId } = useParams();
   const [top, setTop] = useState([""]);
+  const [status, getStatus] = useState();
 
   useEffect(() => {
     getData();
@@ -42,7 +44,7 @@ export default function SubjectTopicPage() {
                 <td>{data.topicId}</td>
                 <td>{data.title}</td>
                 <td>{data.updatedAt}</td>
-                <td>{data.anlayzed}</td>
+                <td>{data.updatedAt}</td>
                 <td>
                   <button
                     onClick={() => navigate(`/note/topic/${data.topicId}`)}
