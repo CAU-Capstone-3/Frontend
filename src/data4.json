@@ -1,0 +1,67 @@
+{
+  "status": 200,
+  "success": true,
+  "message": "요청에 성공하였습니다.",
+  "result": {
+    "subjectId": 1,
+    "subjectName": "컴퓨터 통신",
+    "topicId": 1,
+    "topicName": "2-3. 프레이밍",
+    "noteId": 2,
+    "writerId": 1,
+    "writerName": "김형기",
+    "sentenceList": [
+      {
+        "content": "프레이밍 - 개요",
+        "sequenceNum": 1,
+        "sentenceType": "N"
+      },
+      {
+        "content": "패킷네트워크상에서는 데이터를 끝없이 보낼 수는 없음.",
+        "sequenceNum": 2,
+        "sentenceType": "N"
+      },
+      {
+        "content": "그러면 왜 프레이밍하는가?",
+        "sequenceNum": 3,
+        "sentenceType": "N"
+      },
+      {
+        "content": "프레임(2계층) : 비트들의 연속을 하나의 묶음으로 자르기.",
+        "sequenceNum": 4,
+        "sentenceType": "N"
+      },
+      {
+        "content": "수신쪽이 프레임을 인식할 수 있도록 봉투를 씌워서 묶는 것이다.",
+        "sequenceNum": 5,
+        "sentenceType": "N"
+      },
+      {
+        "content": "프레이밍 구현 위치",
+        "sequenceNum": 6,
+        "sentenceType": "N"
+      },
+      {
+        "content": "네트워크 어댑터에서 구현!",
+        "sequenceNum": 7,
+        "sentenceType": "N"
+      },
+      {
+        "content": "네트워크 어댑터는 호스트 메모리로부터 프레임(데이터 + 헤더 일부분)을 넣어서 가져온다.",
+        "sequenceNum": 8,
+        "sentenceType": "N"
+      },
+      {
+        "content": "송신자 : 메모리에서 가져와서 헤더를 씌워서 보낸다(수신자가 인식할 수 있도록)",
+        "sequenceNum": 9,
+        "sentenceType": "N"
+      },
+      {
+        "content": "수신자 : 수신자 모뎀 내에서 헤더 + 데이터를 뗀다.",
+        "sequenceNum": 10,
+        "sentenceType": "N"
+      }
+    ],
+    "lastUpdate": "2022-11-10T04:14:09.000+00:00"
+  }
+}

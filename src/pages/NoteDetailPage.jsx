@@ -24,22 +24,7 @@ export default function NoteDetailPage() {
   }
   return (
     <div>
-      <Table>
-        <thead>
-          <tr>
-            <td>목차</td>
-            <td>이름</td>
-          </tr>
-        </thead>
-        <tbody>
-          {top.map((data) => (
-            <tr key={data.noteId}>
-              <td>{data.noteId}</td>
-              <td>{data.writerName}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+      <h3></h3>
     </div>
   );
 }

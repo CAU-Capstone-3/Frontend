@@ -1,43 +1,33 @@
 {
-  "status": 200,
+  "status": 0,
   "success": true,
-  "message": "요청에 성공하였습니다.",
+  "message": "string",
   "result": [
     {
-      "topicId": 1,
-      "title": "2-3. 프레이밍",
-      "updatedAt": "2022-11-10T04:05:39.000+00:00",
-      "analyzed": false
-    },
-    {
-      "topicId": 2,
-      "title": "2-4. 오류검출",
-      "updatedAt": "2022-11-17T21:08:04.000+00:00",
-      "analyzed": false
-    },
-    {
-      "topicId": 3,
-      "title": "2-5. 신뢰성 있는 전송",
-      "updatedAt": "2022-11-17T21:08:04.000+00:00",
-      "analyzed": false
-    },
-    {
-      "topicId": 4,
-      "title": "3-1. 스위칭과 포워딩",
-      "updatedAt": "2022-11-17T21:08:05.000+00:00",
-      "analyzed": false
-    },
-    {
-      "topicId": 5,
-      "title": "3-2. 브리지와 확장 LAN",
-      "updatedAt": "2022-11-17T21:08:05.000+00:00",
-      "analyzed": false
-    },
-    {
-      "topicId": 6,
-      "title": "3-3. 셀스위칭",
-      "updatedAt": "2022-11-17T21:08:06.000+00:00",
-      "analyzed": false
+      "adviceId": 1,
+      "advice": "상반되는 문장이 있어요.",
+      "sentence1": {
+        "sentenceId": 0,
+        "sentence": "string",
+        "writerId": 0,
+        "writerName": "string"
+      },
+      "sentence2": {
+        "sentenceId": 0,
+        "sentence": "string",
+        "writerId": 0,
+        "writerName": "string"
+      },
+      "comments": [
+        {
+          "commentId": 0,
+          "userId": 0,
+          "userName": "string",
+          "content": "string",
+          "createdAt": "2022-11-18T00:58:15.933Z",
+          "updatedAt": "2022-11-18T00:58:15.934Z"
+        }
+      ]
     }
   ]
 }

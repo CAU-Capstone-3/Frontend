@@ -1,0 +1,24 @@
+{
+  "status": 200,
+  "success": true,
+  "message": "요청에 성공하였습니다.",
+  "result": [
+    {
+      "adviceId": 194,
+      "advice": "상반되는 문장이 있어요.",
+      "sentence1": {
+        "sentenceId": 314,
+        "sentence": "하나의 케이블에는 링크가 하나만 있을 수 있음.",
+        "writerId": 1,
+        "writerName": "김형기"
+      },
+      "sentence2": {
+        "sentenceId": 338,
+        "sentence": "링크는 논리적 통로이며, 하나의 케이블에 여러 링크를 형성할 수 있음",
+        "writerId": 2,
+        "writerName": "김유진"
+      },
+      "comments": []
+    }
+  ]
+}

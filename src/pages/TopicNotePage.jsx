@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Table } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
+
 export default function TopicNotePage() {
   const { topicId, noteId } = useParams();
   const navigate = useNavigate();
@@ -34,13 +35,13 @@ export default function TopicNotePage() {
         </div>
         <br />
         <br />
-
         <Table>
           <thead>
             <tr>
               <td>목차</td>
               <td>이름</td>
               <td>업데이트날짜</td>
+              <td>토픽분석결과</td>
               <td>이동</td>
             </tr>
           </thead>
@@ -50,6 +51,15 @@ export default function TopicNotePage() {
                 <td>{data.noteId}</td>
                 <td>{data.ownerName}</td>
                 <td>{data.updatedAt}</td>
+                <td>
+                  <button
+                    onClick={() => {
+                      navigate(`/advice/${data.topicId}`);
+                    }}
+                  >
+                    확인
+                  </button>
+                </td>
                 <td>
                   <button
                     onClick={() => {
@@ -63,6 +73,13 @@ export default function TopicNotePage() {
             ))}
           </tbody>
         </Table>
+        <button
+          onClick={() => {
+            navigate(`/writenote/${topicId}`);
+          }}
+        >
+          이동
+        </button>
       </div>
     </div>
   );

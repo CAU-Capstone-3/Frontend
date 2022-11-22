@@ -7,8 +7,9 @@ import NotFound from "./pages/NotFound";
 import SubjectTopicPage from "./pages/SubjectTopicPage";
 import TopicNotePage from "./pages/TopicNotePage";
 import NoteDetailPage from "./pages/NoteDetailPage";
-import AnalsisResultPage from "./pages/AnalsisResultPage";
 import WritePage from "./pages/WritePage";
+import TopicBoard from "./pages/TopicBoard";
+import New from "./pages/New";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,8 +19,9 @@ const router = createBrowserRouter([
       { path: "topic/subject/:subjectId", element: <SubjectTopicPage /> }, //과목별토픽목록
       { path: "note/topic/:topicId", element: <TopicNotePage /> }, //토픽별노트목록
       { path: "note/:noteId", element: <NoteDetailPage /> }, //노트상세조회
-      { path: "advice/:topicId", element: <AnalsisResultPage /> }, //분석페이지
-      { path: "note/:noteId", element: <WritePage /> }, //노트작성페이지
+      { path: "note", element: <WritePage /> }, //글작성페이지
+      { path: "topic", element: <TopicBoard /> }, //토픽모음
+      { path: "advice", element: <New /> }, //문장분석페이지
     ],
   },
 ]);

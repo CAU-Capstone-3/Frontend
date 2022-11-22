@@ -1,0 +1,49 @@
+{
+  "status": 200,
+  "success": true,
+  "message": "요청에 성공하였습니다.",
+  "result": [
+    {
+      "topicId": 1,
+      "title": "2-3. 프레이밍",
+      "updatedAt": "2022-11-10T04:05:39.000+00:00",
+      "analyzed": "F"
+    },
+    {
+      "topicId": 2,
+      "title": "2-4. 오류검출",
+      "updatedAt": "2022-11-17T21:08:04.000+00:00",
+      "analyzed": "B"
+    },
+    {
+      "topicId": 3,
+      "title": "2-5. 신뢰성 있는 전송",
+      "updatedAt": "2022-11-17T21:08:04.000+00:00",
+      "analyzed": "B"
+    },
+    {
+      "topicId": 4,
+      "title": "3-1. 스위칭과 포워딩",
+      "updatedAt": "2022-11-17T21:08:05.000+00:00",
+      "analyzed": "B"
+    },
+    {
+      "topicId": 5,
+      "title": "3-2. 브리지와 확장 LAN",
+      "updatedAt": "2022-11-17T21:08:05.000+00:00",
+      "analyzed": "B"
+    },
+    {
+      "topicId": 6,
+      "title": "3-3. 셀스위칭",
+      "updatedAt": "2022-11-17T21:08:06.000+00:00",
+      "analyzed": "B"
+    },
+    {
+      "topicId": 23,
+      "title": "2-1. P2P 하드웨어 구성요소",
+      "updatedAt": "2022-11-18T08:20:37.000+00:00",
+      "analyzed": "F"
+    }
+  ]
+}

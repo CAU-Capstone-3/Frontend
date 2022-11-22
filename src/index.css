@@ -11,8 +11,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;
   height: 100vh;
-  @apply flex flex-col items-center;
-  @apply bg-brand_text;
 }
 
 #root {

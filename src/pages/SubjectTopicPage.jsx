@@ -8,7 +8,6 @@ export default function SubjectTopicPage() {
   const { subjectId, noteId } = useParams();
   const [top, setTop] = useState([""]);
   const [status, getStatus] = useState();
-
   useEffect(() => {
     getData();
   }, []);
@@ -26,37 +25,14 @@ export default function SubjectTopicPage() {
   }
 
   return (
-    <div className="w-[1440px] h-[1091px] relative overflow-hidden bg-[#f4f7ff]">
-      <div className="w-[1280px] h-[912px] p-10 bg-brand_text m-5 ">
-        <Table>
-          <thead>
-            <tr>
-              <th>주차</th>
-              <th>title</th>
-              <th>상태</th>
-              <th>업데이트날짜</th>
-              <th>노트보러가기</th>
-            </tr>
-          </thead>
-          <tbody>
-            {top.map((data) => (
-              <tr key={data.topicId}>
-                <td>{data.topicId}</td>
-                <td>{data.title}</td>
-                <td>{data.analyzed}</td>
-                <td>{data.updatedAt}</td>
-                <td>
-                  <button
-                    onClick={() => navigate(`/note/topic/${data.topicId}`)}
-                  >
-                    이동
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
-      </div>
+    <div className="w-[1440px] h-[1091px] relative overflow-hidden bg-[#f4f7ff]"></div>
+  );
+}
+function Card(props) {
+  return (
+    <div className="col-md-4">
+      <h4>상품명</h4>
+      <p>상품정보</p>
     </div>
   );
 }
