@@ -3,6 +3,8 @@ import styled from "styled-components";
 import axios from "axios";
 import { Table } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
+import Sidebar from "../components/Sidebar/Sidebar";
+// 과목별 토픽 목록
 export default function SubjectTopicPage() {
   const navigate = useNavigate();
   const { subjectId, noteId } = useParams();
@@ -23,16 +25,9 @@ export default function SubjectTopicPage() {
         console.log(error);
       });
   }
-
   return (
-    <div className="w-[1440px] h-[1091px] relative overflow-hidden bg-[#f4f7ff]"></div>
-  );
-}
-function Card(props) {
-  return (
-    <div className="col-md-4">
-      <h4>상품명</h4>
-      <p>상품정보</p>
+    <div>
+      <Sidebar />
     </div>
   );
 }
