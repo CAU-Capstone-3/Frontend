@@ -15,90 +15,38 @@ const Container = styled.div`
   padding: 20px 0px;
 `;
 
-const TitleDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-`;
-const TitleText = styled.span`
-  /* text-align: center; */
-  vertical-align: top;
-  font-size: 20px;
-  font-family: Gmarket Sans;
-  font-weight: 900;
-  color: #263cff;
-  margin-bottom: 10px;
-`;
-
-// -----------
-const ComparisionDiv = styled.div`
+const TopicTitleBarRow = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  background-color: #263cff;
+
+  height: 70px;
+
   border-bottom: 1px;
+  border-radius: 10px;
+  padding: 8px 16px 8px 16px;
   margin-bottom: 10px;
 `;
 
-const ComparisionDivRow = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: #263cff;
-  border: 1px solid #bdbdbd;
-  border-radius: 10px;
-  width: 45%;
-  height: 150px;
-  text-align: left;
-  padding: 5px 10px;
-`;
-//------
-const ComparisionText = styled.span`
-  vertical-align: top;
-  font-size: 20px;
+const TopicTitleBarText = styled.span`
+  font-size: 25px;
   font-family: Gmarket Sans;
   font-weight: 800;
   color: #ffffff;
-`;
-//----
-const CommentDiv = styled.div`
-  display: flex;
-  background-color: #f2f2f2;
-  height: 100px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  padding: 10px 10px;
-`;
-const CommentText = styled.span`
-  vertical-align: top;
-  font-size: 15px;
-  font-family: Gmarket Sans;
-  font-weight: 600;
-  color: #212121;
 `;
 
 const SubjectTopicPattern = () => {
   return (
     <Container>
-      <TitleDiv>
-        <TitleText>상반된 내용이 있습니다!</TitleText>
-      </TitleDiv>
-      {/* --------------- */}
-      {/* 이 부분 중복해서 쓰기. */}
-      <ComparisionDiv>
-        <ComparisionDivRow>
-          <ComparisionText>Sentence</ComparisionText>
-        </ComparisionDivRow>
-        <ComparisionDivRow>
-          <ComparisionText>Sentence</ComparisionText>
-        </ComparisionDivRow>
-      </ComparisionDiv>
-      {/* ------------- */}
+      <TopicTitleBarRow>
+        <TopicTitleBarText>제목</TopicTitleBarText>
+        <TopicTitleBarText>분석 상황</TopicTitleBarText>
+        <TopicTitleBarText>최종 수정 시간</TopicTitleBarText>
+      </TopicTitleBarRow>
+
       <ul>
-        <li>
-          {/* <CommentDiv>
-            <CommentText>장훈석</CommentText>
-          </CommentDiv>
-          <CommentDiv></CommentDiv>
-          <CommentDiv></CommentDiv> */}
-        </li>
+        <li></li>
       </ul>
     </Container>
   );

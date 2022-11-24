@@ -93,11 +93,11 @@ const ResultPattern = () => {
       {/* ------------- */}
       <ul>
         <li>
-          {/* <CommentDiv>
+          <CommentDiv>
             <CommentText>장훈석</CommentText>
           </CommentDiv>
           <CommentDiv></CommentDiv>
-          <CommentDiv></CommentDiv> */}
+          <CommentDiv></CommentDiv>
         </li>
       </ul>
     </Container>

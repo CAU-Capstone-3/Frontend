@@ -29,9 +29,9 @@ const TitleTopicDiv = styled.div`
 `;
 const TitleTopicText = styled.div`
   text-align: center;
-
   vertical-align: top;
-  font-size: 14px;
+  font-size: 18px;
+  font-weight: 900;
   font-family: Gmarket Sans;
   line-height: 22%;
   color: #263cff;
