@@ -4,7 +4,10 @@ import axios from "axios";
 import { Table } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import Sidebar from "../components/Sidebar/Sidebar";
+import SubjectTopicTitle from "../components/ui/SubjectTopicTitle";
+import SubjectTopicPattern from "../components/ui/SubjectTopicPattern";
 // 과목별 토픽 목록
+
 export default function SubjectTopicPage() {
   const navigate = useNavigate();
   const { subjectId, noteId } = useParams();
@@ -28,6 +31,12 @@ export default function SubjectTopicPage() {
   return (
     <div>
       <Sidebar />
+      <SubjectTopicTitle />
+      <SubjectTopicPattern />
+
+      {/* <ResultTitle />
+      <ResultPattern />
+      <ResultPattern /> */}
     </div>
   );
 }
