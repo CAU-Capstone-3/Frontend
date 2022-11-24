@@ -7,6 +7,7 @@ const Container = styled.div`
 
 const ProfileImg = styled.img`
   height: 4rem;
+  margin-bottom: 5px;
 `;
 const ProfileName = styled.h1`
   font-size: 1rem;

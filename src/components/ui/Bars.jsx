@@ -10,7 +10,9 @@ const Title = styled.h1`
   font-size: 1.3rem;
   display: flex;
   align-items: center;
+  margin-top: 15px;
 `;
+
 const Bars = ({ title, data }) => {
   return (
     <Container>
