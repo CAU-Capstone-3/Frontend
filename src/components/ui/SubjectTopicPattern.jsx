@@ -87,17 +87,15 @@ const TopicBarText = styled.span`
   color: #212121;
 `;
 //-----------
-const TopicBarStatus_Before = styled.img.attrs({
-  src: `${IMG_BEFORE}`,
-})``;
-
-const TopicBarStatus_Ing = styled.img.attrs({
-  src: `${IMG_ING}`,
-})``;
+// img src 담당.
+const TopicBarStatus_Before = styled.img.attrs({ src: `${IMG_BEFORE}` })``;
+const TopicBarStatus_Ing = styled.img.attrs({ src: `${IMG_ING}` })``;
 const TopicBarStatus_After = styled.img.attrs({ src: `${IMG_AFTER}` })``;
+//------
 const SubjectTopicPattern = () => {
   return (
     <Container>
+      {/* 파란색 제목 바 */}
       <TopicTitleBarRow>
         <TopicTitleBarDiv1>
           <TopicTitleBarText>제목</TopicTitleBarText>
