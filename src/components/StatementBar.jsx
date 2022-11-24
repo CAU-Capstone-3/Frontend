@@ -18,7 +18,7 @@ const Text = styled.h1`
 const Updated = styled(Text)`
   width: 40%;
 `;
-
+//**분석문장 알림바ui css */
 const StatementBar = () => {
   return (
     <Container>
