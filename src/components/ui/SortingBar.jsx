@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-
+/* 레이아웃 */
 const Container = styled.div`
   display: flex;
   padding: 1rem 1rem;
   background-color: #0a6ddf;
-  margin: 2rem 0;
+  margin: 4rem 0;
   border-radius: 5px;
 `;
 
@@ -34,6 +34,8 @@ const Analized = styled(Text)`
 
 const SortingBar = () => {
   return (
+    /* list 구분바 */
+
     <Container>
       <Index>index</Index>
       <Title>Title</Title>
