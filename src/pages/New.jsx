@@ -1,6 +1,5 @@
 import React from "react";
 import Sidebar from "../components/Sidebar/Sidebar";
-import Advice from "../components/Advice";
 import ResultTitle from "../components/ui/ResultTitle";
 import ResultPattern from "../components/ui/ResultPattern";
 const New = () => {
@@ -10,7 +9,6 @@ const New = () => {
       <ResultTitle />
       <ResultPattern />
       <ResultPattern />
-      {/* <Advice /> */}
     </div>
   );
 };
