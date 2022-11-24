@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-/* 레이아웃 */
 const Container = styled.div`
+  /* 레이아웃 */
+
   display: flex;
   padding: 1rem 1rem;
   background-color: #0a6ddf;
-  margin: 4rem 0;
+  margin: 4rem;
   border-radius: 5px;
 `;
 
@@ -15,18 +16,19 @@ const Text = styled.h1`
   font-weight: 500;
   color: white;
 `;
-
+/*topicId*/
 const Index = styled(Text)`
   width: 10%;
 `;
-
+/*topic title*/
 const Title = styled(Text)`
   width: 35%;
 `;
-
+/*topic 업데이트날짜ui */
 const Updated = styled(Text)`
   width: 40%;
 `;
+/*topic 분석유무ui */
 
 const Analized = styled(Text)`
   width: 20%;
