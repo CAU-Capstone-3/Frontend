@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-
+import IMG_BEFORE from "../../assets/분석전.png";
+import IMG_ING from "../../assets/분석중.png";
+import IMG_AFTER from "../../assets/분석완료.png";
 const Container = styled.div`
   margin-left: 20px;
   display: flex;
@@ -85,6 +87,14 @@ const TopicBarText = styled.span`
   color: #212121;
 `;
 //-----------
+const TopicBarStatus_Before = styled.img.attrs({
+  src: `${IMG_BEFORE}`,
+})``;
+
+const TopicBarStatus_Ing = styled.img.attrs({
+  src: `${IMG_ING}`,
+})``;
+const TopicBarStatus_After = styled.img.attrs({ src: `${IMG_AFTER}` })``;
 const SubjectTopicPattern = () => {
   return (
     <Container>
@@ -101,12 +111,13 @@ const SubjectTopicPattern = () => {
       </TopicTitleBarRow>
       <ul>
         <li>
+          {/* 이 부분 반복해서 쓰기 */}
           <TopicBarRow>
             <TopicBarColumnDiv1>
               <TopicBarText>2-3 패킷스위칭</TopicBarText>
             </TopicBarColumnDiv1>
             <TopicBarColumnDiv2>
-              <TopicBarText>분석중</TopicBarText>
+              <TopicBarStatus_Before />
             </TopicBarColumnDiv2>
             <TopicBarColumnDiv3>
               <TopicBarText>2022.11.20</TopicBarText>
@@ -116,10 +127,10 @@ const SubjectTopicPattern = () => {
         <li>
           <TopicBarRow>
             <TopicBarColumnDiv1>
-              <TopicBarText>2-3 패킷스위칭</TopicBarText>
+              <TopicBarText>2-4 오류검출</TopicBarText>
             </TopicBarColumnDiv1>
             <TopicBarColumnDiv2>
-              <TopicBarText>분석중</TopicBarText>
+              <TopicBarStatus_Ing />
             </TopicBarColumnDiv2>
             <TopicBarColumnDiv3>
               <TopicBarText>2022.11.20</TopicBarText>
@@ -129,10 +140,10 @@ const SubjectTopicPattern = () => {
         <li>
           <TopicBarRow>
             <TopicBarColumnDiv1>
-              <TopicBarText>2-3 패킷스위칭</TopicBarText>
+              <TopicBarText>2-5 신뢰성 있는 전송</TopicBarText>
             </TopicBarColumnDiv1>
             <TopicBarColumnDiv2>
-              <TopicBarText>분석중</TopicBarText>
+              <TopicBarStatus_After />
             </TopicBarColumnDiv2>
             <TopicBarColumnDiv3>
               <TopicBarText>2022.11.20</TopicBarText>
