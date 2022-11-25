@@ -87,17 +87,17 @@ const ResultPattern = (result) => {
   return (
     <Container>
       <TitleDiv>
-        <TitleText>{result[0].advice}</TitleText>
+        <TitleText>{result.advice}</TitleText>
       </TitleDiv>
       {/* --------------- */}
       {/* 이 부분 중복해서 쓰기. */}
       <ComparisionDiv>
         <ComparisionDivRow>
-          <ComparisionText>{result[0].sentence1.sentence}</ComparisionText>
+          <ComparisionText>{result.sentence1.sentence}</ComparisionText>
           {/* TODO: writername 추가 */}
         </ComparisionDivRow>
         <ComparisionDivRow>
-          <ComparisionText>{result[0].sentence2.sentence}</ComparisionText>
+          <ComparisionText>{result.sentence2.sentence}</ComparisionText>
           {/* TODO: writername 추가 */}
         </ComparisionDivRow>
       </ComparisionDiv>
@@ -105,13 +105,13 @@ const ResultPattern = (result) => {
       <ul>
         <li>
           <CommentDiv>
-            <CommentText>{result[0].comments[0].userName}</CommentText>
+            <CommentText>{result.comments[0].userName}</CommentText>
           </CommentDiv>
           <CommentDiv>
-            <CommentText>{result[0].comments[1].userName}</CommentText>
+            <CommentText>{result.comments[1].userName}</CommentText>
           </CommentDiv>
           <CommentDiv>
-            <CommentText>{result[0].comments[2].userName}</CommentText>
+            <CommentText>{result.comments[2].userName}</CommentText>
           </CommentDiv>
         </li>
       </ul>
