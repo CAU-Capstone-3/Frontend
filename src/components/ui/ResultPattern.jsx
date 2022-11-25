@@ -74,35 +74,26 @@ const CommentText = styled.span`
   color: #212121;
 `;
 
-/**
- *
- * @param {array} result 분석결과 API 통해 받은 데이터.
- * result[0] -> result 접근.
- * result[0].sentence1.sentence : 첫번째 sentence
- * result[0].sentence2.sentence : 두번째 sentence
- *
- * @returns
- */
 const ResultPattern = (result) => {
   return (
     <Container>
       <TitleDiv>
-        <TitleText>{result.advice}</TitleText>
+        <TitleText>{result["advice"]}</TitleText>
       </TitleDiv>
       {/* --------------- */}
       {/* 이 부분 중복해서 쓰기. */}
       <ComparisionDiv>
         <ComparisionDivRow>
-          <ComparisionText>{result.sentence1.sentence}</ComparisionText>
+          <ComparisionText>{result["sentence1"]["sentence"]}</ComparisionText>
           {/* TODO: writername 추가 */}
         </ComparisionDivRow>
         <ComparisionDivRow>
-          <ComparisionText>{result.sentence2.sentence}</ComparisionText>
+          <ComparisionText>{result["sentence2"]["sentence"]}</ComparisionText>
           {/* TODO: writername 추가 */}
         </ComparisionDivRow>
       </ComparisionDiv>
       {/* ------------- */}
-      <ul>
+      {/* <ul>
         <li>
           <CommentDiv>
             <CommentText>{result.comments[0].userName}</CommentText>
@@ -114,7 +105,7 @@ const ResultPattern = (result) => {
             <CommentText>{result.comments[2].userName}</CommentText>
           </CommentDiv>
         </li>
-      </ul>
+      </ul> */}
     </Container>
   );
 };

@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 function App() {
   return (
     <>
-      <div classNmae="App">
+      <div className="App">
         {/* <BrowserRouter>
           <Routes>
             <Route path="/">Main</Route>
