@@ -3,6 +3,9 @@ import styled from "styled-components";
 import IMG_BEFORE from "../../assets/분석전.png";
 import IMG_ING from "../../assets/분석중.png";
 import IMG_AFTER from "../../assets/분석완료.png";
+import { toBeInTheDOM } from "@testing-library/jest-dom/dist/matchers";
+import Title from "./Title";
+
 const Container = styled.div`
   margin-left: 20px;
   display: flex;
@@ -88,14 +91,35 @@ const TopicBarText = styled.span`
 `;
 //-----------
 // img src 담당.
-const TopicBarStatus_Before = styled.img.attrs({ src: `${IMG_BEFORE}` })``;
-const TopicBarStatus_Ing = styled.img.attrs({ src: `${IMG_ING}` })``;
-const TopicBarStatus_After = styled.img.attrs({ src: `${IMG_AFTER}` })``;
+const TopicBarStatusBefore = styled.img.attrs({ src: `${IMG_BEFORE}` })``;
+const TopicBarStatusIng = styled.img.attrs({ src: `${IMG_ING}` })``;
+const TopicBarStatusAfter = styled.img.attrs({ src: `${IMG_AFTER}` })``;
+
+function TopicList(title, status, time) {
+  if (status === "READY") status = <TopicBarStatusBefore />;
+  else if (status === "RUNNING") status = <TopicBarStatusIng />;
+  else if (status === "FINISH") status = <TopicBarStatusAfter />;
+  return (
+    <li>
+      <TopicBarRow>
+        <TopicBarColumnDiv1>
+          <TopicBarText>{title}</TopicBarText>
+        </TopicBarColumnDiv1>
+        <TopicBarColumnDiv2>{status}</TopicBarColumnDiv2>
+        <TopicBarColumnDiv3>
+          <TopicBarText>2022.11.20</TopicBarText>
+        </TopicBarColumnDiv3>
+      </TopicBarRow>
+    </li>
+  );
+}
+
 //------
 const SubjectTopicPattern = () => {
   return (
     <Container>
       {/* 파란색 제목 바 */}
+      {/* 이건 한번만 씀. */}
       <TopicTitleBarRow>
         <TopicTitleBarDiv1>
           <TopicTitleBarText>제목</TopicTitleBarText>
@@ -108,46 +132,9 @@ const SubjectTopicPattern = () => {
         </TopicTitleBarDiv3>
       </TopicTitleBarRow>
       <ul>
-        <li>
-          {/* 이 부분 반복해서 쓰기 */}
-          <TopicBarRow>
-            <TopicBarColumnDiv1>
-              <TopicBarText>2-3 패킷스위칭</TopicBarText>
-            </TopicBarColumnDiv1>
-            <TopicBarColumnDiv2>
-              <TopicBarStatus_Before />
-            </TopicBarColumnDiv2>
-            <TopicBarColumnDiv3>
-              <TopicBarText>2022.11.20</TopicBarText>
-            </TopicBarColumnDiv3>
-          </TopicBarRow>
-        </li>
-        <li>
-          <TopicBarRow>
-            <TopicBarColumnDiv1>
-              <TopicBarText>2-4 오류검출</TopicBarText>
-            </TopicBarColumnDiv1>
-            <TopicBarColumnDiv2>
-              <TopicBarStatus_Ing />
-            </TopicBarColumnDiv2>
-            <TopicBarColumnDiv3>
-              <TopicBarText>2022.11.20</TopicBarText>
-            </TopicBarColumnDiv3>
-          </TopicBarRow>
-        </li>
-        <li>
-          <TopicBarRow>
-            <TopicBarColumnDiv1>
-              <TopicBarText>2-5 신뢰성 있는 전송</TopicBarText>
-            </TopicBarColumnDiv1>
-            <TopicBarColumnDiv2>
-              <TopicBarStatus_After />
-            </TopicBarColumnDiv2>
-            <TopicBarColumnDiv3>
-              <TopicBarText>2022.11.20</TopicBarText>
-            </TopicBarColumnDiv3>
-          </TopicBarRow>
-        </li>
+        {TopicList("2-3 패킷스위칭", "READY", "2022.11.20")}
+        {TopicList("2-4 신뢰성 있는 전송", "RUNNING", "2022.11.20")}
+        {TopicList("2-5 오류검출", "FINISH", "2022.11.20")}
       </ul>
     </Container>
   );
