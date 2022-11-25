@@ -7,11 +7,13 @@ import { TOPIC } from "../constants/serverConstant";
 const AnalysisPage = () => {
   // const [results, setResults] = useState([""]);
   // async function getData() {
+  //   // API GET 함수.
   //   await axios
   //     .get(TOPIC.GET_RESULT(1))
   //     .then((response) => {
   //       const data = response.data["result"];
   //       setResults(data);
+  //       console.log(response);
   //     })
   //     .catch((error) => {
   //       console.log(error);

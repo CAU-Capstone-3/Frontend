@@ -96,9 +96,15 @@ const TopicBarStatusIng = styled.img.attrs({ src: `${IMG_ING}` })``;
 const TopicBarStatusAfter = styled.img.attrs({ src: `${IMG_AFTER}` })``;
 
 function TopicList(title, status, time) {
+  const date = new Date(time);
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  time = `${year}.${month}.${day}`;
   if (status === "READY") status = <TopicBarStatusBefore />;
   else if (status === "RUNNING") status = <TopicBarStatusIng />;
   else if (status === "FINISH") status = <TopicBarStatusAfter />;
+  else status = <TopicBarStatusAfter />;
   return (
     <li>
       <TopicBarRow>
@@ -113,9 +119,10 @@ function TopicList(title, status, time) {
     </li>
   );
 }
-
+//'2022-11-10T04:05:39.000+00:00'
 //------
-const SubjectTopicPattern = () => {
+
+const SubjectTopicPattern = (results) => {
   return (
     <Container>
       {/* 파란색 제목 바 */}
@@ -132,9 +139,16 @@ const SubjectTopicPattern = () => {
         </TopicTitleBarDiv3>
       </TopicTitleBarRow>
       <ul>
-        {TopicList("2-3 패킷스위칭", "READY", "2022.11.20")}
+        {results.map(function (result) {
+          return TopicList(
+            result["title"],
+            result["analyzed"],
+            result["updatedAt"]
+          );
+        })}
+        {/* {TopicList("2-3 패킷스위칭", "READY", "2022.11.20")}
         {TopicList("2-4 신뢰성 있는 전송", "RUNNING", "2022.11.20")}
-        {TopicList("2-5 오류검출", "FINISH", "2022.11.20")}
+        {TopicList("2-5 오류검출", "FINISH", "2022.11.20")} */}
       </ul>
     </Container>
   );

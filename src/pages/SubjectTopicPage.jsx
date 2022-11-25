@@ -1,40 +1,40 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import axios from "axios";
-import { Table } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import Sidebar from "../components/Sidebar/Sidebar";
-import SubjectTopicTitle from "../components/ui/SubjectTopicTitle";
 import SubjectTopicPattern from "../components/ui/SubjectTopicPattern";
 import Title from "../components/ui/Title";
+import { SUBJECT } from "../constants/serverConstant";
 // 과목별 토픽 목록
 
 export default function SubjectTopicPage() {
-  const navigate = useNavigate();
-  const { subjectId, noteId } = useParams();
-  const [top, setTop] = useState([""]);
-  const [status, getStatus] = useState();
-  useEffect(() => {
-    getData();
-  }, []);
+  // const navigate = useNavigate();
+  // const [status, getStatus] = useState();
+  // const { subjectId, noteId } = useParams();
+  const [results, setResults] = useState();
+
   async function getData() {
     await axios
-      .get(`http://18.189.150.89:8080/api/topic/subject/${subjectId}`)
+      .get(SUBJECT.GET_TOPIC_LIST(2))
       .then((response) => {
-        const data = response.data["result"];
-        console.log(data);
-        setTop(data);
+        const results = response.data["result"];
+        setResults(results);
+        console.log(results);
+        // console.log(response);
       })
       .catch((error) => {
         console.log(error);
       });
   }
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div>
       <Sidebar />
-      {/* <SubjectTopicTitle /> */}
       {Title("토픽목록", "컴퓨터통신")}
-      <SubjectTopicPattern />
+      {SubjectTopicPattern(results)}
     </div>
   );
 }
