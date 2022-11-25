@@ -33,10 +33,6 @@ export default function SubjectTopicPage() {
       <Sidebar />
       <SubjectTopicTitle />
       <SubjectTopicPattern />
-
-      {/* <ResultTitle />
-      <ResultPattern />
-      <ResultPattern /> */}
     </div>
   );
 }
