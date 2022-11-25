@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Sidebar from "../components/Sidebar/Sidebar";
 import SubjectTopicTitle from "../components/ui/SubjectTopicTitle";
 import SubjectTopicPattern from "../components/ui/SubjectTopicPattern";
+import Title from "../components/ui/Title";
 // 과목별 토픽 목록
 
 export default function SubjectTopicPage() {
@@ -31,7 +32,8 @@ export default function SubjectTopicPage() {
   return (
     <div>
       <Sidebar />
-      <SubjectTopicTitle />
+      {/* <SubjectTopicTitle /> */}
+      {Title("토픽목록", "컴퓨터통신")}
       <SubjectTopicPattern />
     </div>
   );
