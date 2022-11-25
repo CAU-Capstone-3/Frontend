@@ -10,7 +10,7 @@ const USERS = Object.freeze({
 });
 
 const GROUP = Object.freeze({
-  POST_ADD: `${BASE_URL}/group`, // 그룹 추가
+  POST_ADD_GROUP: `${BASE_URL}/group`, // 그룹 추가
   POST_INVITE: (groupId, userId) =>
     `${BASE_URL}/group/${groupId}/invite/${userId}`,
   GET_SEARCH_MEMBER: (groupId) => `${BASE_URL}/group/${groupId}/members`,
