@@ -88,9 +88,9 @@ const TopicBarText = styled.span`
 `;
 //-----------
 // img src 담당.
-const TopicBarStatus_Before = styled.img.attrs({ src: `${IMG_BEFORE}` })``;
-const TopicBarStatus_Ing = styled.img.attrs({ src: `${IMG_ING}` })``;
-const TopicBarStatus_After = styled.img.attrs({ src: `${IMG_AFTER}` })``;
+const TopicBarStatusBefore = styled.img.attrs({ src: `${IMG_BEFORE}` })``;
+const TopicBarStatusIng = styled.img.attrs({ src: `${IMG_ING}` })``;
+const TopicBarStatusAfter = styled.img.attrs({ src: `${IMG_AFTER}` })``;
 //------
 const TopicNoteListPattern = () => {
   return (
@@ -115,7 +115,7 @@ const TopicNoteListPattern = () => {
               <TopicBarText>2-3 패킷스위칭</TopicBarText>
             </TopicBarColumnDiv1>
             <TopicBarColumnDiv2>
-              <TopicBarStatus_Before />
+              <TopicBarStatusBefore />
             </TopicBarColumnDiv2>
             <TopicBarColumnDiv3>
               <TopicBarText>2022.11.20</TopicBarText>
@@ -128,7 +128,7 @@ const TopicNoteListPattern = () => {
               <TopicBarText>2-4 오류검출</TopicBarText>
             </TopicBarColumnDiv1>
             <TopicBarColumnDiv2>
-              <TopicBarStatus_Ing />
+              <TopicBarStatusIng />
             </TopicBarColumnDiv2>
             <TopicBarColumnDiv3>
               <TopicBarText>2022.11.20</TopicBarText>
@@ -141,7 +141,7 @@ const TopicNoteListPattern = () => {
               <TopicBarText>2-5 신뢰성 있는 전송</TopicBarText>
             </TopicBarColumnDiv1>
             <TopicBarColumnDiv2>
-              <TopicBarStatus_After />
+              <TopicBarStatusAfter />
             </TopicBarColumnDiv2>
             <TopicBarColumnDiv3>
               <TopicBarText>2022.11.20</TopicBarText>
