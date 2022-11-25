@@ -2,7 +2,8 @@ import React from "react";
 import Sidebar from "../components/Sidebar/Sidebar";
 import ResultTitle from "../components/ui/ResultTitle";
 import ResultPattern from "../components/ui/ResultPattern";
-const New = () => {
+
+const AnalysisPage = () => {
   return (
     <div>
       <Sidebar />
@@ -13,4 +14,4 @@ const New = () => {
   );
 };
 
-export default New;
+export default AnalysisPage;

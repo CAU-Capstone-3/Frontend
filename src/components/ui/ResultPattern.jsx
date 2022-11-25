@@ -74,30 +74,45 @@ const CommentText = styled.span`
   color: #212121;
 `;
 
-const ResultPattern = () => {
+/**
+ *
+ * @param {array} result 분석결과 API 통해 받은 데이터.
+ * result[0] -> result 접근.
+ * result[0].sentence1.sentence : 첫번째 sentence
+ * result[0].sentence2.sentence : 두번째 sentence
+ *
+ * @returns
+ */
+const ResultPattern = (result) => {
   return (
     <Container>
       <TitleDiv>
-        <TitleText>상반된 내용이 있습니다!</TitleText>
+        <TitleText>{result[0].advice}</TitleText>
       </TitleDiv>
       {/* --------------- */}
       {/* 이 부분 중복해서 쓰기. */}
       <ComparisionDiv>
         <ComparisionDivRow>
-          <ComparisionText>Sentence</ComparisionText>
+          <ComparisionText>{result[0].sentence1.sentence}</ComparisionText>
+          {/* TODO: writername 추가 */}
         </ComparisionDivRow>
         <ComparisionDivRow>
-          <ComparisionText>Sentence</ComparisionText>
+          <ComparisionText>{result[0].sentence2.sentence}</ComparisionText>
+          {/* TODO: writername 추가 */}
         </ComparisionDivRow>
       </ComparisionDiv>
       {/* ------------- */}
       <ul>
         <li>
           <CommentDiv>
-            <CommentText>장훈석</CommentText>
+            <CommentText>{result[0].comments[0].userName}</CommentText>
           </CommentDiv>
-          <CommentDiv></CommentDiv>
-          <CommentDiv></CommentDiv>
+          <CommentDiv>
+            <CommentText>{result[0].comments[1].userName}</CommentText>
+          </CommentDiv>
+          <CommentDiv>
+            <CommentText>{result[0].comments[2].userName}</CommentText>
+          </CommentDiv>
         </li>
       </ul>
     </Container>
