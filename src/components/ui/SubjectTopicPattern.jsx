@@ -107,7 +107,7 @@ function TopicList(title, status, time) {
         </TopicBarColumnDiv1>
         <TopicBarColumnDiv2>{status}</TopicBarColumnDiv2>
         <TopicBarColumnDiv3>
-          <TopicBarText>2022.11.20</TopicBarText>
+          <TopicBarText>{time}</TopicBarText>
         </TopicBarColumnDiv3>
       </TopicBarRow>
     </li>
