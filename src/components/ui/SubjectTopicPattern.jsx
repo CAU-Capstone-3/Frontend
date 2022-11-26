@@ -4,7 +4,7 @@ import IMG_BEFORE from "../../assets/분석전.png";
 import IMG_ING from "../../assets/분석중.png";
 import IMG_AFTER from "../../assets/분석완료.png";
 
-import Title from "./Title";
+// import Title from "./Title";
 
 const Container = styled.div`
   margin-left: 20px;

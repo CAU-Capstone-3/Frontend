@@ -1,16 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar/Sidebar";
-import ResultTitle from "../components/ui/ResultTitle";
-import ResultPattern from "../components/ui/ResultPattern";
+import axios from "axios";
+import { TOPIC } from "../constants/serverConstant";
 import TopicNoteListTitle from "../components/ui/TopicNoteListTitle";
+import TopicNoteListPattern from "../components/ui/TopicNoteListPattern";
+import styled from "styled-components";
+const Loader = styled.span`
+  text-align: center;
+  display: block;
+`;
 const TopicNoteListPage = () => {
+  const [results, setResults] = useState();
+  const [loading, setLoading] = useState(true);
+  async function getData() {
+    await axios
+      .get(TOPIC.GET_NOTE_LIST(1))
+      .then((response) => {
+        const results = response.data["result"];
+        setResults(results);
+        setLoading(false);
+        console.log(results);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div>
       <Sidebar />
-      <TopicNoteListTitle />
-      {/*
-      <ResultPattern />
-      <ResultPattern /> */}
+      {loading ? (
+        <Loader>Loading...</Loader>
+      ) : (
+        <>
+          <TopicNoteListTitle />
+          {TopicNoteListPattern(results)}
+        </>
+      )}
     </div>
   );
 };

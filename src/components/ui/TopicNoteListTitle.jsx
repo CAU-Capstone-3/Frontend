@@ -4,11 +4,12 @@ import styled from "styled-components";
 const TitleDiv = styled.div`
   display: flex;
   width: auto;
+  justify-content: space-between;
+  align-items: center;
   margin-left: 16rem;
   position: relative;
   padding: 0 4rem;
   font-family: Gmarket Sans;
-
   margin-top: 20px;
 `;
 
@@ -17,10 +18,10 @@ const TitleResult = styled.div`
   text-align: left;
   vertical-align: top;
   font-size: 36px;
-
+  font-weight: bold;
   letter-spacing: -1%;
   line-height: auto;
-  color: #000000;
+  color: #263cff;
 `;
 
 const TitleTopicDiv = styled.div`
@@ -31,17 +32,20 @@ const TitleTopicDiv = styled.div`
 `;
 
 const TitleTopicText = styled.div`
-  text-align: center;
-  font-size: 18px;
-  line-height: 22%;
-  color: #263cff;
-  font-weight: 900;
+  flex-direction: row;
+  text-align: left;
+  vertical-align: top;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: -1%;
+  line-height: auto;
 `;
 
 const TopicNoteListTitle = () => {
   return (
     <TitleDiv>
       <TitleResult>2-3 패킷 스위칭</TitleResult>
+      <TitleTopicText>미작성된 노트가 있습니다!</TitleTopicText>
       <TitleTopicDiv>
         {/* <TitleTopicText>2-3. 패킷 스위칭</TitleTopicText> */}
         {/* TitleTopicText안 text를 설정가능하게끔 바꾸기 */}
