@@ -14,6 +14,7 @@ const AnalysisPage = () => {
   //       const data = response.data["result"];
   //       setResults(data);
   //       console.log(response);
+  //       console.log(data);
   //     })
   //     .catch((error) => {
   //       console.log(error);
