@@ -3,8 +3,8 @@ import styled from "styled-components";
 import COMPLETE from "../../assets/완료팀원 (1).png";
 import NOT_COMPLETE from "../../assets/미완료 팀원 (1).png";
 import NOTE_BUTTON from "../../assets/노트보기.png";
-import Title from "./Title";
-
+import WRITE_BUTTON from "../../assets/글쓰기버튼.png";
+import CANT_WRITE_BUTTON from "../../assets/글쓰기불가버튼.png";
 const Container = styled.div`
   margin-left: 20px;
   display: flex;
@@ -91,7 +91,8 @@ const TitleBarText = styled.span`
   font-weight: 800;
   color: #ffffff;
 `;
-//------
+//----------
+// 왼쪽 부분
 const NoteListBarRow = styled.div`
   display: flex;
   justify-content: center;
@@ -121,7 +122,7 @@ const NoteListBarText = styled.span`
   font-weight: 800;
 `;
 const NoteButtonImg = styled.img.attrs({ src: `${NOTE_BUTTON}` })``;
-//
+
 function NoteList(name, time) {
   const date = new Date(time);
   const year = date.getFullYear();
@@ -145,7 +146,8 @@ function NoteList(name, time) {
     </li>
   );
 }
-
+// -------
+// 오른쪽 부분
 const TopicNoteListPattern = (results) => {
   return (
     <Container>
@@ -194,7 +196,7 @@ const TopicNoteListPattern = (results) => {
             <TitleBarDiv3></TitleBarDiv3>
           </TitleBarRow>
 
-          <ul></ul>
+          <ul>{/* TODO */}</ul>
         </RightDiv>
         {/* ----------- */}
       </Div>
