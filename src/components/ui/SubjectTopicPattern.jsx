@@ -3,7 +3,7 @@ import styled from "styled-components";
 import IMG_BEFORE from "../../assets/분석전.png";
 import IMG_ING from "../../assets/분석중.png";
 import IMG_AFTER from "../../assets/분석완료.png";
-import { toBeInTheDOM } from "@testing-library/jest-dom/dist/matchers";
+
 import Title from "./Title";
 
 const Container = styled.div`
@@ -94,7 +94,7 @@ const TopicBarText = styled.span`
 const TopicBarStatusBefore = styled.img.attrs({ src: `${IMG_BEFORE}` })``;
 const TopicBarStatusIng = styled.img.attrs({ src: `${IMG_ING}` })``;
 const TopicBarStatusAfter = styled.img.attrs({ src: `${IMG_AFTER}` })``;
-
+//----------
 function TopicList(title, status, time) {
   const date = new Date(time);
   const year = date.getFullYear();
@@ -146,9 +146,6 @@ const SubjectTopicPattern = (results) => {
             result["updatedAt"]
           );
         })}
-        {/* {TopicList("2-3 패킷스위칭", "READY", "2022.11.20")}
-        {TopicList("2-4 신뢰성 있는 전송", "RUNNING", "2022.11.20")}
-        {TopicList("2-5 오류검출", "FINISH", "2022.11.20")} */}
       </ul>
     </Container>
   );
