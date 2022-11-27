@@ -65,47 +65,63 @@ const CommentDiv = styled.div`
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 10px 10px;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
 `;
-const CommentText = styled.span`
-  vertical-align: top;
+
+const CommentName = styled.div`
+  text-align: left;
+  vertical-align: middle;
+  font-size: 20px;
   font-size: 15px;
   font-family: Gmarket Sans;
   font-weight: 600;
   color: #212121;
 `;
-
-const ResultPattern = (result) => {
+const CommentContent = styled.div`
+  text-align: left;
+  vertical-align: top;
+  font-size: 18px;
+  line-height: 24px;
+`;
+function Comment(comments) {
+  return (
+    <li>
+      {comments.map((comment) => {
+        const userName = comment["userName"];
+        const content = comment["content"];
+        return (
+          <CommentDiv>
+            <CommentName>{userName}</CommentName>
+            <CommentContent>{content}</CommentContent>
+          </CommentDiv>
+        );
+      })}
+    </li>
+  );
+}
+const ResultPattern = (results) => {
   return (
     <Container>
       <TitleDiv>
-        <TitleText>{result["advice"]}</TitleText>
+        <TitleText>{results["advice"]}</TitleText>
       </TitleDiv>
       {/* --------------- */}
       {/* 이 부분 중복해서 쓰기. */}
       <ComparisionDiv>
         <ComparisionDivRow>
-          <ComparisionText>{result["sentence1"]["sentence"]}</ComparisionText>
+          <ComparisionText>{results["sentence1"]["sentence"]}</ComparisionText>
           {/* TODO: writername 추가 */}
         </ComparisionDivRow>
         <ComparisionDivRow>
-          <ComparisionText>{result["sentence2"]["sentence"]}</ComparisionText>
+          <ComparisionText>{results["sentence2"]["sentence"]}</ComparisionText>
           {/* TODO: writername 추가 */}
         </ComparisionDivRow>
       </ComparisionDiv>
       {/* ------------- */}
-      {/* <ul>
-        <li>
-          <CommentDiv>
-            <CommentText>{result.comments[0].userName}</CommentText>
-          </CommentDiv>
-          <CommentDiv>
-            <CommentText>{result.comments[1].userName}</CommentText>
-          </CommentDiv>
-          <CommentDiv>
-            <CommentText>{result.comments[2].userName}</CommentText>
-          </CommentDiv>
-        </li>
-      </ul> */}
+      <ul>{Comment(results["comments"])}</ul>
     </Container>
   );
 };

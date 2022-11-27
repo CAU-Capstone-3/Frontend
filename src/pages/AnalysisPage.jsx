@@ -30,6 +30,7 @@ const AnalysisPage = () => {
     // 처음으로 이 페이지가 렌더링 될 때 useEffect로 함수를 실행시킨다.
     getData();
   }, []);
+
   return (
     <div>
       <Sidebar />
