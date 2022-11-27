@@ -30,12 +30,11 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <NotFound />,
     children: [
-      { path: "topic/subject/:subjectId", element: <SubjectTopicPage /> }, //과목별토픽목록
-      { path: "note/topic/:topicId", element: <TopicNoteListPage /> }, //토픽별노트목록
-      // { path: "note/:noteId", element: <NoteDetailPage /> }, //노트상세조회
-      { path: "note/:noteId", element: <NoteDetailPage /> }, //노트상세조회
-      { path: "note", element: <NoteWritePage /> }, //글작성페이지
-      { path: "advice", element: <AnalysisPage /> }, //문장분석페이지
+      { path: "topic/subject/:subjectId", element: <SubjectTopicPage /> }, //과목 별 토픽 목록
+      { path: "note/topic/:topicId", element: <TopicNoteListPage /> }, //토픽별 노트 목록
+      { path: "note/:noteId", element: <NoteDetailPage /> }, //노트 상세 조회
+      { path: "note", element: <NoteWritePage /> }, //노트 작성 페이지
+      { path: "advice", element: <AnalysisPage /> }, //문장 분석 결과 페이지
     ],
   },
 ]);

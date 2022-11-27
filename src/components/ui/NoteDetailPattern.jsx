@@ -24,7 +24,10 @@ const DetailDiv = styled.div`
   width: auto;
   min-height: 500px;
 `;
-const SentenceDiv = styled.span`
+const SentenceDiv = styled.div`
+  margin-bottom: 5px;
+`;
+const SentenceSpan = styled.span`
   font-weight: 900;
   font-size: 20px;
   color: #212121;
@@ -33,7 +36,9 @@ const SentenceDiv = styled.span`
 const DetailList = (sentence) => {
   return (
     <li>
-      <SentenceDiv>{sentence}</SentenceDiv>
+      <SentenceDiv>
+        <SentenceSpan>{sentence}</SentenceSpan>
+      </SentenceDiv>
     </li>
   );
 };
