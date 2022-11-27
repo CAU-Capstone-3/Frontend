@@ -8,6 +8,7 @@ const Container = styled.div`
   flex-direction: column;
   margin-left: 16rem;
   padding: 0 4rem;
+  font-family: Gmarket Sans;
   margin-top: 20px;
   /* 이 아래는 삭제 해야함. */
   border-style: solid;
@@ -50,10 +51,15 @@ const ComparisionDivRow = styled.div`
   padding: 5px 10px;
 `;
 //------
-const ComparisionText = styled.span`
-  vertical-align: top;
+const ComparisonName = styled.div`
+  margin-top: auto;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+`;
+const ComparisonContent = styled.div`
+  margin-bottom: auto;
   font-size: 20px;
-  font-family: Gmarket Sans;
   font-weight: 800;
   color: #ffffff;
 `;
@@ -112,12 +118,20 @@ const ResultPattern = (results) => {
       {/* 이 부분 중복해서 쓰기. */}
       <ComparisionDiv>
         <ComparisionDivRow>
-          <ComparisionText>{results["sentence1"]["sentence"]}</ComparisionText>
+          <ComparisonContent>
+            {results["sentence1"]["sentence"]}
+          </ComparisonContent>
+          <ComparisonName>{results["sentence1"]["writerName"]}</ComparisonName>
+
           {/* TODO: writername 추가 */}
         </ComparisionDivRow>
         <ComparisionDivRow>
-          <ComparisionText>{results["sentence2"]["sentence"]}</ComparisionText>
+          {/* <ComparisionText>{results["sentence2"]["sentence"]}</ComparisionText> */}
           {/* TODO: writername 추가 */}
+          <ComparisonContent>
+            {results["sentence2"]["sentence"]}
+          </ComparisonContent>
+          <ComparisonName>{results["sentence2"]["writerName"]}</ComparisonName>
         </ComparisionDivRow>
       </ComparisionDiv>
       {/* ------------- */}
