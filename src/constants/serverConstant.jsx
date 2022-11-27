@@ -32,7 +32,7 @@ const TOPIC = Object.freeze({
 });
 
 const NOTE = Object.freeze({
-  POST_WRITE: `${BASE_URL}/notes`, // 노트 작성할때 topicId랑 userId 보내야함.
+  POST_WRITE: `${BASE_URL}/notes`, // 노트 작성할때 topicId랑 userId, content 보내야함.
   GET_DETAIL_NOTE: (noteId) => `${BASE_URL}/notes/${noteId}`,
 });
 

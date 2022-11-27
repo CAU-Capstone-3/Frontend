@@ -16,6 +16,7 @@ const Container = styled.div`
   display: flex;
   width: auto;
   flex-direction: column;
+  align-items: center;
   margin-left: 16rem;
   padding: 0 4rem;
   font-family: Gmarket Sans;
@@ -28,7 +29,7 @@ const Container = styled.div`
 
 const InputTextArea = styled.textarea`
   resize: none;
-  width: 100%;
+  width: 85%;
   height: 150px;
   padding: 12px 20px;
   box-sizing: border-box;
@@ -36,6 +37,7 @@ const InputTextArea = styled.textarea`
   border-radius: 4px;
   background-color: #f8f8f8;
   margin-bottom: 15px;
+  overflow: hidden;
 `;
 
 const RequestButton = styled.button.attrs({
@@ -52,7 +54,6 @@ export default function SubjectTopicPage() {
   // const [loading, setLoading] = useState(true);
   // const { subjectId } = useParams();
 
-  // const TopicBarStatusAfter = styled.img.attrs({ src: `${IMG_AFTER}` })``;
   const textRef = useRef();
 
   const handleResizeHeight = useCallback(() => {
@@ -78,17 +79,32 @@ export default function SubjectTopicPage() {
       return false; //  prevent focus
     }
   };
-  const postNote = () => {
-    axios
+  // const postNote = () => {
+  //   axios
+  //     .post(NOTE.POST_WRITE, {
+  //       topicId: 2,
+  //       userId: 3,
+  //       content: { content },
+  //     })
+  //     .then((res) => {
+  //       console.log(res);
+  //     });
+  // };
+  async function postNote() {
+    // POST 요청은 body에 실어 보냄
+    await axios
       .post(NOTE.POST_WRITE, {
-        // note 작성 리퀘스트 바디.
-        writerId: 1,
-        content: { content },
+        topicId: 2,
+        userId: 3,
+        content: `${content}`,
       })
-      .then((res) => {
-        console.log(res);
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
       });
-  };
+  }
 
   return (
     <div>
@@ -103,7 +119,7 @@ export default function SubjectTopicPage() {
           onInput={handleResizeHeight}
           placeholder="노트를 작성해 주세요."
         ></InputTextArea>
-        <RequestButton>POST</RequestButton>
+        <RequestButton onClick={postNote}>POST</RequestButton>
       </Container>
     </div>
   );
