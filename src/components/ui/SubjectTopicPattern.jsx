@@ -101,7 +101,7 @@ function TopicList(title, status, time) {
   const month = date.getMonth() + 1;
   const day = date.getDate();
   time = `${year}.${month}.${day}`;
-  if (status === "READY") status = <TopicBarStatusBefore />;
+  if (status === "UNREADY") status = <TopicBarStatusBefore />;
   else if (status === "RUNNING") status = <TopicBarStatusIng />;
   else if (status === "FINISH") status = <TopicBarStatusAfter />;
   else status = <TopicBarStatusAfter />;
