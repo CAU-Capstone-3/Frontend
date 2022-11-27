@@ -18,7 +18,7 @@ import App from "./App";
 import NotFound from "./pages/NotFound";
 import SubjectTopicPage from "./pages/SubjectTopicPage";
 
-import WritePage from "./pages/WritePage";
+import NoteWritePage from "./pages/NoteWritePage";
 import TopicNoteListPage from "./pages/TopicNoteListPage";
 import AnalysisPage from "./pages/AnalysisPage";
 import NotionPage from "./pages/NotionPage";
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       { path: "note/topic/:topicId", element: <TopicNoteListPage /> }, //토픽별노트목록
       // { path: "note/:noteId", element: <NoteDetailPage /> }, //노트상세조회
       { path: "note/:noteId", element: <NoteDetailPage /> }, //노트상세조회
-      { path: "note", element: <WritePage /> }, //글작성페이지
+      { path: "note", element: <NoteWritePage /> }, //글작성페이지
       { path: "advice", element: <AnalysisPage /> }, //문장분석페이지
     ],
   },

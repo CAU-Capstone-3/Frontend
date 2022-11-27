@@ -8,9 +8,8 @@ const Containter = styled.div`
   height: 100vh;
   margin-top: 2rem;
   padding: 50px;
-  background-color: #eef3f6;
 `;
-export default function WritePage() {
+export default function NoteWritePage() {
   const { topicId } = useParams();
   const [content, setContent] = useState("");
   const handleChange = (e) => {

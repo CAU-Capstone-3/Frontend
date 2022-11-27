@@ -2,7 +2,7 @@
 const BASE_URL = "http://18.189.150.89:8080/api";
 
 const ADVICE = Object.freeze({
-  POST_COMMEND: (adviceId) => `${BASE_URL}/advices/${adviceId}/comments`, // 댓글 작성
+  POST_COMMEND: (adviceId) => `${BASE_URL}/advices/${adviceId}/comments`, // 댓글 작성 ... 리퀘스트 할때 userId 보내야함.
 });
 const INVITE = Object.freeze({
   POST_INVITE: `${BASE_URL}/invites`,
@@ -27,12 +27,12 @@ const SUBJECT = Object.freeze({
 
 const TOPIC = Object.freeze({
   GET_RESULT: (topicId) => `${BASE_URL}/topics/${topicId}/advices`, // 토픽별 분석결과 목록을 조회
-  POST_RESULT: (topicId) => `${BASE_URL}/topics/${topicId}/advices`, // 해당 토픽에 대한 분석 시작을 요청
+  POST_RESULT: (topicId) => `${BASE_URL}/topics/${topicId}/advices`, // 해당 토픽에 대한 분석 시작을 요청 ... 그냥 요청만 하면 됨 topicId 껴서 어차피 post하니까
   GET_NOTE_LIST: (topicId) => `${BASE_URL}/topics/${topicId}/notes`, // 해당 토픽 내에서 작성된 노트의 목록 조회
 });
 
 const NOTE = Object.freeze({
-  POST_WRITE: `${BASE_URL}/notes`,
+  POST_WRITE: `${BASE_URL}/notes`, // 노트 작성할때 topicId랑 userId 보내야함.
   GET_DETAIL_NOTE: (noteId) => `${BASE_URL}/notes/${noteId}`,
 });
 
