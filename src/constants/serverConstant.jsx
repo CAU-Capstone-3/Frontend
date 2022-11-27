@@ -2,33 +2,38 @@
 const BASE_URL = "http://18.189.150.89:8080/api";
 
 const ADVICE = Object.freeze({
-  POST_COMMEND: (adviceId) => `${BASE_URL}/advice/${adviceId}/comment`, // 댓글 작성
+  POST_COMMEND: (adviceId) => `${BASE_URL}/advices/${adviceId}/comments`, // 댓글 작성
+});
+const INVITE = Object.freeze({
+  POST_INVITE: `${BASE_URL}/invites`,
+  POST_ACCEPT: `${BASE_URL}/invites/accepts`,
 });
 
 const USERS = Object.freeze({
-  GET_GROUP: (userId) => `${BASE_URL}/users/${userId}/group`,
+  GET_INVITE_GROUP: (userId) => `${BASE_URL}/users/${userId}/invites`, // 초대된 그룹 목록
+  GET_GROUP: (userId) => `${BASE_URL}/users/${userId}/groups`,
 });
 
 const GROUP = Object.freeze({
-  POST_ADD_GROUP: `${BASE_URL}/group`, // 그룹 추가
-  POST_INVITE: (groupId, userId) =>
-    `${BASE_URL}/group/${groupId}/invite/${userId}`,
-  GET_SEARCH_MEMBER: (groupId) => `${BASE_URL}/group/${groupId}/members`,
+  POST_ADD_GROUP: `${BASE_URL}/groups`, // 그룹 추가
+  GET_GROUP_SUBJECTS: (groupId) => `${BASE_URL}/groups/${groupId}/subjects`, // 그룹에 속한 전체 과목 목록 조회
+  GET_GROUP_MEMBERS: (groupId) => `${BASE_URL}/groups/${groupId}/members`, // 그룹에 속한 멤버 목록 조회
 });
 
 const SUBJECT = Object.freeze({
-  GET_TOPIC_LIST: (subjectId) => `${BASE_URL}/subject/${subjectId}/topic`,
+  POST_CREATE_SUBJECT: `${BASE_URL}/subjects`,
+  GET_TOPIC_LIST: (subjectId) => `${BASE_URL}/subjects/${subjectId}/topics`, // 해당 과목 내의 모든 토픽 목록을 조회
 });
 
 const TOPIC = Object.freeze({
-  GET_RESULT: (topicId) => `${BASE_URL}/topic/${topicId}/advice`,
-  POST_RESULT: (topicId) => `${BASE_URL}/topic/${topicId}/advice`,
-  GET_NOTE_LIST: (topicId) => `${BASE_URL}/topic/${topicId}/note`,
+  GET_RESULT: (topicId) => `${BASE_URL}/topics/${topicId}/advices`, // 토픽별 분석결과 목록을 조회
+  POST_RESULT: (topicId) => `${BASE_URL}/topics/${topicId}/advices`, // 해당 토픽에 대한 분석 시작을 요청
+  GET_NOTE_LIST: (topicId) => `${BASE_URL}/topics/${topicId}/notes`, // 해당 토픽 내에서 작성된 노트의 목록 조회
 });
 
 const NOTE = Object.freeze({
-  POST_WRITE: `${BASE_URL}/note`,
-  GET_DETAIL_NOTE: (noteId) => `${BASE_URL}/note/${noteId}`,
+  POST_WRITE: `${BASE_URL}/notes`,
+  GET_DETAIL_NOTE: (noteId) => `${BASE_URL}/notes/${noteId}`,
 });
 
-module.exports = { ADVICE, NOTE, TOPIC, USERS, GROUP, SUBJECT };
+module.exports = { ADVICE, INVITE, NOTE, TOPIC, USERS, GROUP, SUBJECT };
