@@ -28,6 +28,14 @@ const Container = styled.div`
 
 const InputTextArea = styled.textarea`
   resize: none;
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  margin-bottom: 15px;
 `;
 
 const RequestButton = styled.button.attrs({
