@@ -6,6 +6,7 @@ const Container = styled.div`
   display: flex;
   width: auto;
   flex-direction: column;
+  align-items: center;
   margin-left: 16rem;
   padding: 0 4rem;
   margin-top: 20px;
@@ -21,7 +22,8 @@ const DetailDiv = styled.div`
   display: flex;
   margin-top: 20px;
   padding: 20px 20px;
-  width: auto;
+  width: 85%;
+  border-radius: 15px;
   min-height: 500px;
 `;
 const SentenceDiv = styled.div`
