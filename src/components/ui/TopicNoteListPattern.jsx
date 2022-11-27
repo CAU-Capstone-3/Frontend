@@ -148,6 +148,22 @@ function NoteList(name, time) {
 }
 // -------
 // 오른쪽 부분
+const NoteWriteButtonImg = styled.img.attrs({ src: `${WRITE_BUTTON}` })``;
+function UnwrittenList(name) {
+  return (
+    <li>
+      <NoteListBarRow>
+        <NoteListBarDiv1>
+          <NoteListBarText>{name}</NoteListBarText>
+        </NoteListBarDiv1>
+        <NoteListBarDiv2></NoteListBarDiv2>
+        <NoteListBarDiv3>
+          <NoteWriteButtonImg />
+        </NoteListBarDiv3>
+      </NoteListBarRow>
+    </li>
+  );
+}
 const TopicNoteListPattern = (results) => {
   return (
     <Container>
@@ -179,7 +195,7 @@ const TopicNoteListPattern = (results) => {
           </TitleBarRow>
 
           <ul>
-            {results.map(function (result) {
+            {results["notes"].map(function (result) {
               return NoteList(result["ownerName"], result["updatedAt"]);
             })}
           </ul>
@@ -196,7 +212,11 @@ const TopicNoteListPattern = (results) => {
             <TitleBarDiv3></TitleBarDiv3>
           </TitleBarRow>
 
-          <ul>{/* TODO */}</ul>
+          <ul>
+            {results["unwrittenUsers"].map(function (result) {
+              return UnwrittenList(result["userName"]);
+            })}
+          </ul>
         </RightDiv>
         {/* ----------- */}
       </Div>
