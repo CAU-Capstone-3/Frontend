@@ -17,10 +17,11 @@ export default function SubjectTopicPage() {
   // const { subjectId, noteId } = useParams();
   const [results, setResults] = useState();
   const [loading, setLoading] = useState(true);
-  // const { subjectId } = useParams();
+  const { noteId } = useParams();
+
   async function getData() {
     await axios
-      .get(NOTE.GET_DETAIL_NOTE(2)) // noteId
+      .get(NOTE.GET_DETAIL_NOTE(noteId)) // noteId
       .then((response) => {
         const results = response.data["result"];
         setResults(results);

@@ -53,7 +53,7 @@ export default function SubjectTopicPage() {
   const [content, setContent] = useState("");
 
   // const [loading, setLoading] = useState(true);
-  // const { subjectId } = useParams();
+  const { topicId } = useParams();
 
   const textRef = useRef();
 
@@ -87,7 +87,7 @@ export default function SubjectTopicPage() {
     await axios
       .post(NOTE.POST_WRITE, {
         //topicId, userId
-        topicId: 2,
+        topicId: `${topicId}`,
         userId: 3,
         content: `${content}`,
       })

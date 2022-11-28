@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-import { Container, Navbar, Nav } from "react-bootstrap";
-import NotFound from "./pages/NotFound";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SubjectTopicPage from "./pages/SubjectTopicPage";
 import NoteWritePage from "./pages/NoteWritePage";
 import TopicNoteListPage from "./pages/TopicNoteListPage";
@@ -19,7 +17,6 @@ function App() {
     <BrowserRouter>
       {/* header, sidebar */}
       <Routes>
-        <Route path="/" />
         <Route path="/group/subject/:groupId" element={<GroupSubjectPage />} />
         <Route
           path="/group/subject/topic/:subjectId"

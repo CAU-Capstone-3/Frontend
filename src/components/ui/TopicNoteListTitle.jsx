@@ -46,10 +46,7 @@ const TopicNoteListTitle = () => {
     <TitleDiv>
       <TitleResult>2-3 패킷 스위칭</TitleResult>
       <TitleTopicText>미작성된 노트가 있습니다!</TitleTopicText>
-      <TitleTopicDiv>
-        {/* <TitleTopicText>2-3. 패킷 스위칭</TitleTopicText> */}
-        {/* TitleTopicText안 text를 설정가능하게끔 바꾸기 */}
-      </TitleTopicDiv>
+      <TitleTopicDiv></TitleTopicDiv>
     </TitleDiv>
   );
 };
