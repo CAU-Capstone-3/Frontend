@@ -121,6 +121,9 @@ const NoteListBarText = styled.span`
   font-size: 16px;
   font-weight: 800;
 `;
+const NoteButton = styled.button.attrs({
+  type: `submit`,
+})``;
 const NoteButtonImg = styled.img.attrs({ src: `${NOTE_BUTTON}` })``;
 
 function NoteList(name, time) {
@@ -140,7 +143,9 @@ function NoteList(name, time) {
           <NoteListBarText>{time}</NoteListBarText>
         </NoteListBarDiv2>
         <NoteListBarDiv3>
-          <NoteButtonImg />
+          <NoteButton>
+            <NoteButtonImg />
+          </NoteButton>
         </NoteListBarDiv3>
       </NoteListBarRow>
     </li>
@@ -158,7 +163,9 @@ function UnwrittenList(name) {
         </NoteListBarDiv1>
         <NoteListBarDiv2></NoteListBarDiv2>
         <NoteListBarDiv3>
-          <NoteWriteButtonImg />
+          <NoteButton>
+            <NoteWriteButtonImg />
+          </NoteButton>
         </NoteListBarDiv3>
       </NoteListBarRow>
     </li>

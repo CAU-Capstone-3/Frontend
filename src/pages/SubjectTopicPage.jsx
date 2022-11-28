@@ -18,9 +18,10 @@ export default function SubjectTopicPage() {
   const [results, setResults] = useState();
   const [loading, setLoading] = useState(true);
   // const { subjectId } = useParams();
+
   async function getData() {
     await axios
-      .get(SUBJECT.GET_TOPIC_LIST(1))
+      .get(SUBJECT.GET_TOPIC_LIST(1)) //subjectId
       .then((response) => {
         const results = response.data["result"];
         setResults(results);

@@ -14,7 +14,7 @@ const TopicNoteListPage = () => {
   const [loading, setLoading] = useState(true);
   async function getData() {
     await axios
-      .get(TOPIC.GET_NOTE_LIST(2))
+      .get(TOPIC.GET_NOTE_LIST(2)) //topicId
       .then((response) => {
         const results = response.data["result"];
         setResults(results);

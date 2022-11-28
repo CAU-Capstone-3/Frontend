@@ -82,9 +82,11 @@ export default function SubjectTopicPage() {
   };
 
   async function postNote() {
+    //topicId, userId
     // POST 요청은 body에 실어 보냄
     await axios
       .post(NOTE.POST_WRITE, {
+        //topicId, userId
         topicId: 2,
         userId: 3,
         content: `${content}`,

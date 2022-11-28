@@ -20,7 +20,7 @@ export default function SubjectTopicPage() {
   // const { subjectId } = useParams();
   async function getData() {
     await axios
-      .get(NOTE.GET_DETAIL_NOTE(2))
+      .get(NOTE.GET_DETAIL_NOTE(2)) // noteId
       .then((response) => {
         const results = response.data["result"];
         setResults(results);
