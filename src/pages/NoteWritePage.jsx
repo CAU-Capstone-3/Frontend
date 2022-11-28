@@ -4,9 +4,10 @@ import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
 import Sidebar from "../components/Sidebar/Sidebar";
 import Title from "../components/ui/Title";
-import NoteDetailPattern from "../components/ui/NoteDetailPattern";
 import { NOTE } from "../constants/serverConstant";
+import COMPLETE from "../assets/작성완료.png";
 // 과목별 토픽 목록
+const CompleteButtonImg = styled.img.attrs({ src: `${COMPLETE}` })``;
 const Loader = styled.span`
   text-align: center;
   display: block;
@@ -30,7 +31,7 @@ const Container = styled.div`
 const InputTextArea = styled.textarea`
   resize: none;
   width: 85%;
-  height: 150px;
+  /* height: 150px; */
   padding: 12px 20px;
   box-sizing: border-box;
   border: 2px solid #ccc;
@@ -79,17 +80,7 @@ export default function SubjectTopicPage() {
       return false; //  prevent focus
     }
   };
-  // const postNote = () => {
-  //   axios
-  //     .post(NOTE.POST_WRITE, {
-  //       topicId: 2,
-  //       userId: 3,
-  //       content: { content },
-  //     })
-  //     .then((res) => {
-  //       console.log(res);
-  //     });
-  // };
+
   async function postNote() {
     // POST 요청은 body에 실어 보냄
     await axios
@@ -119,7 +110,9 @@ export default function SubjectTopicPage() {
           onInput={handleResizeHeight}
           placeholder="노트를 작성해 주세요."
         ></InputTextArea>
-        <RequestButton onClick={postNote}>POST</RequestButton>
+        <RequestButton onClick={postNote}>
+          <CompleteButtonImg />
+        </RequestButton>
       </Container>
     </div>
   );

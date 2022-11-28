@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+// 과목별 토픽 목록
+
 const Container = styled.div`
   margin-left: 20px;
   display: flex;
@@ -92,6 +94,7 @@ const CommentContent = styled.div`
   font-size: 18px;
   line-height: 24px;
 `;
+
 function Comment(comments) {
   return (
     <li>
@@ -108,6 +111,7 @@ function Comment(comments) {
     </li>
   );
 }
+
 const ResultPattern = (results) => {
   return (
     <Container>
@@ -126,8 +130,6 @@ const ResultPattern = (results) => {
           {/* TODO: writername 추가 */}
         </ComparisionDivRow>
         <ComparisionDivRow>
-          {/* <ComparisionText>{results["sentence2"]["sentence"]}</ComparisionText> */}
-          {/* TODO: writername 추가 */}
           <ComparisonContent>
             {results["sentence2"]["sentence"]}
           </ComparisonContent>
