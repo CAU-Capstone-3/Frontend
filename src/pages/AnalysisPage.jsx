@@ -33,6 +33,10 @@ const InputTextArea = styled.textarea`
   margin-right: 5px;
   height: 50px;
 `;
+const useInput = (initialValue) => {
+  const [value, setValue] = useState(initialValue);
+  return { value };
+};
 
 const AnalysisPage = () => {
   const [results, setResults] = useState([""]);
@@ -57,6 +61,7 @@ const AnalysisPage = () => {
     // 처음으로 이 페이지가 렌더링 될 때 useEffect로 함수를 실행시킨다.
     getData();
   }, []);
+
   const textRef = useRef();
 
   const handleResizeHeight = useCallback(() => {
@@ -64,6 +69,7 @@ const AnalysisPage = () => {
     textRef.current.style.height = "auto";
     textRef.current.style.height = textRef.current.scrollHeight + "px";
   }, []);
+
   function handleSetContent(e) {
     setContent(e.target.value);
   }
@@ -71,9 +77,9 @@ const AnalysisPage = () => {
   async function postComment() {
     // POST 요청은 body에 실어 보냄
     await axios
-      .post(ADVICE.POST_COMMEND(1), {
+      .post(ADVICE.POST_COMMEND(194), {
         userId: 3,
-        // content: `${content}`,
+        content: `${content}`,
       })
       .then(function (response) {
         console.log(response);
@@ -82,6 +88,7 @@ const AnalysisPage = () => {
         console.log(error);
       });
   }
+  const name = "";
 
   return (
     <div>
@@ -92,14 +99,12 @@ const AnalysisPage = () => {
       ) : (
         <>
           {results.map((result) => {
-            console.log(result);
             return (
               <div>
                 {ResultPattern(result)}
                 <CommentRegisterDiv>
                   <InputTextArea
-                    ref={textRef}
-                    value={content}
+                    {...name}
                     onChange={(e) => handleSetContent(e)}
                     onInput={handleResizeHeight}
                     placeholder="댓글을 작성해 주세요"
