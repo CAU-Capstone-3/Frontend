@@ -5,6 +5,7 @@ import { Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Button, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { AUTH } from "../../constants/serverConstant";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -35,17 +36,22 @@ const SignUp = () => {
 
   const submit = async (values) => {
     const { email, username, password } = values;
+    console.log(email, username, password);
     try {
-      await axios.post("/api/auth/signup", {
-        email,
-        username,
-        password,
-      });
+      await axios
+        .post(AUTH.POST_SIGN_UP, {
+          email: `${email}`,
+          password: `${password}`,
+          nickname: `${username}`,
+        })
+        .then(function (response) {
+          console.log(response);
+        });
       toast.success(
         <h3>
           회원가입이 완료되었습니다.
           <br />
-          로그인 하세요😎
+          로그인 페이지로 이동합니다.
         </h3>,
         {
           position: "top-center",

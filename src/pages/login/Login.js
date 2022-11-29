@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
+import { AUTH } from "../../constants/serverConstant";
 // SignUp 컴포넌트 scss 이용
 
 import { useDispatch } from "react-redux";
@@ -21,10 +22,15 @@ const Login = () => {
   const submit = async (values) => {
     const { email, password } = values;
     try {
-      const { data } = await axios.post("/api/auth/signin", {
-        email,
-        password,
-      });
+      const { data } = await axios
+        .post(AUTH.POST_LOGIN, {
+          email: `${email}`,
+          password: `${password}`,
+        })
+        .then(function (response) {
+          console.log(response);
+        });
+
       dispatch(setToken(data.jwt));
       toast.success(<h3>로그인 성공😎</h3>, {
         position: "top-center",
