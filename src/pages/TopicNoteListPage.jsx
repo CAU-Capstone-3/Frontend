@@ -39,6 +39,7 @@ const TopicNoteListPage = () => {
         const results = response.data["result"];
         setResults(results);
         setLoading(false);
+        console.log(results["topicName"]);
         console.log(results);
       })
       .catch((error) => {
@@ -49,8 +50,15 @@ const TopicNoteListPage = () => {
   return (
     <div>
       <Sidebar />
-      {TopicNoteListTitle(results["topicName"])}
-      {loading ? <Loader>Loading...</Loader> : TopicNoteListPattern(results)}
+
+      {loading ? (
+        <Loader>Loading...</Loader>
+      ) : (
+        <>
+          {TopicNoteListTitle(results["topicName"])}
+          {TopicNoteListPattern(results)}
+        </>
+      )}
     </div>
   );
 };

@@ -6,6 +6,8 @@ import Sidebar from "../components/Sidebar";
 import Title from "../components/ui/Title";
 import { NOTE } from "../constants/serverConstant";
 import COMPLETE from "../assets/작성완료.png";
+import { myUserId, accessToken } from "../loginInformation";
+
 // 과목별 토픽 목록
 const CompleteButtonImg = styled.img.attrs({ src: `${COMPLETE}` })``;
 const Loader = styled.span`
@@ -51,8 +53,6 @@ export default function SubjectTopicPage() {
   // const { subjectId, noteId } = useParams();
   const [results, setResults] = useState();
   const [content, setContent] = useState("");
-
-  // const [loading, setLoading] = useState(true);
   const { topicId } = useParams();
 
   const textRef = useRef();
@@ -88,7 +88,7 @@ export default function SubjectTopicPage() {
       .post(NOTE.POST_WRITE, {
         //topicId, userId
         topicId: `${topicId}`,
-        userId: 3,
+        userId: `${myUserId}`,
         content: `${content}`,
       })
       .then(function (response) {
@@ -102,7 +102,7 @@ export default function SubjectTopicPage() {
   return (
     <div>
       <Sidebar />
-      {Title("2-3 패킷 스위칭", "김형기")}
+      {Title({}, { myUserId })}
       <Container>
         <InputTextArea
           ref={textRef}

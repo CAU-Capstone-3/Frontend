@@ -49,13 +49,14 @@ const TopicTitleBarDiv3 = styled.div`
   align-items: center;
 `;
 const TopicTitleBarText = styled.span`
-  font-size: 25px;
+  font-size: 23px;
   font-family: Gmarket Sans;
-  font-weight: 800;
+  font-weight: 700;
   color: #ffffff;
 `;
 //------------
-const TopicBarRow = styled.div`
+const TopicBarRow = styled.button`
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,6 +71,8 @@ const TopicBarRow = styled.div`
   margin-bottom: 10px;
 `;
 const TopicBarColumnDiv1 = styled.div`
+  justify-content: flex-start;
+  display: flex;
   width: 33%;
 `;
 const TopicBarColumnDiv2 = styled.div`
@@ -84,7 +87,7 @@ const TopicBarColumnDiv3 = styled.div`
   align-items: center;
 `;
 const TopicBarText = styled.span`
-  font-size: 25px;
+  font-size: 17px;
   font-family: Gmarket Sans;
   font-weight: 800;
   color: #212121;
@@ -95,7 +98,7 @@ const TopicBarStatusBefore = styled.img.attrs({ src: `${IMG_BEFORE}` })``;
 const TopicBarStatusIng = styled.img.attrs({ src: `${IMG_ING}` })``;
 const TopicBarStatusAfter = styled.img.attrs({ src: `${IMG_AFTER}` })``;
 //----------
-function TopicList(title, status, time) {
+function TopicList(topicId, title, status, time) {
   const date = new Date(time);
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
@@ -105,9 +108,12 @@ function TopicList(title, status, time) {
   else if (status === "RUNNING") status = <TopicBarStatusIng />;
   else if (status === "FINISH") status = <TopicBarStatusAfter />;
   else status = <TopicBarStatusAfter />;
+  function onClick() {
+    window.location.href = `/group/subject/topic/notes/${topicId}`;
+  }
   return (
     <li>
-      <TopicBarRow>
+      <TopicBarRow onClick={onClick}>
         <TopicBarColumnDiv1>
           <TopicBarText>{title}</TopicBarText>
         </TopicBarColumnDiv1>
@@ -141,6 +147,7 @@ const SubjectTopicPattern = (results) => {
       <ul>
         {results.map(function (result) {
           return TopicList(
+            result["topicId"],
             result["title"],
             result["analyzed"],
             result["updatedAt"]

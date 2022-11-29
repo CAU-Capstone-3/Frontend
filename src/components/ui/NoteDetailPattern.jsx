@@ -49,7 +49,7 @@ const NoteDetailPattern = (results) => {
     <Container>
       <DetailDiv>
         <ul>
-          {results["sentenceList"].map((sentence) => {
+          {results["sentences"].map((sentence) => {
             return DetailList(sentence["content"]);
           })}
         </ul>

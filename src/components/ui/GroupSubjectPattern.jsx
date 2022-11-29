@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 // import Title from "./Title";
 
 const Container = styled.div`
@@ -29,9 +29,9 @@ const SubjectDiv = styled.div`
   flex-wrap: wrap;
   margin-bottom: 20px;
 `;
-const SubjectBoxDiv = styled.div`
+const SubjectBoxDiv = styled.button`
   display: flex;
-  font-size: 35px;
+  font-size: 30px;
   background-color: #f5f3f3;
   width: 40%;
   height: 90%;
@@ -41,22 +41,21 @@ const SubjectBoxDiv = styled.div`
   border-top: 15px solid #3649f9;
   margin: 20px;
 `;
-let result = "";
-//----------
-function CreateSubjectRow(subject, index) {
-  const subjectName = subject["name"];
-
-  return <SubjectBoxDiv>{subjectName}</SubjectBoxDiv>;
-}
-//'2022-11-10T04:05:39.000+00:00'
-//------
 
 const SubjectTopicPattern = (subjects) => {
+  function CreateSubjectRow(subject) {
+    const subjectName = subject["name"];
+    const subjectId = subject["subjectId"];
+    function onClick() {
+      window.location.href = `/group/subject/topic/${subjectId}`;
+    }
+    return <SubjectBoxDiv onClick={onClick}>{subjectName}</SubjectBoxDiv>;
+  }
   return (
     <Container>
       <SubjectDiv>
-        {subjects.map((subject, index) => {
-          return CreateSubjectRow(subject, index);
+        {subjects.map((subject) => {
+          return CreateSubjectRow(subject);
         })}
       </SubjectDiv>
       {/* <SubjectBoxDiv>데이터베이스</SubjectBoxDiv>

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Title from "../components/ui/Title";
+import NoteDetailTitle from "../components/ui/NoteDetailTitle";
 import NoteDetailPattern from "../components/ui/NoteDetailPattern";
 import api from "../utils/api";
 import { NOTE } from "../constants/serverConstant";
@@ -47,12 +48,19 @@ export default function SubjectTopicPage() {
   return (
     <div>
       <Sidebar />
-      {Title("2-3 패킷 스위칭", "김형기")}
+
       {/* TODO: 제목 부분 바꾸기 */}
       {loading ? (
         <Loader>Loading...</Loader>
       ) : (
-        <>{NoteDetailPattern(results)}</>
+        <>
+          {NoteDetailTitle(
+            results["subjectName"],
+            results["topicName"],
+            results["writerName"]
+          )}
+          {NoteDetailPattern(results)}
+        </>
       )}
     </div>
   );

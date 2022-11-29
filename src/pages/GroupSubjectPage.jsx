@@ -14,13 +14,12 @@ const Loader = styled.span`
   display: block;
 `;
 export default function SubjectTopicPage() {
-  // const navigate = useNavigate();
   // const [status, getStatus] = useState();
   // const { subjectId, noteId } = useParams();
   const [results, setResults] = useState();
   const [loading, setLoading] = useState(true);
   const { groupId } = useParams();
-
+  //   const navigate = useNavigate();
   async function getData() {
     await axios
       .get(GROUP.GET_GROUP_SUBJECTS(groupId), {

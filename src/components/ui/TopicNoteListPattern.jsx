@@ -5,6 +5,8 @@ import NOT_COMPLETE from "../../assets/미완료 팀원 (1).png";
 import NOTE_BUTTON from "../../assets/노트보기.png";
 import WRITE_BUTTON from "../../assets/글쓰기버튼.png";
 import CANT_WRITE_BUTTON from "../../assets/글쓰기불가버튼.png";
+import { myUserId, accessToken } from "../../loginInformation";
+
 const Container = styled.div`
   margin-left: 20px;
   display: flex;
@@ -126,13 +128,16 @@ const NoteButton = styled.button.attrs({
 })``;
 const NoteButtonImg = styled.img.attrs({ src: `${NOTE_BUTTON}` })``;
 
-function NoteList(name, time) {
+function NoteList(noteId, name, time) {
   const date = new Date(time);
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();
-  time = `${year}.${month}.${day}`;
 
+  time = `${year}.${month}.${day}`;
+  function onClick() {
+    window.location.href = `/group/subject/topic/detail/${noteId}`;
+  }
   return (
     <li>
       <NoteListBarRow>
@@ -143,7 +148,7 @@ function NoteList(name, time) {
           <NoteListBarText>{time}</NoteListBarText>
         </NoteListBarDiv2>
         <NoteListBarDiv3>
-          <NoteButton>
+          <NoteButton onClick={onClick}>
             <NoteButtonImg />
           </NoteButton>
         </NoteListBarDiv3>
@@ -154,22 +159,44 @@ function NoteList(name, time) {
 // -------
 // 오른쪽 부분
 const NoteWriteButtonImg = styled.img.attrs({ src: `${WRITE_BUTTON}` })``;
-function UnwrittenList(name) {
-  return (
-    <li>
-      <NoteListBarRow>
-        <NoteListBarDiv1>
-          <NoteListBarText>{name}</NoteListBarText>
-        </NoteListBarDiv1>
-        <NoteListBarDiv2></NoteListBarDiv2>
-        <NoteListBarDiv3>
-          <NoteButton>
-            <NoteWriteButtonImg />
-          </NoteButton>
-        </NoteListBarDiv3>
-      </NoteListBarRow>
-    </li>
-  );
+const CantNoteWriteButtonImg = styled.img.attrs({
+  src: `${CANT_WRITE_BUTTON}`,
+})``;
+function UnwrittenList(topicId, userId, userName) {
+  function onClick() {
+    window.location.href = `/group/subject/topic/write/${topicId}`;
+  }
+  if (myUserId !== userId) {
+    return (
+      <li>
+        <NoteListBarRow>
+          <NoteListBarDiv1>
+            <NoteListBarText>{userName}</NoteListBarText>
+          </NoteListBarDiv1>
+          <NoteListBarDiv2></NoteListBarDiv2>
+          <NoteListBarDiv3>
+            <CantNoteWriteButtonImg />
+          </NoteListBarDiv3>
+        </NoteListBarRow>
+      </li>
+    );
+  } else {
+    return (
+      <li>
+        <NoteListBarRow>
+          <NoteListBarDiv1>
+            <NoteListBarText>{userName}</NoteListBarText>
+          </NoteListBarDiv1>
+          <NoteListBarDiv2></NoteListBarDiv2>
+          <NoteListBarDiv3>
+            <NoteButton onClick={onClick}>
+              <NoteWriteButtonImg />
+            </NoteButton>
+          </NoteListBarDiv3>
+        </NoteListBarRow>
+      </li>
+    );
+  }
 }
 const TopicNoteListPattern = (results) => {
   return (
@@ -203,7 +230,11 @@ const TopicNoteListPattern = (results) => {
 
           <ul>
             {results["notes"].map(function (result) {
-              return NoteList(result["ownerName"], result["updatedAt"]);
+              return NoteList(
+                result["noteId"],
+                result["ownerName"],
+                result["updatedAt"]
+              );
             })}
           </ul>
         </LeftDiv>
@@ -221,7 +252,11 @@ const TopicNoteListPattern = (results) => {
 
           <ul>
             {results["unwrittenUsers"].map(function (result) {
-              return UnwrittenList(result["userName"]);
+              return UnwrittenList(
+                results["topicId"],
+                result["userId"],
+                result["userName"]
+              );
             })}
           </ul>
         </RightDiv>
