@@ -6,10 +6,16 @@ import TopicNoteListPage from "./pages/TopicNoteListPage";
 import AnalysisPage from "./pages/AnalysisPage";
 import GroupSubjectPage from "./pages/GroupSubjectPage";
 import NoteDetailPage from "./pages/NoteDetailPage";
+import Login from "./pages/login/Login";
+import SignUp from "./pages/sign-up/sign-up";
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  function loginCallBack(login) {
+    setIsLogin(login);
+  }
 
   return (
     // <>
@@ -17,6 +23,8 @@ function App() {
     <BrowserRouter>
       {/* header, sidebar */}
       <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/sign-up" element={<SignUp />} />
         <Route path="/group/subject/:groupId" element={<GroupSubjectPage />} />
         <Route
           path="/group/subject/topic/:subjectId"

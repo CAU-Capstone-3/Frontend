@@ -28,6 +28,7 @@ const SUBJECT = Object.freeze({
 const TOPIC = Object.freeze({
   GET_RESULT: (topicId) => `${BASE_URL}/topics/${topicId}/advices`, // 토픽별 분석결과 목록을 조회
   POST_RESULT: (topicId) => `${BASE_URL}/topics/${topicId}/advices`, // 해당 토픽에 대한 분석 시작을 요청 ... 그냥 요청만 하면 됨 topicId 껴서 어차피 post하니까
+  // GET_NOTE_LIST: (topicId) => `${BASE_URL}/topics/${topicId}/notes`, // 해당 토픽 내에서 작성된 노트의 목록 조회
   GET_NOTE_LIST: (topicId) => `${BASE_URL}/topics/${topicId}/notes`, // 해당 토픽 내에서 작성된 노트의 목록 조회
 });
 
@@ -35,5 +36,18 @@ const NOTE = Object.freeze({
   POST_WRITE: `${BASE_URL}/notes`, // 노트 작성할때 topicId랑 userId, content 보내야함.
   GET_DETAIL_NOTE: (noteId) => `${BASE_URL}/notes/${noteId}`,
 });
+const AUTH = Object.freeze({
+  POST_LOGIN: `${BASE_URL}/auth/login`,
+});
 
-module.exports = { ADVICE, INVITE, NOTE, TOPIC, USERS, GROUP, SUBJECT };
+module.exports = {
+  AUTH,
+  BASE_URL,
+  ADVICE,
+  INVITE,
+  NOTE,
+  TOPIC,
+  USERS,
+  GROUP,
+  SUBJECT,
+};
