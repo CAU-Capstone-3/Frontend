@@ -8,6 +8,7 @@ import GroupSubjectPage from "./pages/GroupSubjectPage";
 import NoteDetailPage from "./pages/NoteDetailPage";
 import Login from "./pages/login/Login";
 import SignUp from "./pages/sign-up/sign-up";
+import Main from "./pages/Main";
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -23,6 +24,7 @@ function App() {
     <BrowserRouter>
       {/* header, sidebar */}
       <Routes>
+        <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/group/subject/:groupId" element={<GroupSubjectPage />} />

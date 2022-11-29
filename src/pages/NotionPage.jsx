@@ -3,7 +3,7 @@ import "prismjs/themes/prism-tomorrow.css"; // only needed for code highlighting
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { NotionRenderer } from "react-notion";
-import Sidebar from "../components/Sidebar/Sidebar";
+import Sidebar from "../components/Sidebarpast/Sidebar";
 export default function NotionPage() {
   const [response, setResponse] = useState({});
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
-import Sidebar from "../components/Sidebar/Sidebar";
+import Sidebar from "../components/Sidebarpast/Sidebar";
 import Title from "../components/ui/Title";
 import { NOTE } from "../constants/serverConstant";
 import COMPLETE from "../assets/작성완료.png";

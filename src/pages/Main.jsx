@@ -1,21 +1,24 @@
 import React from "react";
-import Deposits from "../components/ui/Deposits";
-import data2 from "../../src/data2.json";
 import styled from "styled-components";
+
 const Container = styled.div`
+  margin-left: 20px;
+  display: flex;
   width: auto;
+  flex-direction: column;
   margin-left: 16rem;
-  position: relative;
   padding: 0 4rem;
+  font-family: Gmarket Sans;
+  margin-top: 20px;
+  /* 이 아래는 삭제 해야함. */
+  border-style: solid;
+  border-top: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 20px 0px;
 `;
-
 const Main = () => {
-  const data = data2.result;
-  console.log(data);
-
   return (
     <Container>
-      <Deposits title="컴퓨터통신" data={data2.result} />
+      <h1>놋치지마!!</h1>
     </Container>
   );
 };

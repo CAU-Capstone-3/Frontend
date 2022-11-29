@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Sidebar from "../components/Sidebar/Sidebar";
+import Sidebar from "../components/Sidebarpast/Sidebar";
 import axios, { AxiosHeaders } from "axios";
 import { TOPIC } from "../constants/serverConstant";
 import TopicNoteListTitle from "../components/ui/TopicNoteListTitle";
@@ -8,7 +8,7 @@ import TopicNoteListPattern from "../components/ui/TopicNoteListPattern";
 import styled from "styled-components";
 
 const accessToken =
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJub3RlY2hpZ2ltYSIsImV4cCI6MTY2OTY4OTkyMSwiaWF0IjoxNjY5NjgyNzIxLCJlbWFpbCI6ImtoazIxMTExM0BuYXZlci5jb20ifQ.WN0AbgSfKR8ayqUiKkAihdzeBq01leyRfPy9ZtvGZA8";
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJub3RlY2hpZ2ltYSIsImV4cCI6MTY2OTc0NTU0NSwiaWF0IjoxNjY5NzM4MzQ1LCJlbWFpbCI6Im9yaXJvcmk1MTJAbmF2ZXIuY29tIn0.5cmIK31ti-AWWostqzzfk_UErIWrbOnQzfxOpM7QlJY";
 const Loader = styled.span`
   text-align: center;
   display: block;
