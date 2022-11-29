@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import Sidebar from "../components/Sidebarpast/Sidebar";
+
 import ResultTitle from "../components/ui/ResultTitle";
 import ResultPattern from "../components/ui/ResultPattern";
 import axios from "axios";
 import styled from "styled-components";
 import REGISTER from "../assets/등록.png";
 import { TOPIC, ADVICE } from "../constants/serverConstant";
+import Sidebar from "../components/Sidebar";
 const accessToken =
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJub3RlY2hpZ2ltYSIsImV4cCI6MTY2OTc0NTU0NSwiaWF0IjoxNjY5NzM4MzQ1LCJlbWFpbCI6Im9yaXJvcmk1MTJAbmF2ZXIuY29tIn0.5cmIK31ti-AWWostqzzfk_UErIWrbOnQzfxOpM7QlJY";
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJub3RlY2hpZ2ltYSIsImV4cCI6MTY3MDM1MDc3NiwiaWF0IjoxNjY5NzQ1OTc2LCJlbWFpbCI6Im9yaXJvcmk1MTJAbmF2ZXIuY29tIn0.BovRMA2DSkRn47-fYwOitPz0PucrZYLp4wEsQEtlg_A";
 const Loader = styled.span`
   text-align: center;
   display: block;

@@ -2,11 +2,24 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Formik, ErrorMessage } from "formik";
+import styled from "styled-components";
 import * as Yup from "yup";
 import { Button, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { AUTH } from "../../constants/serverConstant";
-
+const Container = styled.div`
+  margin-left: 20px;
+  display: flex;
+  width: auto;
+  flex-direction: column;
+  margin-left: 16rem;
+  padding: 0 4rem;
+  margin-top: 20px;
+  /* 이 아래는 삭제 해야함. */
+  border-style: solid;
+  border-top: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 20px 0px;
+`;
 const SignUp = () => {
   const navigate = useNavigate();
   const validationSchema = Yup.object().shape({
@@ -70,77 +83,79 @@ const SignUp = () => {
   };
 
   return (
-    <Formik
-      initialValues={{
-        email: "",
-        username: "",
-        password: "",
-        password2: "",
-      }}
-      validationSchema={validationSchema}
-      onSubmit={submit}
-      validateOnMount={true}
-    >
-      {({ values, handleSubmit, handleChange, errors }) => (
-        <div className="signup-wrapper">
-          <ToastContainer />
-          <form onSubmit={handleSubmit} autoComplete="off">
-            <div className="input-forms">
-              <div className="input-forms-item">
-                <div className="input-label">이메일</div>
-                <TextField
-                  value={values.email}
-                  name="email"
-                  variant="outlined"
-                  onChange={handleChange}
-                />
-                <div className="error-message">{errors.email}</div>
+    <Container>
+      <Formik
+        initialValues={{
+          email: "",
+          username: "",
+          password: "",
+          password2: "",
+        }}
+        validationSchema={validationSchema}
+        onSubmit={submit}
+        validateOnMount={true}
+      >
+        {({ values, handleSubmit, handleChange, errors }) => (
+          <div className="signup-wrapper">
+            <ToastContainer />
+            <form onSubmit={handleSubmit} autoComplete="off">
+              <div className="input-forms">
+                <div className="input-forms-item">
+                  <div className="input-label">이메일</div>
+                  <TextField
+                    value={values.email}
+                    name="email"
+                    variant="outlined"
+                    onChange={handleChange}
+                  />
+                  <div className="error-message">{errors.email}</div>
+                </div>
+                <div className="input-forms-item">
+                  <div className="input-label">닉네임</div>
+                  <TextField
+                    value={values.username}
+                    name="username"
+                    variant="outlined"
+                    onChange={handleChange}
+                  />
+                  <div className="error-message">{errors.username}</div>
+                </div>
+                <div className="input-forms-item">
+                  <div className="input-label">비밀번호</div>
+                  <TextField
+                    value={values.password}
+                    name="password"
+                    variant="outlined"
+                    type="password"
+                    onChange={handleChange}
+                  />
+                  <div className="error-message">{errors.password}</div>
+                </div>
+                <div className="input-forms-item">
+                  <div className="input-label">비밀번호 확인</div>
+                  <TextField
+                    value={values.password2}
+                    name="password2"
+                    variant="outlined"
+                    type="password"
+                    onChange={handleChange}
+                  />
+                  <div className="error-message">{errors.password2}</div>
+                </div>
+                <Button
+                  color="primary"
+                  variant="contained"
+                  fullWidth
+                  type="submit"
+                >
+                  회원가입
+                </Button>
               </div>
-              <div className="input-forms-item">
-                <div className="input-label">닉네임</div>
-                <TextField
-                  value={values.username}
-                  name="username"
-                  variant="outlined"
-                  onChange={handleChange}
-                />
-                <div className="error-message">{errors.username}</div>
-              </div>
-              <div className="input-forms-item">
-                <div className="input-label">비밀번호</div>
-                <TextField
-                  value={values.password}
-                  name="password"
-                  variant="outlined"
-                  type="password"
-                  onChange={handleChange}
-                />
-                <div className="error-message">{errors.password}</div>
-              </div>
-              <div className="input-forms-item">
-                <div className="input-label">비밀번호 확인</div>
-                <TextField
-                  value={values.password2}
-                  name="password2"
-                  variant="outlined"
-                  type="password"
-                  onChange={handleChange}
-                />
-                <div className="error-message">{errors.password2}</div>
-              </div>
-              <Button
-                color="primary"
-                variant="contained"
-                fullWidth
-                type="submit"
-              >
-                회원가입
-              </Button>
-            </div>
-          </form>
-        </div>
-      )}
-    </Formik>
+            </form>
+          </div>
+        )}
+      </Formik>
+    </Container>
   );
 };
 

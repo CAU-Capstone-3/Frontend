@@ -18,7 +18,7 @@ export default function NotionPage() {
 
   return (
     <div>
-      <Sidebar />
+      {/* <Sidebar /> */}
       {Object.keys(response).length && (
         <NotionRenderer blockMap={response} fullPage={true} />
       )}

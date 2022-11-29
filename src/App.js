@@ -9,7 +9,7 @@ import NoteDetailPage from "./pages/NoteDetailPage";
 import Login from "./pages/login/Login";
 import SignUp from "./pages/sign-up/sign-up";
 import Main from "./pages/Main";
-
+import Sidebar from "./components/Sidebar";
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [loading, setLoading] = useState(false);

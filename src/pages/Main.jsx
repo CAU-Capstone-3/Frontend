@@ -19,7 +19,7 @@ const Container = styled.div`
 const Main = () => {
   return (
     <div>
-      <Sidebar></Sidebar>
+      <Sidebar />
       <Container>
         <h1>놋치지마!!</h1>
       </Container>

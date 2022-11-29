@@ -7,8 +7,7 @@ import HOME_ICON from "../assets/사이드바홈아이콘.png";
 import GROUP_ICON from "../assets/사이드바그룹아이콘.png";
 
 const accessToken =
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJub3RlY2hpZ2ltYSIsImV4cCI6MTY2OTc0NTU0NSwiaWF0IjoxNjY5NzM4MzQ1LCJlbWFpbCI6Im9yaXJvcmk1MTJAbmF2ZXIuY29tIn0.5cmIK31ti-AWWostqzzfk_UErIWrbOnQzfxOpM7QlJY"; // 과목별 토픽 목록
-
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJub3RlY2hpZ2ltYSIsImV4cCI6MTY2OTc1Mjg1NywiaWF0IjoxNjY5NzQ1NjU3LCJlbWFpbCI6Im9yaXJvcmk1MTJAbmF2ZXIuY29tIn0.RiodBzuIKuq8Qs0C7voyBHlaQS3Ls70Ym9xFT1KjdqA";
 const Loader = styled.span`
   text-align: center;
   display: block;
