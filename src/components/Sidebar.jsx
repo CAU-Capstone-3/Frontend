@@ -5,9 +5,9 @@ import axios from "axios";
 import { USERS } from "../constants/serverConstant";
 import HOME_ICON from "../assets/사이드바홈아이콘.png";
 import GROUP_ICON from "../assets/사이드바그룹아이콘.png";
-
 const accessToken =
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJub3RlY2hpZ2ltYSIsImV4cCI6MTY2OTc1Mjg1NywiaWF0IjoxNjY5NzQ1NjU3LCJlbWFpbCI6Im9yaXJvcmk1MTJAbmF2ZXIuY29tIn0.RiodBzuIKuq8Qs0C7voyBHlaQS3Ls70Ym9xFT1KjdqA";
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJub3RlY2hpZ2ltYSIsImV4cCI6MTY3MDM1MDc3NiwiaWF0IjoxNjY5NzQ1OTc2LCJlbWFpbCI6Im9yaXJvcmk1MTJAbmF2ZXIuY29tIn0.BovRMA2DSkRn47-fYwOitPz0PucrZYLp4wEsQEtlg_A";
+
 const Loader = styled.span`
   text-align: center;
   display: block;

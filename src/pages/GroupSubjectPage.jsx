@@ -3,9 +3,9 @@ import axios from "axios";
 import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
-import SubjectTopicPattern from "../components/ui/SubjectTopicPattern";
-import Title from "../components/ui/Title";
-import { SUBJECT } from "../constants/serverConstant";
+import GroupSubjectTitle from "../components/ui/GroupSubjectTitle";
+import GroupSubjectPattern from "../components/ui/GroupSubjectPattern";
+import { GROUP } from "../constants/serverConstant";
 const accessToken =
   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJub3RlY2hpZ2ltYSIsImV4cCI6MTY3MDM1MDc3NiwiaWF0IjoxNjY5NzQ1OTc2LCJlbWFpbCI6Im9yaXJvcmk1MTJAbmF2ZXIuY29tIn0.BovRMA2DSkRn47-fYwOitPz0PucrZYLp4wEsQEtlg_A";
 // 과목별 토픽 목록
@@ -19,11 +19,12 @@ export default function SubjectTopicPage() {
   // const { subjectId, noteId } = useParams();
   const [results, setResults] = useState();
   const [loading, setLoading] = useState(true);
-  const { subjectId } = useParams();
+  const { groupId } = useParams();
 
   async function getData() {
     await axios
-      .get(SUBJECT.GET_TOPIC_LIST(subjectId), {
+      .get(GROUP.GET_GROUP_SUBJECTS(groupId), {
+        // groupId 받아와야함.
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -32,6 +33,7 @@ export default function SubjectTopicPage() {
         const results = response.data["result"];
         setResults(results);
         setLoading(false);
+        console.log(results);
       })
       .catch((error) => {
         console.log(error);
@@ -49,8 +51,8 @@ export default function SubjectTopicPage() {
         <Loader>Loading...</Loader>
       ) : (
         <>
-          {Title("토픽목록", "컴퓨터통신")}
-          {SubjectTopicPattern(results)}
+          {GroupSubjectTitle(results["groupName"])}
+          {GroupSubjectPattern(results["subjects"])}
         </>
       )}
     </div>
