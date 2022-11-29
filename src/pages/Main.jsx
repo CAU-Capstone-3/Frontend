@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Sidebar from "../components/Sidebar";
 
 const Container = styled.div`
   margin-left: 20px;
@@ -17,9 +18,12 @@ const Container = styled.div`
 `;
 const Main = () => {
   return (
-    <Container>
-      <h1>놋치지마!!</h1>
-    </Container>
+    <div>
+      <Sidebar></Sidebar>
+      <Container>
+        <h1>놋치지마!!</h1>
+      </Container>
+    </div>
   );
 };
 

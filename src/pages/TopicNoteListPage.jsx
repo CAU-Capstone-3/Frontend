@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Sidebar from "../components/Sidebarpast/Sidebar";
+import Sidebar from "../components/Sidebar";
 import axios, { AxiosHeaders } from "axios";
 import { TOPIC } from "../constants/serverConstant";
 import TopicNoteListTitle from "../components/ui/TopicNoteListTitle";
