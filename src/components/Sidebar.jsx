@@ -122,6 +122,7 @@ const GroupImg = styled.img.attrs({ src: `${GROUP_ICON}` })`
 const Sidebar = () => {
   const [loading, setLoading] = useState(true);
   const [groups, setGroups] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getData();
@@ -140,6 +141,7 @@ const Sidebar = () => {
         const results = response.data["result"];
         setGroups(results);
         setLoading(false);
+        console.log(results);
         // setLoading(false);
       })
       .catch((error) => {
@@ -148,11 +150,18 @@ const Sidebar = () => {
   }
 
   function GroupList(group) {
+    const groupId = group["groupId"];
     return (
       <div>
-        <GroupListDiv>
-          <GroupListSpan>{group["groupName"]}</GroupListSpan>
-        </GroupListDiv>
+        <button
+          onClick={() => {
+            navigate(`/group/subject/${groupId}`);
+          }}
+        >
+          <GroupListDiv>
+            <GroupListSpan>{group["groupName"]}</GroupListSpan>
+          </GroupListDiv>
+        </button>
       </div>
     );
   }

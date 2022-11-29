@@ -42,7 +42,7 @@ export default function SubjectTopicPage() {
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [groupId]);
 
   return (
     <div>
