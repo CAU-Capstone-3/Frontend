@@ -9,7 +9,7 @@ import NoteDetailPage from "./pages/NoteDetailPage";
 import Login from "./pages/login/Login";
 import SignUp from "./pages/sign-up/sign-up";
 import Main from "./pages/Main";
-import Sidebar from "./components/Sidebar";
+import Header from "./components/Header";
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -22,7 +22,7 @@ function App() {
     // <>
     // <div className="App">
     <BrowserRouter>
-      {/* header, sidebar */}
+      <Header />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />

@@ -49,7 +49,7 @@ const TopicNoteListPage = () => {
   return (
     <div>
       <Sidebar />
-      <TopicNoteListTitle />
+      {TopicNoteListTitle(results["topicName"])}
       {loading ? <Loader>Loading...</Loader> : TopicNoteListPattern(results)}
     </div>
   );

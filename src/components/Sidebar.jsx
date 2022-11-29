@@ -14,7 +14,7 @@ const Loader = styled.span`
 `;
 const Container = styled.div`
   /* background-color: #d9d9d9; */
-  position: fixed;
+  position: absolute;
   font-family: Gmarket Sans;
   /* left: 0;
   top: 0;

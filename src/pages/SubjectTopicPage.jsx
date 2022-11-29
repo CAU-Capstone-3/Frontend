@@ -31,6 +31,7 @@ export default function SubjectTopicPage() {
         const results = response.data["result"];
         setResults(results);
         setLoading(false);
+        console.log(results);
       })
       .catch((error) => {
         console.log(error);
@@ -48,8 +49,8 @@ export default function SubjectTopicPage() {
         <Loader>Loading...</Loader>
       ) : (
         <>
-          {Title("토픽목록", "컴퓨터통신")}
-          {SubjectTopicPattern(results)}
+          {Title("토픽목록", `${results["subjectName"]}`)}
+          {SubjectTopicPattern(results["topics"])}
         </>
       )}
     </div>

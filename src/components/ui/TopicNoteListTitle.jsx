@@ -41,10 +41,10 @@ const TitleTopicText = styled.div`
   line-height: auto;
 `;
 
-const TopicNoteListTitle = () => {
+const TopicNoteListTitle = (topic) => {
   return (
     <TitleDiv>
-      <TitleResult>2-3 패킷 스위칭</TitleResult>
+      <TitleResult>{topic}</TitleResult>
       <TitleTopicText>미작성된 노트가 있습니다!</TitleTopicText>
       <TitleTopicDiv></TitleTopicDiv>
     </TitleDiv>
