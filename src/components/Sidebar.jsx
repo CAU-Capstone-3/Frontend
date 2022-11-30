@@ -173,7 +173,7 @@ const Sidebar = () => {
       </LogoDiv>
 
       <UserNameDiv>
-        <UserNameSpan>훈딩님의 놋치지마</UserNameSpan>
+        <UserNameSpan>장훈석님의 놋치지마</UserNameSpan>
         {/* 유저 이름 사람마다 다르게 해야함. */}
       </UserNameDiv>
 

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Title from "../components/ui/Title";
-import { NOTE } from "../constants/serverConstant";
+import { NOTE, TOPIC } from "../constants/serverConstant";
 import COMPLETE from "../assets/작성완료.png";
 import { myUserId, accessToken } from "../loginInformation";
 
@@ -51,12 +51,14 @@ export default function SubjectTopicPage() {
   // const navigate = useNavigate();
   // const [status, getStatus] = useState();
   // const { subjectId, noteId } = useParams();
-  const [results, setResults] = useState();
+  const [topic, setTopic] = useState();
   const [content, setContent] = useState("");
   const { topicId } = useParams();
-
+  const [loading, setLoading] = useState(true);
   const textRef = useRef();
-
+  useEffect(() => {
+    getTopic();
+  }, []);
   const handleResizeHeight = useCallback(() => {
     // textarea 가변 높이
     textRef.current.style.height = "auto";
@@ -85,16 +87,45 @@ export default function SubjectTopicPage() {
     //topicId, userId
     // POST 요청은 body에 실어 보냄
     await axios
-      .post(NOTE.POST_WRITE, {
-        //topicId, userId
-        topicId: `${topicId}`,
-        userId: `${myUserId}`,
-        content: `${content}`,
-      })
+      .post(
+        NOTE.POST_WRITE,
+        {
+          //topicId, userId
+          topicId: `${topicId}`,
+          userId: `${myUserId}`,
+          content: `${content}`,
+        },
+        {
+          // groupId 받아와야함.
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      )
       .then(function (response) {
         console.log(response);
+        window.location.href = `/group/subject/topic/notes/${topicId}`;
       })
       .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  async function getTopic() {
+    await axios
+      .get(TOPIC.GET_NOTE_LIST(topicId), {
+        // groupId 받아와야함.
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }) //subjectId
+      .then((response) => {
+        const results = response.data["result"];
+        setTopic(results["topicName"]);
+        setLoading(false);
+        console.log(results);
+      })
+      .catch((error) => {
         console.log(error);
       });
   }
@@ -102,7 +133,7 @@ export default function SubjectTopicPage() {
   return (
     <div>
       <Sidebar />
-      {Title({}, { myUserId })}
+      {loading ? <Loader>Loading...</Loader> : <>{Title(topic, "")}</>}
       <Container>
         <InputTextArea
           ref={textRef}

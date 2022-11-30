@@ -30,7 +30,18 @@ const TopicTitleBarRow = styled.div`
 `;
 const TopicTitleBarDiv1 = styled.div`
   width: 33%;
+  margin-right: 15px;
 `;
+const TopicTitleBarDiv2 = styled.div`
+  display: flex;
+  width: 15%;
+  margin-right: 15px;
+  border: 1px solid;
+  align-items: center;
+  border-radius: 10px;
+  justify-content: center;
+`;
+
 const TopicTitleBarText = styled.span`
   font-size: 30px;
   font-family: Gmarket Sans;
@@ -199,12 +210,21 @@ function UnwrittenList(topicId, userId, userName) {
   }
 }
 const TopicNoteListPattern = (results) => {
+  function onClick() {
+    window.location.href = `/group/subject/topic/result/${results["topicId"]}`;
+  }
   return (
     <Container>
       <TopicTitleBarRow>
         <TopicTitleBarDiv1>
           <TopicTitleBarText>노트 목록</TopicTitleBarText>
         </TopicTitleBarDiv1>
+
+        <TopicTitleBarDiv2>
+          <button onClick={onClick}>
+            <TopicTitleBarText>분석 결과</TopicTitleBarText>
+          </button>
+        </TopicTitleBarDiv2>
       </TopicTitleBarRow>
       {/* ----------- */}
       <ImgDiv>

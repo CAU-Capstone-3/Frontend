@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-
+import { useNavigate, useParams } from "react-router-dom";
 import ResultTitle from "../components/ui/ResultTitle";
 import ResultPattern from "../components/ui/ResultPattern";
 import axios from "axios";
@@ -45,11 +45,11 @@ const AnalysisPage = () => {
   const [results, setResults] = useState([""]);
   const [loading, setLoading] = useState(true);
   const [content, setContent] = useState("");
-
+  const { topicId } = useParams();
   async function getData() {
     // API GET 함수.
     await axios
-      .get(TOPIC.GET_RESULT(23), {
+      .get(TOPIC.GET_RESULT(topicId), {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -105,7 +105,7 @@ const AnalysisPage = () => {
         <Loader>Loading...</Loader>
       ) : (
         <>
-          {results.map((result) => {
+          {results["advices"].map((result) => {
             return (
               <div>
                 {ResultPattern(result)}
