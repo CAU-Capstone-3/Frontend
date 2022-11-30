@@ -6,6 +6,8 @@ import NOTE_BUTTON from "../../assets/노트보기.png";
 import WRITE_BUTTON from "../../assets/글쓰기버튼.png";
 import CANT_WRITE_BUTTON from "../../assets/글쓰기불가버튼.png";
 import { myUserId, accessToken } from "../../loginInformation";
+import { TOPIC } from "../../constants/serverConstant";
+import axios from "axios";
 
 const Container = styled.div`
   margin-left: 20px;
@@ -210,9 +212,31 @@ function UnwrittenList(topicId, userId, userName) {
   }
 }
 const TopicNoteListPattern = (results) => {
+  async function postResult() {
+    //topicId, userId
+    // POST 요청은 body에 실어 보냄
+    await axios
+      .post(
+        TOPIC.POST_RESULT(results["topicId"]),
+        {},
+        {
+          // groupId 받아와야함.
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      )
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
   function onClick() {
     window.location.href = `/group/subject/topic/result/${results["topicId"]}`;
   }
+
   return (
     <Container>
       <TopicTitleBarRow>
@@ -223,6 +247,11 @@ const TopicNoteListPattern = (results) => {
         <TopicTitleBarDiv2>
           <button onClick={onClick}>
             <TopicTitleBarText>분석 결과</TopicTitleBarText>
+          </button>
+        </TopicTitleBarDiv2>
+        <TopicTitleBarDiv2>
+          <button onClick={postResult}>
+            <TopicTitleBarText>토픽 분석</TopicTitleBarText>
           </button>
         </TopicTitleBarDiv2>
       </TopicTitleBarRow>
