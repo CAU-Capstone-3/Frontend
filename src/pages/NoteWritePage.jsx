@@ -86,29 +86,33 @@ export default function SubjectTopicPage() {
   async function postNote() {
     //topicId, userId
     // POST 요청은 body에 실어 보냄
-    await axios
-      .post(
-        NOTE.POST_WRITE,
-        {
-          //topicId, userId
-          topicId: `${topicId}`,
-          userId: `${myUserId}`,
-          content: `${content}`,
-        },
-        {
-          // groupId 받아와야함.
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
+    if (content.length < 50) {
+      console.log("노트 내용은 50글자 이상!");
+    } else {
+      await axios
+        .post(
+          NOTE.POST_WRITE,
+          {
+            //topicId, userId
+            topicId: `${topicId}`,
+            userId: `${myUserId}`,
+            content: `${content}`,
           },
-        }
-      )
-      .then(function (response) {
-        console.log(response);
-        window.location.href = `/group/subject/topic/notes/${topicId}`;
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+          {
+            // groupId 받아와야함.
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        )
+        .then(function (response) {
+          console.log(response);
+          window.location.href = `/group/subject/topic/notes/${topicId}`;
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
   }
 
   async function getTopic() {
