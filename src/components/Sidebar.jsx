@@ -37,9 +37,9 @@ const GroupListDiv = styled.div`
   height: 3rem;
   align-items: center;
   &:hover {
-    background-color: #f6f6f2;
+    background-color: rgba(54, 73, 249, 0.2);
     cursor: pointer;
-    border-right: solid 5px;
+    border-right: solid 5px #3649f9;
   }
 `;
 const GroupListSpan = styled.span`
@@ -90,9 +90,9 @@ const MyPageDiv = styled.div`
   border-bottom: 1px;
   margin-bottom: 10px;
   &:hover {
-    background-color: #f6f6f2;
+    background-color: rgba(54, 73, 249, 0.2);
     cursor: pointer;
-    border-right: solid 5px;
+    border-right: solid 5px #3649f9;
   }
 `;
 const MyPageImg = styled.img.attrs({ src: `${HOME_ICON}` })`
