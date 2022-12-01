@@ -19,8 +19,6 @@ const Container = styled.div`
   padding: 0 4rem;
   margin-top: 20px;
   /* 이 아래는 삭제 해야함. */
-  border-style: solid;
-  border-top: 2px solid rgba(0, 0, 0, 0.2);
   padding: 20px 0px;
 `;
 const Login = () => {
@@ -45,7 +43,7 @@ const Login = () => {
         });
 
       dispatch(setToken(data.jwt));
-      toast.success(<h3>로그인 성공😎</h3>, {
+      toast.success(<h3>로그인 성공</h3>, {
         position: "top-center",
         autoClose: 2000,
       });
