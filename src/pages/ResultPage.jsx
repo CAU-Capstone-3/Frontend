@@ -87,26 +87,30 @@ const AnalysisPage = () => {
   async function postComment(e, adviceId) {
     // POST 요청은 body에 실어 보냄
     e.preventDefault();
-    await axios
-      .post(
-        ADVICE.POST_COMMEND(adviceId),
-        {
-          userId: 3,
-          content: `${content}`,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
+    if (content.length < 10) {
+      console.log("댓글 내용은 10글자 이상!!");
+    } else {
+      await axios
+        .post(
+          ADVICE.POST_COMMEND(adviceId),
+          {
+            userId: 3,
+            content: `${content}`,
           },
-        }
-      )
-      .then(function (response) {
-        console.log(response);
-        window.location.reload();
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        )
+        .then(function (response) {
+          console.log(response);
+          window.location.reload();
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
   }
   const name = "";
 
