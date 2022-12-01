@@ -38,10 +38,11 @@ const InputTextArea = styled.textarea`
   margin-right: 5px;
   height: 50px;
 `;
-const useInput = (initialValue) => {
-  const [value, setValue] = useState(initialValue);
-  return { value };
-};
+
+// const useInput = (initialValue) => {
+//   const [value, setValue] = useState(initialValue);
+//   return { value };
+// };
 
 const AnalysisPage = () => {
   const [results, setResults] = useState([""]);
@@ -99,9 +100,9 @@ const AnalysisPage = () => {
           },
         }
       )
-
       .then(function (response) {
         console.log(response);
+        window.location.reload();
       })
       .catch(function (error) {
         console.log(error);
