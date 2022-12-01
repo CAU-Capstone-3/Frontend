@@ -45,7 +45,7 @@ const TopicNoteListTitle = (topic) => {
   return (
     <TitleDiv>
       <TitleResult>{topic}</TitleResult>
-      <TitleTopicText>미작성된 노트가 있습니다!</TitleTopicText>
+      <TitleTopicText></TitleTopicText>
       <TitleTopicDiv></TitleTopicDiv>
     </TitleDiv>
   );

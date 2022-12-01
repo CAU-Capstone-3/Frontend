@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import COMPLETE from "../../assets/완료팀원 (1).png";
 import NOT_COMPLETE from "../../assets/미완료 팀원 (1).png";

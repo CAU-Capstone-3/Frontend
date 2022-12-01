@@ -7,6 +7,8 @@ import styled from "styled-components";
 import REGISTER from "../assets/등록.png";
 import { TOPIC, ADVICE } from "../constants/serverConstant";
 import Sidebar from "../components/Sidebar";
+import { myUserId } from "../loginInformation";
+
 const accessToken =
   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJub3RlY2hpZ2ltYSIsImV4cCI6MTY3MDM1MDc3NiwiaWF0IjoxNjY5NzQ1OTc2LCJlbWFpbCI6Im9yaXJvcmk1MTJAbmF2ZXIuY29tIn0.BovRMA2DSkRn47-fYwOitPz0PucrZYLp4wEsQEtlg_A";
 const Loader = styled.span`
@@ -81,13 +83,23 @@ const AnalysisPage = () => {
     setContent(e.target.value);
   }
 
-  async function postComment() {
+  async function postComment(e, adviceId) {
     // POST 요청은 body에 실어 보냄
+    e.preventDefault();
     await axios
-      .post(ADVICE.POST_COMMEND(194), {
-        userId: 3,
-        content: `${content}`,
-      })
+      .post(
+        ADVICE.POST_COMMEND(adviceId),
+        {
+          userId: 3,
+          content: `${content}`,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      )
+
       .then(function (response) {
         console.log(response);
       })
@@ -116,7 +128,11 @@ const AnalysisPage = () => {
                     onInput={handleResizeHeight}
                     placeholder="댓글을 작성해 주세요"
                   ></InputTextArea>
-                  <RegisterButton onClick={postComment}>
+                  <RegisterButton
+                    onClick={(e) => {
+                      postComment(e, result["adviceId"]);
+                    }}
+                  >
                     <img src={REGISTER} alt="댓글등록" />
                   </RegisterButton>
                 </CommentRegisterDiv>
@@ -125,7 +141,6 @@ const AnalysisPage = () => {
           })}
         </>
       )}
-      {/* {CreateEachPattern(results)} */}
     </div>
   );
 };
