@@ -33,20 +33,21 @@ const Login = () => {
   const submit = async (values) => {
     const { email, password } = values;
     try {
-      const { data } = await axios
+      await axios
         .post(AUTH.POST_LOGIN, {
           email: `${email}`,
           password: `${password}`,
         })
         .then(function (response) {
-          console.log(response);
+          // console.log(response);
+          console.log(response["data"]["result"]["accessToken"]);
+          dispatch(setToken(response["data"]["result"]["accessToken"]));
+          toast.success(<h3>로그인 성공</h3>, {
+            position: "top-center",
+            autoClose: 2000,
+          });
         });
 
-      dispatch(setToken(data.jwt));
-      toast.success(<h3>로그인 성공</h3>, {
-        position: "top-center",
-        autoClose: 2000,
-      });
       setTimeout(() => {
         navigate("/");
       }, 2000);
