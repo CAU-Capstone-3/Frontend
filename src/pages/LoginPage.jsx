@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import axios from "axios";
 import { BASE_URL } from "../constants/serverConstant";
-
+import Loading from "../components/Loader";
 function LoginPage(props) {
   function joinHandler() {
     try {

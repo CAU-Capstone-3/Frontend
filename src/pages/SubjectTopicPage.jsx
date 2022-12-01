@@ -6,6 +6,7 @@ import Sidebar from "../components/Sidebar";
 import SubjectTopicPattern from "../components/ui/SubjectTopicPattern";
 import Title from "../components/ui/Title";
 import { SUBJECT } from "../constants/serverConstant";
+import Loading from "../components/Loader";
 const accessToken =
   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJub3RlY2hpZ2ltYSIsImV4cCI6MTY3MDM1MDc3NiwiaWF0IjoxNjY5NzQ1OTc2LCJlbWFpbCI6Im9yaXJvcmk1MTJAbmF2ZXIuY29tIn0.BovRMA2DSkRn47-fYwOitPz0PucrZYLp4wEsQEtlg_A";
 const Loader = styled.span`
@@ -14,8 +15,6 @@ const Loader = styled.span`
 `;
 export default function SubjectTopicPage() {
   // const navigate = useNavigate();
-  // const [status, getStatus] = useState();
-  // const { subjectId, noteId } = useParams();
   const [results, setResults] = useState();
   const [loading, setLoading] = useState(true);
   const { subjectId } = useParams();
@@ -46,7 +45,7 @@ export default function SubjectTopicPage() {
     <div>
       <Sidebar />
       {loading ? (
-        <Loader>Loading...</Loader>
+        <Loading></Loading>
       ) : (
         <>
           {Title("토픽목록", `${results["subjectName"]}`)}

@@ -5,6 +5,7 @@ import axios from "axios";
 import { USERS } from "../constants/serverConstant";
 import HOME_ICON from "../assets/사이드바홈아이콘.png";
 import GROUP_ICON from "../assets/사이드바그룹아이콘.png";
+
 const accessToken =
   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJub3RlY2hpZ2ltYSIsImV4cCI6MTY3MDM1MDc3NiwiaWF0IjoxNjY5NzQ1OTc2LCJlbWFpbCI6Im9yaXJvcmk1MTJAbmF2ZXIuY29tIn0.BovRMA2DSkRn47-fYwOitPz0PucrZYLp4wEsQEtlg_A";
 
@@ -168,31 +169,28 @@ const Sidebar = () => {
 
   return (
     <Container>
-      <LogoDiv>
-        <LogoSpan>놋치지마</LogoSpan>
-      </LogoDiv>
-
-      <UserNameDiv>
-        <UserNameSpan>장훈석님의 놋치지마</UserNameSpan>
-        {/* 유저 이름 사람마다 다르게 해야함. */}
-      </UserNameDiv>
-
-      <MyPageDiv>
-        <MyPageImg />
-        <MyPageSpan>마이페이지</MyPageSpan>
-      </MyPageDiv>
-
-      <GroupDiv>
-        <GroupImg />
-        <MyPageSpan>그룹 목록</MyPageSpan>
-      </GroupDiv>
-
       {loading ? (
-        <Loader>Loading...</Loader>
+        <Loader></Loader>
       ) : (
-        groups.map(function (group) {
-          return GroupList(group);
-        })
+        <>
+          <LogoDiv>
+            <LogoSpan>놋치지마</LogoSpan>
+          </LogoDiv>
+          <UserNameDiv>
+            <UserNameSpan>장훈석님의 놋치지마</UserNameSpan>
+          </UserNameDiv>
+          <MyPageDiv>
+            <MyPageImg />
+            <MyPageSpan>마이페이지</MyPageSpan>
+          </MyPageDiv>
+          <GroupDiv>
+            <GroupImg />
+            <MyPageSpan>그룹 목록</MyPageSpan>
+          </GroupDiv>
+          {groups.map(function (group) {
+            return GroupList(group);
+          })}
+        </>
       )}
     </Container>
   );

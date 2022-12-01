@@ -7,7 +7,7 @@ import Title from "../components/ui/Title";
 import { NOTE, TOPIC } from "../constants/serverConstant";
 import COMPLETE from "../assets/작성완료.png";
 import { myUserId, accessToken } from "../loginInformation";
-
+import Loading from "../components/Loader";
 // 과목별 토픽 목록
 const CompleteButtonImg = styled.img.attrs({ src: `${COMPLETE}` })``;
 const Loader = styled.span`
@@ -133,20 +133,26 @@ export default function SubjectTopicPage() {
   return (
     <div>
       <Sidebar />
-      {loading ? <Loader>Loading...</Loader> : <>{Title(topic, "")}</>}
-      <Container>
-        <InputTextArea
-          ref={textRef}
-          value={content}
-          onChange={(e) => handleSetContent(e)}
-          onKeyDown={(e) => handleSetTab(e)}
-          onInput={handleResizeHeight}
-          placeholder="노트를 작성해 주세요."
-        ></InputTextArea>
-        <RequestButton onClick={postNote}>
-          <CompleteButtonImg />
-        </RequestButton>
-      </Container>
+      {loading ? (
+        <Loading></Loading>
+      ) : (
+        <>
+          {Title(topic, "")}
+          <Container>
+            <InputTextArea
+              ref={textRef}
+              value={content}
+              onChange={(e) => handleSetContent(e)}
+              onKeyDown={(e) => handleSetTab(e)}
+              onInput={handleResizeHeight}
+              placeholder="노트를 작성해 주세요."
+            ></InputTextArea>
+            <RequestButton onClick={postNote}>
+              <CompleteButtonImg />
+            </RequestButton>
+          </Container>
+        </>
+      )}
     </div>
   );
 }

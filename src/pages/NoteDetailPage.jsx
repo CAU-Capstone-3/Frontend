@@ -8,6 +8,7 @@ import NoteDetailTitle from "../components/ui/NoteDetailTitle";
 import NoteDetailPattern from "../components/ui/NoteDetailPattern";
 import api from "../utils/api";
 import { NOTE } from "../constants/serverConstant";
+import Loading from "../components/Loader";
 // 과목별 토픽 목록
 const accessToken =
   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJub3RlY2hpZ2ltYSIsImV4cCI6MTY3MDM1MDc3NiwiaWF0IjoxNjY5NzQ1OTc2LCJlbWFpbCI6Im9yaXJvcmk1MTJAbmF2ZXIuY29tIn0.BovRMA2DSkRn47-fYwOitPz0PucrZYLp4wEsQEtlg_A";
@@ -51,7 +52,7 @@ export default function SubjectTopicPage() {
 
       {/* TODO: 제목 부분 바꾸기 */}
       {loading ? (
-        <Loader>Loading...</Loader>
+        <Loading></Loading>
       ) : (
         <>
           {NoteDetailTitle(

@@ -8,7 +8,7 @@ import REGISTER from "../assets/등록.png";
 import { TOPIC, ADVICE } from "../constants/serverConstant";
 import Sidebar from "../components/Sidebar";
 import { myUserId } from "../loginInformation";
-
+import Loading from "../components/Loader";
 const accessToken =
   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJub3RlY2hpZ2ltYSIsImV4cCI6MTY3MDM1MDc3NiwiaWF0IjoxNjY5NzQ1OTc2LCJlbWFpbCI6Im9yaXJvcmk1MTJAbmF2ZXIuY29tIn0.BovRMA2DSkRn47-fYwOitPz0PucrZYLp4wEsQEtlg_A";
 const Loader = styled.span`
@@ -115,7 +115,7 @@ const AnalysisPage = () => {
       <Sidebar />
 
       {loading ? (
-        <Loader>Loading...</Loader>
+        <Loading></Loading>
       ) : (
         <>
           {ResultTitle(results["title"])}
