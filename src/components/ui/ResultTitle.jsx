@@ -37,12 +37,12 @@ const TitleTopicText = styled.div`
   color: #263cff;
 `;
 
-const resultTitle = () => {
+const resultTitle = (title) => {
   return (
     <TitleDiv>
       <TitleResult>문장분석</TitleResult>
       <TitleTopicDiv>
-        <TitleTopicText>2-3 패킷 스위칭</TitleTopicText>
+        <TitleTopicText>{title}</TitleTopicText>
         {/* TitleTopicText안 text를 설정가능하게끔 바꾸기 */}
       </TitleTopicDiv>
     </TitleDiv>

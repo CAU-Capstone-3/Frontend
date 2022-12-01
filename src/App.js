@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SubjectTopicPage from "./pages/SubjectTopicPage";
 import NoteWritePage from "./pages/NoteWritePage";
 import TopicNoteListPage from "./pages/TopicNoteListPage";
-import AnalysisPage from "./pages/AnalysisPage";
+import AnalysisPage from "./pages/ResultPage";
 import GroupSubjectPage from "./pages/GroupSubjectPage";
 import NoteDetailPage from "./pages/NoteDetailPage";
 import Login from "./pages/login/Login";

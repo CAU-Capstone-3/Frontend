@@ -113,11 +113,12 @@ const AnalysisPage = () => {
   return (
     <div>
       <Sidebar />
-      <ResultTitle />
+
       {loading ? (
         <Loader>Loading...</Loader>
       ) : (
         <>
+          {ResultTitle(results["title"])}
           {results["advices"].map((result) => {
             return (
               <div>

@@ -135,7 +135,7 @@ const SubjectTopicPattern = (results) => {
       {/* 이건 한번만 씀. */}
       <TopicTitleBarRow>
         <TopicTitleBarDiv1>
-          <TopicTitleBarText>제목</TopicTitleBarText>
+          <TopicTitleBarText>토픽 제목</TopicTitleBarText>
         </TopicTitleBarDiv1>
         <TopicTitleBarDiv2>
           <TopicTitleBarText>분석 상황</TopicTitleBarText>
