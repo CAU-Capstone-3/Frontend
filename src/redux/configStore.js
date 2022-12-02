@@ -11,7 +11,7 @@ const persistConfig = {
 };
 
 const allReducers = combineReducers({
-  Auth: AuthReducer,
+  accessToken: AuthReducer,
 });
 
 const store = createStore(

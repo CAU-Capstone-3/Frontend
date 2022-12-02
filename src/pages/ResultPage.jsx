@@ -7,10 +7,10 @@ import styled from "styled-components";
 import REGISTER from "../assets/등록.png";
 import { TOPIC, ADVICE } from "../constants/serverConstant";
 import Sidebar from "../components/Sidebar";
-import { myUserId } from "../loginInformation";
+import api from "../utils/api";
 import Loading from "../components/Loader";
-const accessToken =
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJub3RlY2hpZ2ltYSIsImV4cCI6MTY3MDM1MDc3NiwiaWF0IjoxNjY5NzQ1OTc2LCJlbWFpbCI6Im9yaXJvcmk1MTJAbmF2ZXIuY29tIn0.BovRMA2DSkRn47-fYwOitPz0PucrZYLp4wEsQEtlg_A";
+import { myUserId, accessToken } from "../loginInformation";
+
 const Loader = styled.span`
   text-align: center;
   display: block;
@@ -51,11 +51,11 @@ const AnalysisPage = () => {
   const { topicId } = useParams();
   async function getData() {
     // API GET 함수.
-    await axios
+    await api
       .get(TOPIC.GET_RESULT(topicId), {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
+        // headers: {
+        //   Authorization: `Bearer ${accessToken}`,
+        // },
       })
       .then((response) => {
         const data = response.data["result"];

@@ -9,9 +9,9 @@ import NoteDetailPattern from "../components/ui/NoteDetailPattern";
 import api from "../utils/api";
 import { NOTE } from "../constants/serverConstant";
 import Loading from "../components/Loader";
+import { myUserId, accessToken } from "../loginInformation";
 // 과목별 토픽 목록
-const accessToken =
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJub3RlY2hpZ2ltYSIsImV4cCI6MTY3MDM1MDc3NiwiaWF0IjoxNjY5NzQ1OTc2LCJlbWFpbCI6Im9yaXJvcmk1MTJAbmF2ZXIuY29tIn0.BovRMA2DSkRn47-fYwOitPz0PucrZYLp4wEsQEtlg_A";
+
 const Loader = styled.span`
   text-align: center;
   display: block;
@@ -25,11 +25,11 @@ export default function SubjectTopicPage() {
   const { noteId } = useParams();
 
   async function getData() {
-    await axios
+    await api
       .get(NOTE.GET_DETAIL_NOTE(noteId), {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
+        // headers: {
+        //   Authorization: `Bearer ${accessToken}`,
+        // },
       }) // noteId
       .then((response) => {
         const results = response.data["result"];

@@ -7,8 +7,8 @@ import SubjectTopicPattern from "../components/ui/SubjectTopicPattern";
 import Title from "../components/ui/Title";
 import { SUBJECT } from "../constants/serverConstant";
 import Loading from "../components/Loader";
-const accessToken =
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJub3RlY2hpZ2ltYSIsImV4cCI6MTY3MDM1MDc3NiwiaWF0IjoxNjY5NzQ1OTc2LCJlbWFpbCI6Im9yaXJvcmk1MTJAbmF2ZXIuY29tIn0.BovRMA2DSkRn47-fYwOitPz0PucrZYLp4wEsQEtlg_A";
+import { myUserId, accessToken } from "../loginInformation";
+import api from "../utils/api";
 const Loader = styled.span`
   text-align: center;
   display: block;
@@ -20,11 +20,11 @@ export default function SubjectTopicPage() {
   const { subjectId } = useParams();
 
   async function getData() {
-    await axios
+    await api
       .get(SUBJECT.GET_TOPIC_LIST(subjectId), {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
+        // headers: {
+        //   Authorization: `Bearer ${accessToken}`,
+        // },
       }) //subjectId
       .then((response) => {
         const results = response.data["result"];

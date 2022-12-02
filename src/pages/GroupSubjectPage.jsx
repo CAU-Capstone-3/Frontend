@@ -7,8 +7,8 @@ import GroupSubjectTitle from "../components/ui/GroupSubjectTitle";
 import GroupSubjectPattern from "../components/ui/GroupSubjectPattern";
 import { GROUP } from "../constants/serverConstant";
 import Loading from "../components/Loader";
-const accessToken =
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJub3RlY2hpZ2ltYSIsImV4cCI6MTY3MDM1MDc3NiwiaWF0IjoxNjY5NzQ1OTc2LCJlbWFpbCI6Im9yaXJvcmk1MTJAbmF2ZXIuY29tIn0.BovRMA2DSkRn47-fYwOitPz0PucrZYLp4wEsQEtlg_A";
+import { myUserId, accessToken } from "../loginInformation";
+import api from "../utils/api";
 // 과목별 토픽 목록
 const Loader = styled.span`
   text-align: center;
@@ -22,13 +22,16 @@ export default function SubjectTopicPage() {
   const { groupId } = useParams();
   //   const navigate = useNavigate();
   async function getData() {
-    await axios
-      .get(GROUP.GET_GROUP_SUBJECTS(groupId), {
-        // groupId 받아와야함.
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      }) //subjectId
+    await api
+      .get(
+        GROUP.GET_GROUP_SUBJECTS(groupId)
+        //   {
+        //     // groupId 받아와야함.
+        //     headers: {
+        //       Authorization: `Bearer ${accessToken}`,
+        //     },
+        //   }
+      ) //subjectId
       .then((response) => {
         const results = response.data["result"];
         setResults(results);

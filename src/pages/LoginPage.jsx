@@ -15,7 +15,7 @@ function LoginPage(props) {
           console.log("res.data.accessToken : " + res.data);
           axios.defaults.headers.common["Authorization"] = "Bearer " + res.data;
           props.loginCallBack(true);
-          props.history.push("/");
+          //   props.history.push("/");
         })
         .catch((ex) => {
           console.log("login requset fail : " + ex);
@@ -34,7 +34,6 @@ function LoginPage(props) {
   return (
     <div>
       <span>Login Page</span>
-
       <button type="button" onClick={joinHandler}>
         Join
       </button>

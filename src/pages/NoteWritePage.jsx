@@ -8,6 +8,7 @@ import { NOTE, TOPIC } from "../constants/serverConstant";
 import COMPLETE from "../assets/작성완료.png";
 import { myUserId, accessToken } from "../loginInformation";
 import Loading from "../components/Loader";
+import api from "../utils/api";
 // 과목별 토픽 목록
 const CompleteButtonImg = styled.img.attrs({ src: `${COMPLETE}` })``;
 const Loader = styled.span`
@@ -89,7 +90,7 @@ export default function SubjectTopicPage() {
     if (content.length < 50) {
       console.log("노트 내용은 50글자 이상!");
     } else {
-      await axios
+      await api
         .post(
           NOTE.POST_WRITE,
           {
@@ -97,13 +98,13 @@ export default function SubjectTopicPage() {
             topicId: `${topicId}`,
             userId: `${myUserId}`,
             content: `${content}`,
-          },
-          {
-            // groupId 받아와야함.
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
           }
+          // {
+          //   // groupId 받아와야함.
+          //   headers: {
+          //     Authorization: `Bearer ${accessToken}`,
+          //   },
+          // }
         )
         .then(function (response) {
           console.log(response);
@@ -116,12 +117,12 @@ export default function SubjectTopicPage() {
   }
 
   async function getTopic() {
-    await axios
+    await api
       .get(TOPIC.GET_NOTE_LIST(topicId), {
         // groupId 받아와야함.
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
+        // headers: {
+        //   Authorization: `Bearer ${accessToken}`,
+        // },
       }) //subjectId
       .then((response) => {
         const results = response.data["result"];

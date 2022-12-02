@@ -7,8 +7,8 @@ import TopicNoteListTitle from "../components/ui/TopicNoteListTitle";
 import TopicNoteListPattern from "../components/ui/TopicNoteListPattern";
 import styled from "styled-components";
 import Loading from "../components/Loader";
-const accessToken =
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJub3RlY2hpZ2ltYSIsImV4cCI6MTY3MDM1MDc3NiwiaWF0IjoxNjY5NzQ1OTc2LCJlbWFpbCI6Im9yaXJvcmk1MTJAbmF2ZXIuY29tIn0.BovRMA2DSkRn47-fYwOitPz0PucrZYLp4wEsQEtlg_A";
+import { myUserId, accessToken } from "../loginInformation";
+import api from "../utils/api";
 const Loader = styled.span`
   text-align: center;
   display: block;
@@ -25,11 +25,11 @@ const TopicNoteListPage = () => {
   const { topicId } = useParams();
 
   async function getData() {
-    await axios
+    await api
       .get(TOPIC.GET_NOTE_LIST(topicId), {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
+        // headers: {
+        //   Authorization: `Bearer ${accessToken}`,
+        // },
       }) //topicId
       // .get("/api/topics/2/notes", {
       //   headers: {
