@@ -7,6 +7,7 @@ import * as Yup from "yup";
 import { Button, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { AUTH } from "../../constants/serverConstant";
+import "./signUp.scss";
 const Container = styled.div`
   margin-left: 20px;
   display: flex;
@@ -49,7 +50,7 @@ const SignUp = () => {
 
   const submit = async (values) => {
     const { email, username, password } = values;
-    console.log(email, username, password);
+    // console.log(email, username, password);
     try {
       await axios
         .post(AUTH.POST_SIGN_UP, {
@@ -59,7 +60,10 @@ const SignUp = () => {
         })
         .then(function (response) {
           console.log(response);
+          if (response.data.message === "이미 사용 중인 이메일입니다.") {
+          }
         });
+
       toast.success(
         <h3>
           회원가입이 완료되었습니다.
@@ -81,81 +85,94 @@ const SignUp = () => {
       });
     }
   };
-
+  // async function submit(values) {
+  //   const { email, username, password } = values;
+  //   console.log(email, username, password);
+  //   await axios
+  //     .post(AUTH.POST_SIGN_UP, {
+  //       email: `${email}`,
+  //       password: `${password}`,
+  //       nickname: `${username}`,
+  //     })
+  //     .then(function (response) {
+  //       console.log(response);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // }
   return (
-    <Container>
-      <Formik
-        initialValues={{
-          email: "",
-          username: "",
-          password: "",
-          password2: "",
-        }}
-        validationSchema={validationSchema}
-        onSubmit={submit}
-        validateOnMount={true}
-      >
-        {({ values, handleSubmit, handleChange, errors }) => (
-          <div className="signup-wrapper">
-            <ToastContainer />
-            <form onSubmit={handleSubmit} autoComplete="off">
-              <div className="input-forms">
-                <div className="input-forms-item">
-                  <div className="input-label">이메일</div>
-                  <TextField
-                    value={values.email}
-                    name="email"
-                    variant="outlined"
-                    onChange={handleChange}
-                  />
-                  <div className="error-message">{errors.email}</div>
-                </div>
-                <div className="input-forms-item">
-                  <div className="input-label">닉네임</div>
-                  <TextField
-                    value={values.username}
-                    name="username"
-                    variant="outlined"
-                    onChange={handleChange}
-                  />
-                  <div className="error-message">{errors.username}</div>
-                </div>
-                <div className="input-forms-item">
-                  <div className="input-label">비밀번호</div>
-                  <TextField
-                    value={values.password}
-                    name="password"
-                    variant="outlined"
-                    type="password"
-                    onChange={handleChange}
-                  />
-                  <div className="error-message">{errors.password}</div>
-                </div>
-                <div className="input-forms-item">
-                  <div className="input-label">비밀번호 확인</div>
-                  <TextField
-                    value={values.password2}
-                    name="password2"
-                    variant="outlined"
-                    type="password"
-                    onChange={handleChange}
-                  />
-                  <div className="error-message">{errors.password2}</div>
-                </div>
-                <Button
-                  color="primary"
-                  variant="contained"
-                  fullWidth
-                  type="submit"
-                >
-                  회원가입
-                </Button>
+    <Formik
+      initialValues={{
+        email: "",
+        username: "",
+        password: "",
+        password2: "",
+      }}
+      validationSchema={validationSchema}
+      onSubmit={submit}
+      validateOnMount={true}
+    >
+      {({ values, handleSubmit, handleChange, errors }) => (
+        <div className="signup-wrapper">
+          <ToastContainer />
+          <form onSubmit={handleSubmit} autoComplete="off">
+            <div className="input-forms">
+              <div className="input-forms-item">
+                <div className="input-label">이메일</div>
+                <TextField
+                  value={values.email}
+                  name="email"
+                  variant="outlined"
+                  onChange={handleChange}
+                />
+                <div className="error-message">{errors.email}</div>
               </div>
-            </form>
-          </div>
-        )}
-      </Formik>
-    </Container>
+              <div className="input-forms-item">
+                <div className="input-label">닉네임</div>
+                <TextField
+                  value={values.username}
+                  name="username"
+                  variant="outlined"
+                  onChange={handleChange}
+                />
+                <div className="error-message">{errors.username}</div>
+              </div>
+              <div className="input-forms-item">
+                <div className="input-label">비밀번호</div>
+                <TextField
+                  value={values.password}
+                  name="password"
+                  variant="outlined"
+                  type="password"
+                  onChange={handleChange}
+                />
+                <div className="error-message">{errors.password}</div>
+              </div>
+              <div className="input-forms-item">
+                <div className="input-label">비밀번호 확인</div>
+                <TextField
+                  value={values.password2}
+                  name="password2"
+                  variant="outlined"
+                  type="password"
+                  onChange={handleChange}
+                />
+                <div className="error-message">{errors.password2}</div>
+              </div>
+              <Button
+                color="primary"
+                variant="contained"
+                fullWidth
+                type="submit"
+              >
+                회원가입
+              </Button>
+            </div>
+          </form>
+        </div>
+      )}
+    </Formik>
   );
 };
 

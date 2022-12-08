@@ -6,8 +6,9 @@ import { Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { AUTH } from "../../constants/serverConstant";
+import { Button, TextField } from "@mui/material";
 // SignUp 컴포넌트 scss 이용
-
+import "../sign-up/signUp.scss";
 import { useDispatch } from "react-redux";
 import { setToken } from "../../redux/reducers/AuthReducer";
 const Container = styled.div`
@@ -21,6 +22,10 @@ const Container = styled.div`
   /* 이 아래는 삭제 해야함. */
   padding: 20px 0px;
 `;
+const Div = styled.div`
+  font-family: Gmarket Sans;
+`;
+
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -39,6 +44,7 @@ const Login = () => {
           password: `${password}`,
         })
         .then(function (response) {
+          console.log(response["data"]);
           // console.log(response);
           console.log(response["data"]["result"]["accessToken"]);
           dispatch(setToken(response["data"]["result"]["accessToken"]));
@@ -52,15 +58,16 @@ const Login = () => {
         navigate("/");
       }, 2000);
     } catch (e) {
+      console.log(e);
       // 서버에서 받은 에러 메시지 출력
-      toast.error(e.response.data.message + "😭", {
+      toast.error(e + "😭", {
         position: "top-center",
       });
     }
   };
 
   return (
-    <Container>
+    <Div>
       <Formik
         initialValues={{
           email: "",
@@ -72,11 +79,13 @@ const Login = () => {
         {({ values, handleSubmit, handleChange }) => (
           <div className="signup-wrapper">
             <ToastContainer />
-            <form onSubmit={handleSubmit} autoComplete="off">
+            <form onSubmit={handleSubmit}>
               <div className="input-forms">
                 <div className="input-forms-item">
-                  <div className="input-label">이메일</div>
-                  <textarea
+                  <div className="input-label" fontFamily="Gmarket Sans">
+                    이메일
+                  </div>
+                  <TextField
                     value={values.email}
                     name="email"
                     variant="outlined"
@@ -87,8 +96,10 @@ const Login = () => {
                   </div>
                 </div>
                 <div className="input-forms-item">
-                  <div className="input-label">비밀번호</div>
-                  <textarea
+                  <div className="input-label" fontFamily="Gmarket Sans">
+                    비밀번호
+                  </div>
+                  <TextField
                     value={values.password}
                     name="password"
                     variant="outlined"
@@ -99,20 +110,20 @@ const Login = () => {
                     <ErrorMessage name="password" />
                   </div>
                 </div>
-                <button
+                <Button
                   color="primary"
                   variant="contained"
                   fullWidth
                   type="submit"
                 >
                   로그인
-                </button>
+                </Button>
               </div>
             </form>
           </div>
         )}
       </Formik>
-    </Container>
+    </Div>
   );
 };
 
