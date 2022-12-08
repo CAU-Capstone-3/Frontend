@@ -37,17 +37,25 @@ const TopicTitleBarDiv1 = styled.div`
 const TopicTitleBarDiv2 = styled.div`
   display: flex;
   width: 15%;
-  margin-right: 15px;
-  border: 1px solid;
+
   align-items: center;
   border-radius: 10px;
   justify-content: center;
+  margin-left: 500px;
+  background-color: #263cff;
 `;
 
 const TopicTitleBarText = styled.span`
   font-size: 30px;
   font-family: Gmarket Sans;
   font-weight: 800;
+`;
+const TopicTitleBarText2 = styled.span`
+  font-size: 30px;
+  font-family: Gmarket Sans;
+  font-weight: 800;
+
+  color: #ffffff;
 `;
 //-----------
 // img src 담당.
@@ -140,7 +148,7 @@ const NoteButton = styled.button.attrs({
   type: `submit`,
 })``;
 const NoteButtonImg = styled.img.attrs({ src: `${NOTE_BUTTON}` })``;
-
+const AdviceButton = styled.button``;
 function NoteList(noteId, name, time) {
   const date = new Date(time);
   const year = date.getFullYear();
@@ -245,15 +253,15 @@ const TopicNoteListPattern = (results) => {
         </TopicTitleBarDiv1>
 
         <TopicTitleBarDiv2>
-          <button onClick={onClick}>
-            <TopicTitleBarText>분석 결과</TopicTitleBarText>
-          </button>
+          <AdviceButton onClick={onClick}>
+            <TopicTitleBarText2>분석 결과</TopicTitleBarText2>
+          </AdviceButton>
         </TopicTitleBarDiv2>
-        <TopicTitleBarDiv2>
+        {/* <TopicTitleBarDiv2>
           <button onClick={postResult}>
             <TopicTitleBarText>토픽 분석</TopicTitleBarText>
           </button>
-        </TopicTitleBarDiv2>
+        </TopicTitleBarDiv2> */}
       </TopicTitleBarRow>
       {/* ----------- */}
       <ImgDiv>
