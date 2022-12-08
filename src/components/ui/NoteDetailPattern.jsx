@@ -36,6 +36,8 @@ const SentenceSpan = styled.span`
 `;
 
 const DetailList = (sentence) => {
+  console.log(sentence.split("\n"));
+
   return (
     <li>
       <SentenceDiv>
@@ -49,9 +51,10 @@ const NoteDetailPattern = (results) => {
     <Container>
       <DetailDiv>
         <ul>
-          {results["sentences"].map((sentence) => {
-            return DetailList(sentence["content"]);
+          {results["content"].split("\n").map((sentence) => {
+            return DetailList(sentence);
           })}
+          {/* {DetailList(results["content"])} */}
         </ul>
       </DetailDiv>
     </Container>
