@@ -128,7 +128,7 @@ export default function NoteAnalysisAdmin(reesults) {
   }
 
   return (
-    <Container>
+    <>
       <Table>
         <caption>토픽 관리</caption>
 
@@ -149,6 +149,6 @@ export default function NoteAnalysisAdmin(reesults) {
           })}
         </tbody>
       </Table>
-    </Container>
+    </>
   );
 }

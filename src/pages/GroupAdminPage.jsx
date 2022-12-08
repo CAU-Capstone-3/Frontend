@@ -13,6 +13,7 @@ import GroupMember from "../components/GroupAdminComponents/GroupMember";
 import ResponseBox from "../components/GroupAdminComponents/ResponseBox";
 import SubjectListEdit from "../components/GroupAdminComponents/SubjectListEdit";
 import GroupInform from "../components/GroupAdminComponents/GroupInform";
+
 const Container = styled.div`
   margin-left: 20px;
   display: flex;
