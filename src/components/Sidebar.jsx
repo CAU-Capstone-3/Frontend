@@ -254,7 +254,9 @@ const Sidebar = () => {
       </div>
     );
   }
-
+  function userAdmin() {
+    navigate(`/user/admin`);
+  }
   return (
     <Container>
       {loading ? (
@@ -269,10 +271,12 @@ const Sidebar = () => {
               {localStorage.getItem("nickname")}님의 놋치지마
             </UserNameSpan>
           </UserNameDiv>
-          <MyPageDiv>
-            <MyPageImg />
-            <MyPageSpan>마이페이지</MyPageSpan>
-          </MyPageDiv>
+          <button onClick={userAdmin}>
+            <MyPageDiv>
+              <MyPageImg />
+              <MyPageSpan>마이페이지</MyPageSpan>
+            </MyPageDiv>
+          </button>
           <GroupDiv>
             <GroupImg />
             <MyPageSpan>그룹 목록</MyPageSpan>

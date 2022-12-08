@@ -8,13 +8,10 @@ import { NOTE, TOPIC } from "../constants/serverConstant";
 import COMPLETE from "../assets/작성완료.png";
 import Loading from "../components/Loader";
 import api from "../utils/api";
-import GroupInvite from "../components/GroupAdminComponents/GroupInvite";
-import GroupMember from "../components/GroupAdminComponents/GroupMember";
-import ResponseBox from "../components/GroupAdminComponents/ResponseBox";
-import SubjectListEdit from "../components/GroupAdminComponents/SubjectListEdit";
-import GroupInform from "../components/GroupAdminComponents/GroupInform";
+import UserGroupInvite from "../components/UserAdminComponents/UserGroupInvite";
+import WriteNoteList from "../components/UserAdminComponents/WriteNoteList";
+import EditUserInformation from "../components/UserAdminComponents/EditUserInformation";
 import Header from "../components/Header";
-
 const Container = styled.div`
   margin-left: 20px;
   display: flex;
@@ -43,13 +40,11 @@ export default function GroupAdminPage() {
     <Div>
       <Header />
       <Sidebar />
-      <GroupInform />
-      <SubjectListEdit />
-      <GroupMember />
-      <RowDiv>
-        <GroupInvite />
-        <ResponseBox />
-      </RowDiv>
+      <Container>
+        <EditUserInformation />
+        <UserGroupInvite />
+        {/* <WriteNoteList /> */}
+      </Container>
     </Div>
   );
 }

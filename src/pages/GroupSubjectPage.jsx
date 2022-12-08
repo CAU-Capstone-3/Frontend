@@ -8,6 +8,7 @@ import GroupSubjectPattern from "../components/ui/GroupSubjectPattern";
 import { GROUP } from "../constants/serverConstant";
 import Loading from "../components/Loader";
 import { myUserId, accessToken } from "../loginInformation";
+import Header from "../components/Header";
 import api from "../utils/api";
 // 과목별 토픽 목록
 const Loader = styled.span`
@@ -49,6 +50,7 @@ export default function SubjectTopicPage() {
 
   return (
     <div>
+      <Header />
       <Sidebar />
       {loading ? (
         <Loading></Loading>

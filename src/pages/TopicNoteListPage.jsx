@@ -7,12 +7,8 @@ import TopicNoteListTitle from "../components/ui/TopicNoteListTitle";
 import TopicNoteListPattern from "../components/ui/TopicNoteListPattern";
 import styled from "styled-components";
 import Loading from "../components/Loader";
-import { myUserId, accessToken } from "../loginInformation";
+import Header from "../components/Header";
 import api from "../utils/api";
-const Loader = styled.span`
-  text-align: center;
-  display: block;
-`;
 
 const TopicNoteListPage = () => {
   useEffect(() => {
@@ -50,6 +46,7 @@ const TopicNoteListPage = () => {
 
   return (
     <div>
+      <Header />
       <Sidebar />
 
       {loading ? (

@@ -6,6 +6,7 @@ import { TOPIC, SUBJECT } from "../constants/serverConstant";
 import Loading from "../components/Loader";
 import NoteAnalysisAdmin from "../components/SubjectAdminComponents/NoteAnalysisAdmin";
 import api from "../utils/api";
+import Header from "../components/Header";
 
 const WhiteBox = styled.div`
   .label {
@@ -130,6 +131,7 @@ export default function SubjectAdminPage() {
   }, []);
   return (
     <Div>
+      <Header />
       <Sidebar />
 
       {loading ? (

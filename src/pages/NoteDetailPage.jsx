@@ -9,13 +9,10 @@ import NoteDetailPattern from "../components/ui/NoteDetailPattern";
 import api from "../utils/api";
 import { NOTE } from "../constants/serverConstant";
 import Loading from "../components/Loader";
-import { myUserId, accessToken } from "../loginInformation";
+
+import Header from "../components/Header";
 // 과목별 토픽 목록
 
-const Loader = styled.span`
-  text-align: center;
-  display: block;
-`;
 export default function SubjectTopicPage() {
   // const navigate = useNavigate();
   // const [status, getStatus] = useState();
@@ -48,6 +45,7 @@ export default function SubjectTopicPage() {
 
   return (
     <div>
+      <Header />
       <Sidebar />
 
       {/* TODO: 제목 부분 바꾸기 */}

@@ -10,6 +10,7 @@ import Sidebar from "../components/Sidebar";
 import api from "../utils/api";
 import Loading from "../components/Loader";
 import { myUserId, accessToken } from "../loginInformation";
+import Header from "../components/Header";
 
 const Loader = styled.span`
   text-align: center;
@@ -116,6 +117,7 @@ const AnalysisPage = () => {
 
   return (
     <div>
+      <Header />
       <Sidebar />
 
       {loading ? (

@@ -9,6 +9,7 @@ import COMPLETE from "../assets/작성완료.png";
 import { myUserId, accessToken } from "../loginInformation";
 import Loading from "../components/Loader";
 import api from "../utils/api";
+import Header from "../components/Header";
 // 과목별 토픽 목록
 const CompleteButtonImg = styled.img.attrs({ src: `${COMPLETE}` })``;
 const Loader = styled.span`
@@ -137,6 +138,7 @@ export default function SubjectTopicPage() {
 
   return (
     <div>
+      <Header />
       <Sidebar />
       {loading ? (
         <Loading></Loading>

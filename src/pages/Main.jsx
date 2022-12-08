@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Sidebar from "../components/Sidebar";
+import Header from "../components/Header";
 // import "../App.css";
 const Div = styled.div`
   height: 1200px;
@@ -28,6 +29,7 @@ const Button = styled.button`
 const Main = () => {
   return (
     <>
+      <Header />
       <Sidebar />
       <Container>
         <Div>
