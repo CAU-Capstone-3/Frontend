@@ -1,3 +1,4 @@
+// 모든 페이지 타이틀 통합.
 import React from "react";
 import styled from "styled-components";
 
@@ -36,17 +37,31 @@ const TitleTopicText = styled.div`
   color: #263cff;
   font-weight: 900;
 `;
-
-const SubjectTopicTitle = () => {
+const TopicManageButton = styled.button`
+  width: 150px;
+  height: 40px;
+  border: 1px solid #263cff;
+  border-radius: 10px;
+  background-color: #263cff;
+  font-weight: 700;
+  color: #ffffff;
+  margin-left: 500px;
+`;
+const Title = (titleName, titleText, subjectId) => {
+  function onClick() {
+    window.location.href = `/subject/admin/${subjectId}`;
+  }
   return (
     <TitleDiv>
-      <TitleResult>토픽목록</TitleResult>
+      <TitleResult>{titleName}</TitleResult>
+
       <TitleTopicDiv>
-        <TitleTopicText>컴퓨터통신</TitleTopicText>
+        <TitleTopicText>{titleText}</TitleTopicText>
         {/* TitleTopicText안 text를 설정가능하게끔 바꾸기 */}
       </TitleTopicDiv>
+      <TopicManageButton onClick={onClick}>과목 토픽 관리</TopicManageButton>
     </TitleDiv>
   );
 };
 
-export default SubjectTopicTitle;
+export default Title;

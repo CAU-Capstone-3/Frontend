@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import SubjectTopicPattern from "../components/ui/SubjectTopicPattern";
-import Title from "../components/ui/Title";
+import SubjectTopicTitle from "../components/ui/SubjectTopicTitle";
 import { SUBJECT } from "../constants/serverConstant";
 import Loading from "../components/Loader";
 
@@ -48,7 +48,11 @@ export default function SubjectTopicPage() {
         <Loading></Loading>
       ) : (
         <>
-          {Title("토픽목록", `${results["subjectName"]}`)}
+          {SubjectTopicTitle(
+            "토픽목록",
+            `${results["subjectName"]}`,
+            subjectId
+          )}
           {SubjectTopicPattern(results["topics"])}
         </>
       )}
