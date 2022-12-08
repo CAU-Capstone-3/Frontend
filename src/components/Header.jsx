@@ -14,10 +14,16 @@ const Logo = styled.img`
   top: 30px;
   margin: 30px;
 `;
+const Button = styled.button``;
 export default function Header() {
+  function onClick() {
+    window.location.href = `/`;
+  }
   return (
     <Container>
-      <Logo src={LogoSrc} />
+      <Button onClick={onClick}>
+        <Logo src={LogoSrc} />
+      </Button>
     </Container>
   );
 }
