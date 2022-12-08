@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Sidebar from "../components/Sidebar";
-
+// import "../App.css";
 const Container = styled.div`
   margin-left: 20px;
   display: flex;
@@ -26,5 +26,4 @@ const Main = () => {
     </div>
   );
 };
-
 export default Main;

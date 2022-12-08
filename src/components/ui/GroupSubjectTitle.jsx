@@ -48,11 +48,14 @@ const GroupMangeButton = styled.button.attrs({
   type: `submit`,
 })``;
 const Title = (titleName) => {
+  function onClick() {
+    window.location.href = `/group/subject/topic/notes/`;
+  }
   return (
     <div>
       <TitleDiv>
         <TitleResult>{titleName}</TitleResult>
-        <GroupMangeButton>
+        <GroupMangeButton onClick={onClick}>
           <GroupManageImg />
         </GroupMangeButton>
         <TitleTopicDiv></TitleTopicDiv>

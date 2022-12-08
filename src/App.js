@@ -48,6 +48,7 @@ function App() {
           path="/group/subject/topic/result/:topicId"
           element={<AnalysisPage />}
         />
+        {/* <Route path="/group/admin" element={} /> */}
       </Routes>
     </BrowserRouter>
     /* <Outlet /> */
@@ -55,14 +56,3 @@ function App() {
 }
 
 export default App;
-/* <Navbar bg="dark" variant="dark">
-          <Container>
-            <Navbar.Brand href="#home">Home</Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link href="#home">Subjects</Nav.Link>
-              <Nav.Link href="#features">Topics</Nav.Link>
-              <Nav.Link href="#pricing">Subjects</Nav.Link>
-            </Nav>
-          </Container>
-        </Navbar>
-      </div> */
