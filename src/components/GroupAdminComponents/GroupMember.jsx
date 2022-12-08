@@ -54,7 +54,7 @@ const Table = styled.table`
   caption {
     text-align: center;
     border-bottom: 2px solid #3b72ff;
-    font-size: 1rem;
+    font-size: 20px;
     color: black;
     padding: 10px;
     background-color: #ffffff;

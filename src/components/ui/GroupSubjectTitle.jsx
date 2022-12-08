@@ -49,7 +49,7 @@ const GroupMangeButton = styled.button.attrs({
 })``;
 const Title = (titleName) => {
   function onClick() {
-    window.location.href = `/group/subject/topic/notes/`;
+    window.location.href = `/group/admin`;
   }
   return (
     <div>

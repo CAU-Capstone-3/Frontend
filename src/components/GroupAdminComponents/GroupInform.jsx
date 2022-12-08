@@ -12,7 +12,10 @@ const Container = styled.div`
     font-weight: bold;
     letter-spacing: 2px;
     margin-bottom: 10px;
+    font-size: 20px;
+    text-decoration: underline #3b72ff;
   }
+
   margin-left: 20px;
   display: flex;
   width: auto;
@@ -28,7 +31,7 @@ const Container = styled.div`
 `;
 
 const StyledInput = styled.input`
-  width: 1000px;
+  width: 75%;
   height: 48px;
   box-sizing: border-box;
   background-color: #f5f5f5;
@@ -48,6 +51,7 @@ const Button = styled.button`
   height: 48px;
   align-items: center;
   margin-top: 30px;
+  margin-left: 20px;
 `;
 export default function GroupInform() {
   const [title, setTitle] = useState("");

@@ -30,7 +30,7 @@ const Container = styled.div`
   background-color: #f6f6f6;
 `;
 const Div = styled.div`
-  background-color: #f6f6f6;
+  /* background-color: #f6f6f6; */
 `;
 export default function GroupAdminPage() {
   return (
