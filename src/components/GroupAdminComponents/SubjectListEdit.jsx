@@ -8,6 +8,7 @@ import api from "../../utils/api";
 import { GROUP, SUBJECT } from "../../constants/serverConstant";
 import Modal from "../Modal";
 import PLUS_ICON from "../../assets/그룹추가.png";
+import Loading from "../Loader";
 //과목목록
 // const Container = styled.div`
 //   margin-left: 20px;
@@ -132,7 +133,12 @@ const AddButton = styled.div`
 export default function SubjectListEdit() {
   const [modalOpen, setModalOpen] = useState(false);
   const [content, setContent] = useState("");
+  const [results, setResults] = useState();
+  const [loading, setLoading] = useState(true);
   const { groupId } = useParams();
+  useEffect(() => {
+    getData();
+  }, []);
   function handleSetContent(e) {
     setContent(e.target.value);
   }
@@ -163,9 +169,37 @@ export default function SubjectListEdit() {
         });
     }
   }
+  async function getData() {
+    await api
+      .get(GROUP.GET_GROUP_SUBJECTS(groupId)) //subjectId
+      .then((response) => {
+        const results = response.data["result"];
+        setResults(results["subjects"]);
+        setLoading(false);
+        console.log(results["subjects"]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  function SubjectList(subject) {
+    const subjectId = subject["subjectId"];
+    function onClick() {
+      window.location.href = `/subject/admin/${subjectId}`;
+    }
+    return (
+      <Li>
+        {subject["name"]}
+        <div>
+          <EditButton onClick={onClick} />
+          <RemButton />
+        </div>
+      </Li>
+    );
+  }
   return (
     <Container>
-      <Tilte>과목목록</Tilte>
+      <Tilte>과목 목록</Tilte>
       <button onClick={openModal}>
         <PlusDiv>
           <PlusImg />
@@ -190,36 +224,17 @@ export default function SubjectListEdit() {
         </AddDiv>
       </Modal>
       <WhiteBox>
-        <ul>
-          <Li>
-            코딩부트캠프
-            <div>
-              <EditButton />
-              <RemButton />
-            </div>
-          </Li>
-          <Li>
-            데이터베이스설계
-            <div>
-              <EditButton />
-              <RemButton />
-            </div>
-          </Li>
-          <Li>
-            데이터베이스설계
-            <div>
-              <EditButton />
-              <RemButton />
-            </div>
-          </Li>
-          <Li>
-            데이터베이스설계
-            <div>
-              <EditButton />
-              <RemButton />
-            </div>
-          </Li>
-        </ul>
+        {loading ? (
+          <Loading></Loading>
+        ) : (
+          <>
+            <ul>
+              {results.map((subject) => {
+                return SubjectList(subject);
+              })}
+            </ul>
+          </>
+        )}
       </WhiteBox>
     </Container>
   );

@@ -7,6 +7,7 @@ import AnalysisPage from "./pages/ResultPage";
 import GroupSubjectPage from "./pages/GroupSubjectPage";
 import NoteDetailPage from "./pages/NoteDetailPage";
 import GroupAdminPage from "./pages/GroupAdminPage";
+import SubjectAdminPage from "./pages/SubjectAdminPage";
 import Main from "./pages/Main";
 import Login from "./pages/login/Login";
 import SignUp from "./pages/sign-up/sign-up";
@@ -53,6 +54,10 @@ function App() {
           element={<AnalysisPage />}
         />
         <Route path="/group/admin/:groupId" element={<GroupAdminPage />} />
+        <Route
+          path="/subject/admin/:subjectId"
+          element={<SubjectAdminPage />}
+        />
       </Routes>
     </BrowserRouter>
     /* <Outlet /> */

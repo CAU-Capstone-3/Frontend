@@ -58,8 +58,6 @@ const SubjectTopicPattern = (subjects) => {
           return CreateSubjectRow(subject);
         })}
       </SubjectDiv>
-      {/* <SubjectBoxDiv>데이터베이스</SubjectBoxDiv>
-        <SubjectBoxDiv>컴퓨터통신</SubjectBoxDiv> */}
     </Container>
   );
 };
