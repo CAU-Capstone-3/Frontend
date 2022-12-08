@@ -1,18 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-const Block = styled.div`
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  background: #f4f5f7;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: Gmarket Sans;
-`;
+
+// const Block = styled.div`
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   background: #f4f5f7;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   font-family: Gmarket Sans;
+// `;
 const Container = styled.div`
   p {
     margin-left: 10px;
@@ -24,13 +25,18 @@ const Container = styled.div`
     margin-left: 10px;
     margin-top: 10px;
   }
-  display: block;
-  box-shadow: 0px 14px 14px rgba(20, 23, 38, 0.02);
-  padding-bottom: 0.5rem;
-  border-radius: 16px;
-  background-color: #ffffff;
-  width: 531px;
-  height: 336px;
+  margin-left: 20px;
+  display: flex;
+  width: auto;
+  flex-direction: column;
+  margin-left: 16rem;
+  padding: 0 4rem;
+  font-family: Gmarket Sans;
+  margin-top: 20px;
+  /* 이 아래는 삭제 해야함. */
+  border-style: solid;
+
+  padding: 20px 0px;
 `;
 const BlueBox = styled.div`
   width: 531px;
@@ -49,14 +55,12 @@ const NameList = styled.div`
 `;
 export default function ResponseBox() {
   return (
-    <Block>
-      <Container>
-        <BlueBox />
-        <p>응답대기중</p>
-        <NameList>
-          <div className="name">김유진</div>
-        </NameList>
-      </Container>
-    </Block>
+    <Container>
+      <BlueBox />
+      <p>응답대기중</p>
+      <NameList>
+        <div className="name">김유진</div>
+      </NameList>
+    </Container>
   );
 }

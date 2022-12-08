@@ -23,6 +23,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   margin-right: 1rem;
+  background-color: #ffffff;
   /* border-right: 1px solid rgba(0, 0, 0, 0.2); */
 `;
 const GroupListDiv = styled.div`

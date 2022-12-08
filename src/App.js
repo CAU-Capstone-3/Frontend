@@ -6,10 +6,12 @@ import TopicNoteListPage from "./pages/TopicNoteListPage";
 import AnalysisPage from "./pages/ResultPage";
 import GroupSubjectPage from "./pages/GroupSubjectPage";
 import NoteDetailPage from "./pages/NoteDetailPage";
+import GroupAdminPage from "./pages/GroupAdminPage";
 import Login from "./pages/login/Login";
 import SignUp from "./pages/sign-up/sign-up";
 import Main from "./pages/Main";
 import Header from "./components/Header";
+
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -48,7 +50,7 @@ function App() {
           path="/group/subject/topic/result/:topicId"
           element={<AnalysisPage />}
         />
-        {/* <Route path="/group/admin" element={} /> */}
+        <Route path="/group/admin" element={<GroupAdminPage />} />
       </Routes>
     </BrowserRouter>
     /* <Outlet /> */

@@ -2,7 +2,22 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import api from "../../utils/api";
 //그룹에 속한 멤버 목록 조회
+const Container = styled.div`
+  margin-left: 20px;
+  display: flex;
+  width: auto;
+  flex-direction: column;
+  margin-left: 16rem;
+  padding: 0 4rem;
+  font-family: Gmarket Sans;
+  margin-top: 20px;
+  /* 이 아래는 삭제 해야함. */
+  border-style: solid;
+
+  padding: 20px 0px;
+`;
 const Table = styled.table`
   caption-side: top;
   width: 1100px;
@@ -10,6 +25,7 @@ const Table = styled.table`
   border-collapse: collapse;
   box-shadow: 0 5px 10px #f9fbff;
   background-color: white;
+
   td,
   th {
     padding: 1rem 2rem;
@@ -52,7 +68,7 @@ export default function GroupMember() {
     getData();
   }, []);
   async function getData() {
-    await axios
+    await api
       .get(`http://18.189.150.89:8080/api/groups/${groupId}/members`)
       .then((res) => {
         SetTeam(res.data["result"]);
@@ -63,22 +79,24 @@ export default function GroupMember() {
       });
   }
   return (
-    <Table>
-      <caption>팀원조회</caption>
-      <thead>
-        <tr>
-          <th>이름</th>
-          <th>이메일</th>
-        </tr>
-      </thead>
-      <tbody>
-        {Team.map((data) => (
-          <tr key={data.userId}>
-            <td>{data.nickname}</td>
-            <td>{data.email}</td>
+    <Container>
+      <Table>
+        <caption>팀원조회</caption>
+        <thead>
+          <tr>
+            <th>이름</th>
+            <th>이메일</th>
           </tr>
-        ))}
-      </tbody>
-    </Table>
+        </thead>
+        <tbody>
+          {Team.map((data) => (
+            <tr key={data.userId}>
+              <td>{data.nickname}</td>
+              <td>{data.email}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </Container>
   );
 }

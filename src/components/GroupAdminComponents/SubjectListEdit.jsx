@@ -1,10 +1,20 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import Edit from "../../img/연필.png";
-import Rem from "../../img/쓰레기통.png";
+import Edit from "../../assets/연필.png";
+import Rem from "../../assets/쓰레기통.png";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 //과목목록
+// const Container = styled.div`
+//   margin-left: 20px;
+//   display: flex;
+//   width: auto;
+//   flex-direction: column;
+//   align-items: center;
+//   margin-left: 16rem;
+//   padding: 0 4rem;
+//   margin-top: 20px;
+// `;
 const Container = styled.div`
   margin-left: 20px;
   display: flex;
@@ -12,7 +22,12 @@ const Container = styled.div`
   flex-direction: column;
   margin-left: 16rem;
   padding: 0 4rem;
+  font-family: Gmarket Sans;
   margin-top: 20px;
+  /* 이 아래는 삭제 해야함. */
+  border-style: solid;
+
+  padding: 20px 0px;
 `;
 const WhiteBox = styled.div`
   box-sizing: border-box;
@@ -35,9 +50,10 @@ const Li = styled.li`
 `;
 const Tilte = styled.h3`
   font-weight: bold;
-  font-size: 20x;
+  font-size: 20px;
   text-decoration: underline #3b72ff;
   text-align: center;
+  margin-bottom: 15px;
 `;
 //연필버튼
 const EditButton = styled.button`
@@ -46,6 +62,7 @@ const EditButton = styled.button`
   background-image: url(${Edit});
   border: none;
   background-color: transparent;
+  margin-right: 10px;
 `; //쓰레기통버튼
 const RemButton = styled.button`
   background-color: transparent;
