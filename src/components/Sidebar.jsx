@@ -2,6 +2,8 @@ import styled from "styled-components";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import * as Yup from "yup";
 import { USERS } from "../constants/serverConstant";
 import HOME_ICON from "../assets/사이드바홈아이콘.png";
 import GROUP_ICON from "../assets/사이드바그룹아이콘.png";
@@ -9,6 +11,7 @@ import PLUS_ICON from "../assets/그룹추가.png";
 import { accessToken } from "../loginInformation";
 import api from "../utils/api";
 import Modal from "./Modal";
+import { GROUP } from "../constants/serverConstant";
 
 const Loader = styled.span`
   text-align: center;
@@ -142,17 +145,71 @@ const PlusDiv = styled.div`
     border-right: solid 5px #3649f9;
   }
 `;
+const InputTextArea = styled.textarea`
+  resize: none;
+  width: 85%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+
+  overflow: hidden;
+  margin-right: 5px;
+  height: 50px;
+`;
+const AddDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+const AddButton = styled.div`
+  border: 2px solid;
+  border-radius: 7px;
+  color: #ffffff;
+  background-color: #0f62fe;
+  height: 50px;
+  width: 70px;
+  font-size: 20px;
+  padding-top: 7px;
+`;
 
 const Sidebar = () => {
   const [loading, setLoading] = useState(true);
   const [groups, setGroups] = useState();
   const [modalOpen, setModalOpen] = useState(false);
+  const [content, setContent] = useState("");
   const openModal = () => {
     setModalOpen(true);
   };
   const closeModal = () => {
     setModalOpen(false);
   };
+
+  function handleSetContent(e) {
+    setContent(e.target.value);
+  }
+  async function postGroupName(groupName) {
+    // if (groupName.length === 0) {
+    //   toast.error("그룹 이름은 3글자 이상이어야 합니다.", {
+    //     position: "top-center",
+    //   });
+    // }
+    await api
+      .post(GROUP.POST_ADD_GROUP, {
+        userId: `${localStorage.getItem("userId")}`,
+        groupName: `${groupName}`,
+      }) //subjectId
+      .then((response) => {
+        const results = response.data["result"];
+        console.log(results);
+        closeModal();
+        window.location.reload();
+        // setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -226,7 +283,21 @@ const Sidebar = () => {
             </PlusDiv>
           </button>
           <Modal open={modalOpen} close={closeModal} header="그룹 추가">
-            모달창 구현 완료.
+            <AddDiv>
+              <InputTextArea
+                onChange={(e) => handleSetContent(e)}
+                placeholder="그룹명을 입력해주세요."
+              ></InputTextArea>
+              <button>
+                <AddButton
+                  onClick={() => {
+                    postGroupName(content);
+                  }}
+                >
+                  추가
+                </AddButton>
+              </button>
+            </AddDiv>
           </Modal>
           {groups.map(function (group) {
             return GroupList(group);
