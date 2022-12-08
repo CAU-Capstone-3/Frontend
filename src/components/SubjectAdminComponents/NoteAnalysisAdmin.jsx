@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import CANTANALYSIS from "../../assets/분석요청불가버튼.png";
 import ANALYSIS from "../../assets/분석요청가능버튼.png";
 import DELETE from "../../assets/삭제버튼.png";
 import { TOPIC } from "../../constants/serverConstant";
+
 import api from "../../utils/api";
 //노트분석 component
 
@@ -125,10 +126,12 @@ export default function NoteAnalysisAdmin(reesults) {
       </tr>
     );
   }
+
   return (
     <Container>
       <Table>
         <caption>토픽 관리</caption>
+
         <thead>
           <tr>
             <th>토픽</th>
