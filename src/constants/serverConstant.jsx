@@ -34,6 +34,7 @@ const SUBJECT = Object.freeze({
 });
 
 const TOPIC = Object.freeze({
+  POST_NEW_TOPIC: `${BASE_URL}/topics`,
   GET_RESULT: (topicId) => `${BASE_URL}/topics/${topicId}/advices`, // 토픽별 분석결과 목록을 조회
   POST_RESULT: (topicId) => `${BASE_URL}/topics/${topicId}/advices`, // 해당 토픽에 대한 분석 시작을 요청 ... 그냥 요청만 하면 됨 topicId 껴서 어차피 post하니까
   GET_NOTE_LIST: (topicId) => `${BASE_URL}/topics/${topicId}/notes`, // 해당 토픽 내에서 작성된 노트의 목록 조회

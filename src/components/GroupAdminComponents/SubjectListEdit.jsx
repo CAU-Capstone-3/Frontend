@@ -38,7 +38,7 @@ const WhiteBox = styled.div`
   box-sizing: border-box;
   box-shadow: 0px 14px 14px rgba(20, 23, 38, 0.02);
   border: 2px solid #e0e0e0;
-  width: 1100px;
+  width: auto;
   background-color: #fdfdfd;
   border-radius: 16px;
 `;
@@ -46,8 +46,8 @@ const Li = styled.li`
   overflow: auto;
   text-align: left;
   justify-content: space-between;
+  align-items: center;
   display: flex;
-  margin-top: 0.5em;
   padding: 1em;
   &:nth-child(even) {
     background: #e1f5fe;

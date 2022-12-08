@@ -4,15 +4,11 @@ import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Title from "../components/ui/Title";
-import { NOTE, TOPIC } from "../constants/serverConstant";
-import COMPLETE from "../assets/작성완료.png";
+import { TOPIC } from "../constants/serverConstant";
 import Loading from "../components/Loader";
+import NoteAnalysisAdmin from "../components/SubjectAdminComponents/NoteAnalysisAdmin";
 import api from "../utils/api";
-import GroupInvite from "../components/GroupAdminComponents/GroupInvite";
-import GroupMember from "../components/GroupAdminComponents/GroupMember";
-import ResponseBox from "../components/GroupAdminComponents/ResponseBox";
-import SubjectListEdit from "../components/GroupAdminComponents/SubjectListEdit";
-import GroupInform from "../components/GroupAdminComponents/GroupInform";
+
 const Container = styled.div`
   margin-left: 20px;
   display: flex;
@@ -40,13 +36,7 @@ export default function SubjectAdminPage() {
   return (
     <Div>
       <Sidebar />
-      <GroupInform />
-      <SubjectListEdit />
-      <GroupMember />
-      <RowDiv>
-        <GroupInvite />
-        <ResponseBox />
-      </RowDiv>
+      <NoteAnalysisAdmin />
     </Div>
   );
 }
