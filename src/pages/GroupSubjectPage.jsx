@@ -54,7 +54,7 @@ export default function SubjectTopicPage() {
         <Loading></Loading>
       ) : (
         <>
-          {GroupSubjectTitle(results["groupName"])}
+          {GroupSubjectTitle(results["groupName"], groupId)}
           {GroupSubjectPattern(results["subjects"])}
         </>
       )}

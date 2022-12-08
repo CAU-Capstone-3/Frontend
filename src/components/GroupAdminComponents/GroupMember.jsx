@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+
 import api from "../../utils/api";
 //그룹에 속한 멤버 목록 조회
 const Container = styled.div`

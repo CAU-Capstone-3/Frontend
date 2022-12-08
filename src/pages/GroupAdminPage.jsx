@@ -32,16 +32,21 @@ const Container = styled.div`
 const Div = styled.div`
   /* background-color: #f6f6f6; */
 `;
+const RowDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 export default function GroupAdminPage() {
   return (
     <Div>
       <Sidebar />
-
       <GroupInform />
       <SubjectListEdit />
       <GroupMember />
-      <GroupInvite />
-      <ResponseBox />
+      <RowDiv>
+        <GroupInvite />
+        <ResponseBox />
+      </RowDiv>
     </Div>
   );
 }

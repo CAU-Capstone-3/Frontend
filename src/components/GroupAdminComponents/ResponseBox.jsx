@@ -1,19 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-// const Block = styled.div`
-//   position: absolute;
-//   left: 0;
-//   top: 0;
-//   bottom: 0;
-//   right: 0;
-//   background: #f4f5f7;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   font-family: Gmarket Sans;
-// `;
 const Container = styled.div`
   p {
     margin-left: 10px;
@@ -25,11 +12,11 @@ const Container = styled.div`
     margin-left: 10px;
     margin-top: 10px;
   }
-  margin-left: 20px;
+
   display: flex;
   width: auto;
   flex-direction: column;
-  margin-left: 16rem;
+  margin: 15px;
   padding: 0 4rem;
   font-family: Gmarket Sans;
   margin-top: 20px;
@@ -46,6 +33,7 @@ const BlueBox = styled.div`
   border-top-right-radius: 20px;
 `;
 const NameList = styled.div`
+  margin-bottom: 10px;
   .name {
     font-weight: bold;
     margin-left: 15px;
@@ -60,6 +48,9 @@ export default function ResponseBox() {
       <p>응답대기중</p>
       <NameList>
         <div className="name">김유진</div>
+      </NameList>
+      <NameList>
+        <div className="name">장훈석</div>
       </NameList>
     </Container>
   );

@@ -1,21 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
+import { INVITE } from "../../constants/serverConstant";
+import api from "../../utils/api";
 //그룹초대, 새로초대할 멤버
 
-//화면전체
-// const Container = styled.div`
-//   position: absolute;
-//   left: 0;
-//   top: 0;
-//   bottom: 0;
-//   right: 0;
-//   background: #f4f5f7;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   font-family: Gmarket Sans;
-// `;
 const Container = styled.div`
   margin-left: 20px;
   display: flex;
@@ -95,14 +84,39 @@ const Button = styled.button`
   margin-left: 20px;
 `;
 export default function GroupInvite() {
+  const { groupId } = useParams();
+  const [content, setContent] = useState("");
+
+  async function postInvite() {
+    await api
+      .post(INVITE.POST_INVITE, {
+        groupId: `${groupId}`,
+        email: `${content}`,
+      })
+      .then(function (response) {
+        console.log(response);
+        window.location.reload();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+  const handleSetContent = (e) => {
+    // onChange함수.
+    setContent(e.target.value);
+  };
   return (
     <Container>
       <Box>
         <BlueBox />
         <div className="label">그룹초대</div>
         <Label>초대할 사용자 아이디</Label>
-        <StyledInput type="input" placeholder="example@naver.com" />
-        <Button>초대하기</Button>
+        <StyledInput
+          type="input"
+          placeholder="example@naver.com"
+          onChange={(e) => handleSetContent(e)}
+        />
+        <Button onClick={postInvite}>초대하기</Button>
       </Box>
     </Container>
   );

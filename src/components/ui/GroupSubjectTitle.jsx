@@ -47,9 +47,9 @@ const GroupManageImg = styled.img.attrs({ src: `${GROUP_MANAGE_BUTTON}` })`
 const GroupMangeButton = styled.button.attrs({
   type: `submit`,
 })``;
-const Title = (titleName) => {
+const Title = (titleName, groupId) => {
   function onClick() {
-    window.location.href = `/group/admin`;
+    window.location.href = `/group/admin/${groupId}`;
   }
   return (
     <div>

@@ -52,7 +52,7 @@ function App() {
           path="/group/subject/topic/result/:topicId"
           element={<AnalysisPage />}
         />
-        <Route path="/group/admin" element={<GroupAdminPage />} />
+        <Route path="/group/admin/:groupId" element={<GroupAdminPage />} />
       </Routes>
     </BrowserRouter>
     /* <Outlet /> */

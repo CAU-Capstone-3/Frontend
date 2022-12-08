@@ -189,26 +189,27 @@ const Sidebar = () => {
     setContent(e.target.value);
   }
   async function postGroupName(groupName) {
-    // if (groupName.length === 0) {
-    //   toast.error("그룹 이름은 3글자 이상이어야 합니다.", {
-    //     position: "top-center",
-    //   });
-    // }
-    await api
-      .post(GROUP.POST_ADD_GROUP, {
-        userId: `${localStorage.getItem("userId")}`,
-        groupName: `${groupName}`,
-      }) //subjectId
-      .then((response) => {
-        const results = response.data["result"];
-        console.log(results);
-        closeModal();
-        window.location.reload();
-        // setLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
+    if (groupName.length === 0) {
+      toast.error("그룹 이름은 3글자 이상이어야 합니다.", {
+        position: "top-center",
       });
+    } else {
+      await api
+        .post(GROUP.POST_ADD_GROUP, {
+          userId: `${localStorage.getItem("userId")}`,
+          groupName: `${groupName}`,
+        }) //subjectId
+        .then((response) => {
+          const results = response.data["result"];
+          console.log(results);
+          closeModal();
+          window.location.reload();
+          // setLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }
   const navigate = useNavigate();
 
@@ -221,9 +222,9 @@ const Sidebar = () => {
       .get(USERS.GET_GROUP(localStorage.getItem("userId")), {
         // userId 로그인하면 받을 수 있음. -> sessionStorage에서 받아와야할듯
         // sessionStorage에서 받아올 것 1. userId, 2. accessToken
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
+        // headers: {
+        //   Authorization: `Bearer ${accessToken}`,
+        // },
       }) //subjectId
       .then((response) => {
         const results = response.data["result"];
