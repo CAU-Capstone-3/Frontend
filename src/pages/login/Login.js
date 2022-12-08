@@ -46,8 +46,15 @@ const Login = () => {
         .then(function (response) {
           console.log(response["data"]);
           // console.log(response);
-          console.log(response["data"]["result"]["accessToken"]);
+          // console.log(response["data"]["result"]["accessToken"]);
+          // console.log(response["data"]["result"]["userId"]);
+          console.log(response["data"]["result"]);
           dispatch(setToken(response["data"]["result"]["accessToken"]));
+          localStorage.setItem("userId", response["data"]["result"]["userId"]);
+          localStorage.setItem(
+            "nickname",
+            response["data"]["result"]["nickname"]
+          );
           toast.success(<h3>로그인 성공</h3>, {
             position: "top-center",
             autoClose: 2000,
@@ -55,8 +62,8 @@ const Login = () => {
         });
 
       setTimeout(() => {
-        navigate("/");
-      }, 2000);
+        navigate("/main");
+      }, 1000);
     } catch (e) {
       console.log(e);
       // 서버에서 받은 에러 메시지 출력

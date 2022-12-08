@@ -5,7 +5,10 @@ import axios from "axios";
 import { USERS } from "../constants/serverConstant";
 import HOME_ICON from "../assets/사이드바홈아이콘.png";
 import GROUP_ICON from "../assets/사이드바그룹아이콘.png";
+import PLUS_ICON from "../assets/그룹추가.png";
 import { accessToken } from "../loginInformation";
+import api from "../utils/api";
+import Modal from "./Modal";
 
 const Loader = styled.span`
   text-align: center;
@@ -74,7 +77,7 @@ const UserNameDiv = styled.div`
 const UserNameSpan = styled.div`
   color: #34353c;
   font-weight: 700;
-  font-size: 21px;
+  font-size: 18px;
 `;
 
 const MyPageDiv = styled.div`
@@ -118,10 +121,38 @@ const GroupDiv = styled.div`
 const GroupImg = styled.img.attrs({ src: `${GROUP_ICON}` })`
   margin-right: 10px;
 `;
+const PlusImg = styled.img.attrs({ src: `${PLUS_ICON}` })`
+  margin-right: 14px;
+  height: 23px;
+`;
+const PlusDiv = styled.div`
+  margin-top: 5px;
+  background-color: #ffffff;
+  display: flex;
+  width: 14rem;
+  border-radius: 5px;
+  padding-left: 8px;
+  height: 3rem;
+  align-items: center;
+  border-bottom: 1px;
+
+  &:hover {
+    background-color: rgba(54, 73, 249, 0.2);
+    cursor: pointer;
+    border-right: solid 5px #3649f9;
+  }
+`;
 
 const Sidebar = () => {
   const [loading, setLoading] = useState(true);
   const [groups, setGroups] = useState();
+  const [modalOpen, setModalOpen] = useState(false);
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -129,8 +160,8 @@ const Sidebar = () => {
   }, []);
 
   async function getData() {
-    await axios
-      .get(USERS.GET_GROUP(3), {
+    await api
+      .get(USERS.GET_GROUP(localStorage.getItem("userId")), {
         // userId 로그인하면 받을 수 있음. -> sessionStorage에서 받아와야할듯
         // sessionStorage에서 받아올 것 1. userId, 2. accessToken
         headers: {
@@ -176,7 +207,9 @@ const Sidebar = () => {
             <LogoSpan>놋치지마</LogoSpan>
           </LogoDiv>
           <UserNameDiv>
-            <UserNameSpan>장훈석님의 놋치지마</UserNameSpan>
+            <UserNameSpan>
+              {localStorage.getItem("nickname")}님의 놋치지마
+            </UserNameSpan>
           </UserNameDiv>
           <MyPageDiv>
             <MyPageImg />
@@ -186,6 +219,15 @@ const Sidebar = () => {
             <GroupImg />
             <MyPageSpan>그룹 목록</MyPageSpan>
           </GroupDiv>
+          <button onClick={openModal}>
+            <PlusDiv>
+              <PlusImg />
+              <MyPageSpan>그룹 추가</MyPageSpan>
+            </PlusDiv>
+          </button>
+          <Modal open={modalOpen} close={closeModal} header="그룹 추가">
+            모달창 구현 완료.
+          </Modal>
           {groups.map(function (group) {
             return GroupList(group);
           })}

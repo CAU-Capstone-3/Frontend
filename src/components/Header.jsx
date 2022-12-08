@@ -17,7 +17,7 @@ const Logo = styled.img`
 const Button = styled.button``;
 export default function Header() {
   function onClick() {
-    window.location.href = `/`;
+    window.location.href = `/main`;
   }
   return (
     <Container>

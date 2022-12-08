@@ -7,9 +7,10 @@ import AnalysisPage from "./pages/ResultPage";
 import GroupSubjectPage from "./pages/GroupSubjectPage";
 import NoteDetailPage from "./pages/NoteDetailPage";
 import GroupAdminPage from "./pages/GroupAdminPage";
+import Main from "./pages/Main";
 import Login from "./pages/login/Login";
 import SignUp from "./pages/sign-up/sign-up";
-import Main from "./pages/Main";
+import MainPage from "./pages/MainPage";
 import Header from "./components/Header";
 
 function App() {
@@ -26,7 +27,8 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<MainPage />} />
+        <Route path="/main" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/group/subject/:groupId" element={<GroupSubjectPage />} />

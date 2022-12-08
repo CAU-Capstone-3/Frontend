@@ -42,6 +42,7 @@ const Box = styled.div`
     letter-spacing: 2px;
     border-bottom: 1px solid #cfcfcf;
   }
+
   display: block;
   box-shadow: 0px 14px 14px rgba(20, 23, 38, 0.02);
   padding-bottom: 0.5rem;
@@ -59,6 +60,7 @@ const BlueBox = styled.div`
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 `;
+
 //초대할 사용자 아이디
 const Label = styled.p`
   margin-top: 20px;
