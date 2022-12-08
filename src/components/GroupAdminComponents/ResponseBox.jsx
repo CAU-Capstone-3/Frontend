@@ -72,12 +72,7 @@ export default function ResponseBox() {
     <Container>
       <BlueBox />
       <p>응답대기중</p>
-      <NameList>
-        <div className="name">김유진</div>
-      </NameList>
-      <NameList>
-        <div className="name">장훈석</div>
-      </NameList>
+
       {Team.map((person) => {
         console.log(person);
         return InviteList(person["nickname"]);
