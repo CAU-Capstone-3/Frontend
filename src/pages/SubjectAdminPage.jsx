@@ -1,10 +1,8 @@
-import React, { useEffect, useState, useRef, useCallback } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
-import Title from "../components/ui/Title";
-import { TOPIC } from "../constants/serverConstant";
+import { TOPIC, SUBJECT } from "../constants/serverConstant";
 import Loading from "../components/Loader";
 import NoteAnalysisAdmin from "../components/SubjectAdminComponents/NoteAnalysisAdmin";
 import api from "../utils/api";
@@ -33,10 +31,33 @@ const RowDiv = styled.div`
   flex-direction: row;
 `;
 export default function SubjectAdminPage() {
+  const [results, setResults] = useState();
+  const [loading, setLoading] = useState(true);
+  const { subjectId } = useParams();
+  async function getData() {
+    await api
+      .get(SUBJECT.GET_TOPIC_LIST(subjectId)) //subjectId
+      .then((response) => {
+        const results = response.data["result"];
+        setResults(results);
+        setLoading(false);
+        console.log(results);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <Div>
       <Sidebar />
-      <NoteAnalysisAdmin />
+      {loading ? (
+        <Loading></Loading>
+      ) : (
+        <>{NoteAnalysisAdmin(results["topics"])}</>
+      )}
     </Div>
   );
 }

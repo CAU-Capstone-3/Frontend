@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import Imp from "../../assets/분석요청불가버튼.png";
-import Pos from "../../assets/분석요청가능버튼.png";
-import Del from "../../assets/삭제버튼.png";
+import CANTANALYSIS from "../../assets/분석요청불가버튼.png";
+import ANALYSIS from "../../assets/분석요청가능버튼.png";
+import DELETE from "../../assets/삭제버튼.png";
+import { TOPIC } from "../../constants/serverConstant";
+import api from "../../utils/api";
 //노트분석 component
 
 const Table = styled.table`
@@ -46,23 +48,25 @@ const Table = styled.table`
     font-weight: bold;
   }
 `;
-const ImpButton = styled.button`
+const AnalysisButton = styled.button`
   width: 62px;
   height: 25px;
-  background-image: url(${Imp});
+  margin-right: 5px;
+  background-image: url(${ANALYSIS});
   border: none;
 `;
-const PosButton = styled.button`
+const CantAnalysisButton = styled.div`
   width: 62px;
   height: 25px;
-  background-image: url(${Pos});
+  margin-bottom: 5px;
+  background-image: url(${CANTANALYSIS});
   margin-right: 5px;
   border: none;
 `;
-const DelButton = styled.button`
+const DeleteButton = styled.div`
   width: 62px;
   height: 25px;
-  background-image: url(${Del});
+  background-image: url(${DELETE});
   border: none;
 `;
 
@@ -82,7 +86,45 @@ const Container = styled.div`
   padding: 20px 0px;
   background-color: #f6f6f6;
 `;
-export default function NoteAnalysisAdmin() {
+
+export default function NoteAnalysisAdmin(reesults) {
+  async function postResult(topicId) {
+    //topicId, userId
+    // POST 요청은 body에 실어 보냄
+    await api
+      .post(TOPIC.POST_RESULT(topicId))
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+  function TopicList(topicId, title, status, time) {
+    const date = new Date(time);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    time = `${year}.${month}.${day}`;
+    function onClick() {
+      postResult(topicId);
+      //   window.location.href = `/group/subject/topic/notes/${topicId}`;
+      window.location.reload();
+    }
+    if (status === "READY") status = <AnalysisButton onClick={onClick} />;
+    else status = <CantAnalysisButton />;
+
+    return (
+      <tr>
+        <td>{title}</td>
+        <td>{time}</td>
+        <td>
+          {status}
+          <DeleteButton />
+        </td>
+      </tr>
+    );
+  }
   return (
     <Container>
       <Table>
@@ -94,22 +136,14 @@ export default function NoteAnalysisAdmin() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>2-3프레이밍</td>
-            <td>2022.11.23</td>
-            <td>
-              <PosButton />
-              <DelButton />
-            </td>
-          </tr>
-          <tr>
-            <td>2-3프레이밍</td>
-            <td>2022.11.23</td>
-            <td>
-              <PosButton />
-              <DelButton />
-            </td>
-          </tr>
+          {reesults.map(function (result) {
+            return TopicList(
+              result["topicId"],
+              result["title"],
+              result["analyzed"],
+              result["updatedAt"]
+            );
+          })}
         </tbody>
       </Table>
     </Container>
