@@ -25,6 +25,7 @@ const GROUP = Object.freeze({
   POST_ADD_GROUP: `${BASE_URL}/groups`, // 그룹 추가
   GET_GROUP_SUBJECTS: (groupId) => `${BASE_URL}/groups/${groupId}/subjects`, // 그룹에 속한 전체 과목 목록 조회
   GET_GROUP_MEMBERS: (groupId) => `${BASE_URL}/groups/${groupId}/members`, // 그룹에 속한 멤버 목록 조회
+  GET_INVITE_MEMBERS: (groupId) => `${BASE_URL}/groups/${groupId}/invites`,
 });
 
 const SUBJECT = Object.freeze({

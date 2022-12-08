@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-
+import { useParams } from "react-router-dom";
+import api from "../../utils/api";
+import { GROUP } from "../../constants/serverConstant";
 const Container = styled.div`
   p {
     margin-left: 10px;
@@ -42,6 +44,30 @@ const NameList = styled.div`
   }
 `;
 export default function ResponseBox() {
+  const { groupId } = useParams();
+  const [Team, SetTeam] = useState([""]);
+  useEffect(() => {
+    getData();
+  }, []);
+
+  async function getData() {
+    await api
+      .get(GROUP.GET_INVITE_MEMBERS(groupId))
+      .then((res) => {
+        console.log("이거", res.data["result"]);
+        SetTeam(res.data["result"]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  function InviteList(person) {
+    return (
+      <NameList>
+        <div className="name">{person}</div>
+      </NameList>
+    );
+  }
   return (
     <Container>
       <BlueBox />
@@ -52,6 +78,10 @@ export default function ResponseBox() {
       <NameList>
         <div className="name">장훈석</div>
       </NameList>
+      {Team.map((person) => {
+        console.log(person);
+        return InviteList(person["nickname"]);
+      })}
     </Container>
   );
 }
