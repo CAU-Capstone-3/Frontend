@@ -1,14 +1,12 @@
 import styled from "styled-components";
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
-import { toast, ToastContainer } from "react-toastify";
-import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
+
+import { toast } from "react-toastify";
 import { USERS } from "../constants/serverConstant";
 import HOME_ICON from "../assets/사이드바홈아이콘.png";
 import GROUP_ICON from "../assets/사이드바그룹아이콘.png";
 import PLUS_ICON from "../assets/그룹추가.png";
-import { accessToken } from "../loginInformation";
 import api from "../utils/api";
 import Modal from "./Modal";
 import { GROUP } from "../constants/serverConstant";
@@ -18,19 +16,14 @@ const Loader = styled.span`
   display: block;
 `;
 const Container = styled.div`
-  /* background-color: #d9d9d9; */
   position: absolute;
   font-family: Gmarket Sans;
-  /* left: 0;
-  top: 0;
-  bottom: 0; */
   width: 16rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-right: 1rem;
   background-color: #ffffff;
-  /* border-right: 1px solid rgba(0, 0, 0, 0.2); */
 `;
 const GroupListDiv = styled.div`
   margin-top: 10px;
@@ -219,13 +212,7 @@ const Sidebar = () => {
 
   async function getData() {
     await api
-      .get(USERS.GET_GROUP(localStorage.getItem("userId")), {
-        // userId 로그인하면 받을 수 있음. -> sessionStorage에서 받아와야할듯
-        // sessionStorage에서 받아올 것 1. userId, 2. accessToken
-        // headers: {
-        //   Authorization: `Bearer ${accessToken}`,
-        // },
-      }) //subjectId
+      .get(USERS.GET_GROUP(localStorage.getItem("userId"))) //subjectId
       .then((response) => {
         const results = response.data["result"];
         setGroups(results);

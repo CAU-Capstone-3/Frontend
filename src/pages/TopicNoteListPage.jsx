@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
-import axios from "axios";
 import { TOPIC } from "../constants/serverConstant";
 import TopicNoteListTitle from "../components/ui/TopicNoteListTitle";
 import TopicNoteListPattern from "../components/ui/TopicNoteListPattern";
-import styled from "styled-components";
 import Loading from "../components/Loader";
 import Header from "../components/Header";
 import api from "../utils/api";
@@ -22,16 +20,7 @@ const TopicNoteListPage = () => {
 
   async function getData() {
     await api
-      .get(TOPIC.GET_NOTE_LIST(topicId), {
-        // headers: {
-        //   Authorization: `Bearer ${accessToken}`,
-        // },
-      }) //topicId
-      // .get("/api/topics/2/notes", {
-      //   headers: {
-      //     Authorization: `${accessToken}`,
-      //   },
-      // }) //topicId
+      .get(TOPIC.GET_NOTE_LIST(topicId), {})
       .then((response) => {
         const results = response.data["result"];
         setResults(results);

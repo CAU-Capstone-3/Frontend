@@ -8,8 +8,6 @@ const TitleDiv = styled.div`
   margin-left: 16rem;
   position: relative;
   padding: 0 4rem;
-  /* height: 48px;
-  width: 320px; */
   margin-top: 20px;
 `;
 const TitleResult = styled.div`
@@ -30,7 +28,6 @@ const TitleTopicDiv = styled.div`
 `;
 const TitleTopicText = styled.div`
   text-align: center;
-  /* vertical-align: top; */
   font-size: 18px;
   font-family: Gmarket Sans;
   line-height: 22%;

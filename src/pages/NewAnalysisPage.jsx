@@ -1,22 +1,16 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ResultTitle from "../components/ui/ResultTitle";
 import ContradictionResultPattern from "../components/ui/ContradictionResultPattern";
 import NoContradictionResultPattern from "../components/ui/NoContradictionResultPattern";
-import axios from "axios";
 import styled from "styled-components";
 import REGISTER from "../assets/등록.png";
 import { TOPIC, ADVICE } from "../constants/serverConstant";
 import Sidebar from "../components/Sidebar";
 import api from "../utils/api";
 import Loading from "../components/Loader";
-import { myUserId, accessToken } from "../loginInformation";
 import Header from "../components/Header";
 
-const Loader = styled.span`
-  text-align: center;
-  display: block;
-`;
 const RegisterButton = styled.button.attrs({
   type: `button`,
 })`
@@ -40,11 +34,6 @@ const InputTextArea = styled.textarea`
   margin-right: 5px;
   height: 50px;
 `;
-
-// const useInput = (initialValue) => {
-//   const [value, setValue] = useState(initialValue);
-//   return { value };
-// };
 
 const NewAnalysisPage = () => {
   const [results, setResults] = useState([""]);

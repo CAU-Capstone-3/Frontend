@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+
 //그룹정보 or 그룹 명 변경 하기
 const Container = styled.div`
   .label {

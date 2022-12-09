@@ -54,7 +54,6 @@ const NoteDetailPattern = (results) => {
           {results["content"].split("\n").map((sentence) => {
             return DetailList(sentence);
           })}
-          {/* {DetailList(results["content"])} */}
         </ul>
       </DetailDiv>
     </Container>

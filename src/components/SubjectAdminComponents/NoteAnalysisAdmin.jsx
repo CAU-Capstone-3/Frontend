@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import CANTANALYSIS from "../../assets/분석요청불가버튼.png";
 import ANALYSIS from "../../assets/분석요청가능버튼.png";
 import DELETE from "../../assets/삭제버튼.png";
 import { TOPIC } from "../../constants/serverConstant";
-
 import api from "../../utils/api";
-//노트분석 component
 
 const Table = styled.table`
   width: 1000px;
@@ -27,10 +25,7 @@ const Table = styled.table`
   thead {
     box-shadow: 0 5px 10px #e1e5ee;
   }
-  /* td,
-  th {
-    border: 1px 
-  } */
+
   td {
     padding: 1rem 2rem;
   }
@@ -109,7 +104,6 @@ export default function NoteAnalysisAdmin(reesults) {
     time = `${year}.${month}.${day}`;
     function onClick() {
       postResult(topicId);
-      //   window.location.href = `/group/subject/topic/notes/${topicId}`;
       // window.location.reload();
     }
     if (status === "READY") status = <AnalysisButton onClick={onClick} />;

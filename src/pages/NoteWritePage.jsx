@@ -1,21 +1,16 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
-import axios from "axios";
 import styled from "styled-components";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Title from "../components/ui/Title";
 import { NOTE, TOPIC } from "../constants/serverConstant";
 import COMPLETE from "../assets/작성완료.png";
-import { myUserId, accessToken } from "../loginInformation";
 import Loading from "../components/Loader";
 import api from "../utils/api";
 import Header from "../components/Header";
 // 과목별 토픽 목록
 const CompleteButtonImg = styled.img.attrs({ src: `${COMPLETE}` })``;
-const Loader = styled.span`
-  text-align: center;
-  display: block;
-`;
+
 const Container = styled.div`
   margin-left: 20px;
   display: flex;
@@ -50,9 +45,6 @@ const RequestButton = styled.button.attrs({
 })``;
 
 export default function SubjectTopicPage() {
-  // const navigate = useNavigate();
-  // const [status, getStatus] = useState();
-  // const { subjectId, noteId } = useParams();
   const [topic, setTopic] = useState();
   const [content, setContent] = useState("");
   const { topicId } = useParams();
@@ -92,21 +84,11 @@ export default function SubjectTopicPage() {
       console.log("노트 내용은 50글자 이상!");
     } else {
       await api
-        .post(
-          NOTE.POST_WRITE,
-          {
-            //topicId, userId
-            topicId: `${topicId}`,
-            userId: `${localStorage.getItem("userId")}`,
-            content: `${content}`,
-          }
-          // {
-          //   // groupId 받아와야함.
-          //   headers: {
-          //     Authorization: `Bearer ${accessToken}`,
-          //   },
-          // }
-        )
+        .post(NOTE.POST_WRITE, {
+          topicId: `${topicId}`,
+          userId: `${localStorage.getItem("userId")}`,
+          content: `${content}`,
+        })
         .then(function (response) {
           console.log(response);
           window.location.href = `/group/subject/topic/notes/${topicId}`;
@@ -119,12 +101,7 @@ export default function SubjectTopicPage() {
 
   async function getTopic() {
     await api
-      .get(TOPIC.GET_NOTE_LIST(topicId), {
-        // groupId 받아와야함.
-        // headers: {
-        //   Authorization: `Bearer ${accessToken}`,
-        // },
-      }) //subjectId
+      .get(TOPIC.GET_NOTE_LIST(topicId))
       .then((response) => {
         const results = response.data["result"];
         setTopic(results["topicName"]);

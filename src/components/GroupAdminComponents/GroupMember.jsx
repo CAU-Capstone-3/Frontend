@@ -38,10 +38,7 @@ const Table = styled.table`
   thead {
     box-shadow: 0 5px 10px #e1e5ee;
   }
-  /* td,
-  th {
-    border: 1px 
-  } */
+
   td {
     padding: 1rem 2rem;
   }

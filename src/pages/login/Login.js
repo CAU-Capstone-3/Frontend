@@ -11,17 +11,7 @@ import { Button, TextField } from "@mui/material";
 import "../sign-up/signUp.scss";
 import { useDispatch } from "react-redux";
 import { setToken } from "../../redux/reducers/AuthReducer";
-const Container = styled.div`
-  margin-left: 20px;
-  display: flex;
-  width: auto;
-  flex-direction: column;
-  margin-left: 16rem;
-  padding: 0 4rem;
-  margin-top: 20px;
-  /* 이 아래는 삭제 해야함. */
-  padding: 20px 0px;
-`;
+
 const Div = styled.div`
   font-family: Gmarket Sans;
 `;

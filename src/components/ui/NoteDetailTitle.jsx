@@ -9,8 +9,6 @@ const TitleDiv = styled.div`
   margin-left: 16rem;
   position: relative;
   padding: 0 2rem;
-  /* height: 48px;
-  width: 320px; */
   margin-top: 20px;
 `;
 const TitleResult = styled.div`

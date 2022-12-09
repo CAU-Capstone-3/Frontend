@@ -18,25 +18,9 @@ const Container = styled.div`
   padding: 20px 0px;
 `;
 
-const TitleDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-`;
-const TitleText = styled.span`
-  /* text-align: center; */
-  vertical-align: top;
-  font-size: 20px;
-  font-family: Gmarket Sans;
-  font-weight: 900;
-  color: #263cff;
-  margin-bottom: 10px;
-`;
-
 // -----------
 const ComparisionDiv = styled.div`
   display: flex;
-  /* justify-content: space-between; */
   flex-direction: column;
   border-bottom: 1px;
   margin-bottom: 10px;
@@ -46,7 +30,6 @@ const ComparisionDivRow = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #ff6577;
-  /* border: 1px solid #bdbdbd; */
   border-radius: 10px;
   width: 75%;
   min-height: 110px;
@@ -59,7 +42,6 @@ const ComparisionDivRow2 = styled.div`
   flex-direction: column;
   justify-content: center;
   background-color: #bdbdbd;
-  /* border: 1px solid #bdbdbd; */
   border-radius: 10px;
   width: 60%;
   height: 70px;
@@ -134,16 +116,6 @@ function Comment(comments) {
  * ContradictionResultPattern(results)
  */
 const ContradictionResultPattern = (results) => {
-  function makeContradiction() {
-    results["sentences"].map((sentence) => {
-      return (
-        <ComparisionDivRow>
-          <ComparisonContent>{sentence["content"]}</ComparisonContent>
-          <ComparisonName>{sentence["writerName"]}</ComparisonName>
-        </ComparisionDivRow>
-      );
-    });
-  }
   return (
     <Container>
       <ComparisionDiv>

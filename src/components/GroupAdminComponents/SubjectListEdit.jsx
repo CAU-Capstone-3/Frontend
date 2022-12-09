@@ -2,24 +2,13 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Edit from "../../assets/연필.png";
 import Rem from "../../assets/쓰레기통.png";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import api from "../../utils/api";
 import { GROUP, SUBJECT } from "../../constants/serverConstant";
 import Modal from "../Modal";
 import PLUS_ICON from "../../assets/그룹추가.png";
 import Loading from "../Loader";
-//과목목록
-// const Container = styled.div`
-//   margin-left: 20px;
-//   display: flex;
-//   width: auto;
-//   flex-direction: column;
-//   align-items: center;
-//   margin-left: 16rem;
-//   padding: 0 4rem;
-//   margin-top: 20px;
-// `;
+
 const Container = styled.div`
   margin-left: 20px;
   display: flex;

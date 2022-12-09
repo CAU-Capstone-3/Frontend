@@ -19,13 +19,7 @@ const Container = styled.div`
   /* 이 아래는 삭제 해야함. */
   border-style: solid;
 `;
-const Button = styled.button`
-  font-size: 25px;
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  width: 15%;
-  margin-top: 10px;
-  border-radius: 15px;
-`;
+
 const Main = () => {
   return (
     <>

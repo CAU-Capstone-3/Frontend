@@ -3,16 +3,9 @@ import "./MainPage.css";
 import styled from "styled-components";
 import loginButton from "../assets/로그인버튼.png";
 import signUpButton from "../assets/회원가입버튼.png";
-import SignUp from "./sign-up/sign-up";
 const Div = styled.div`
   height: 1000px;
   background-color: #263cff;
-`;
-const buttonDiv = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
 `;
 const LoginButtonImg = styled.img.attrs({ src: `${loginButton}` })``;
 const SignUpButtonImg = styled.img.attrs({ src: `${signUpButton}` })``;

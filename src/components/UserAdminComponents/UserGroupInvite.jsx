@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import AgrBtn from "../../assets/수락버튼.png";
 import RejBtn from "../../assets/거절버튼.png";
-import { useParams } from "react-router-dom";
 import api from "../../utils/api";
 import Loading from "../../components/Loader";
 import { INVITE, USERS } from "../../constants/serverConstant";
@@ -29,14 +28,6 @@ const RejButton = styled.button`
   background-image: url(${RejBtn});
   border: none;
 `;
-const TContainer = styled.div`
-  font-family: Gmarket Sans;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #4f546c;
-  background-color: #f9fbff;
-`;
 const Table = styled.table`
   caption-side: top;
   border: none;
@@ -56,10 +47,6 @@ const Table = styled.table`
   thead {
     box-shadow: 0 5px 10px #e1e5ee;
   }
-  /* td,
-  th {
-    border: 1px 
-  } */
   td {
     padding: 1rem 2rem;
   }

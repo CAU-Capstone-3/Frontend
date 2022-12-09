@@ -12,7 +12,6 @@ const Container = styled.div`
   padding: 0 4rem;
   font-family: Gmarket Sans;
   margin-top: 20px;
-  /* 이 아래는 삭제 해야함. */
   border-style: solid;
   border-top: 2px solid rgba(0, 0, 0, 0.2);
   padding: 20px 0px;
@@ -21,7 +20,6 @@ const Container = styled.div`
 const TitleDiv = styled.div`
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
 `;
 const TitleText = styled.span`
   /* text-align: center; */

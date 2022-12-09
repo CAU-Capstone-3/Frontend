@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ResultTitle from "../components/ui/ResultTitle";
 import ResultPattern from "../components/ui/ResultPattern";
 import axios from "axios";
@@ -9,13 +9,10 @@ import { TOPIC, ADVICE } from "../constants/serverConstant";
 import Sidebar from "../components/Sidebar";
 import api from "../utils/api";
 import Loading from "../components/Loader";
-import { myUserId, accessToken } from "../loginInformation";
+import { accessToken } from "../loginInformation";
 import Header from "../components/Header";
 
-const Loader = styled.span`
-  text-align: center;
-  display: block;
-`;
+// 사용하지 않는 페이지
 const RegisterButton = styled.button.attrs({
   type: `button`,
 })`
@@ -40,11 +37,6 @@ const InputTextArea = styled.textarea`
   height: 50px;
 `;
 
-// const useInput = (initialValue) => {
-//   const [value, setValue] = useState(initialValue);
-//   return { value };
-// };
-
 const AnalysisPage = () => {
   const [results, setResults] = useState([""]);
   const [loading, setLoading] = useState(true);
@@ -53,11 +45,7 @@ const AnalysisPage = () => {
   async function getData() {
     // API GET 함수.
     await api
-      .get(TOPIC.GET_RESULT(topicId), {
-        // headers: {
-        //   Authorization: `Bearer ${accessToken}`,
-        // },
-      })
+      .get(TOPIC.GET_RESULT(topicId), {})
       .then((response) => {
         const data = response.data["result"];
         setResults(data);
@@ -92,18 +80,10 @@ const AnalysisPage = () => {
       console.log("댓글 내용은 10글자 이상!!");
     } else {
       await axios
-        .post(
-          ADVICE.POST_COMMEND(adviceId),
-          {
-            userId: 3,
-            content: `${content}`,
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        )
+        .post(ADVICE.POST_COMMEND(adviceId), {
+          userId: 3,
+          content: `${content}`,
+        })
         .then(function (response) {
           console.log(response);
           window.location.reload();

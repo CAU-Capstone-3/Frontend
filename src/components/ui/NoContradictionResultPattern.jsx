@@ -18,21 +18,6 @@ const Container = styled.div`
   padding: 20px 0px;
 `;
 
-const TitleDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-`;
-const TitleText = styled.span`
-  /* text-align: center; */
-  vertical-align: top;
-  font-size: 20px;
-  font-family: Gmarket Sans;
-  font-weight: 900;
-  color: #263cff;
-  margin-bottom: 10px;
-`;
-
 // -----------
 const ComparisionDiv = styled.div`
   display: flex;
@@ -129,25 +114,7 @@ function Comment(comments) {
   );
 }
 
-/**
- * ContradictionResultPattern(results)
- */
 const NoContradictionResultPattern = (results) => {
-  function makeNoContradiction() {
-    results["sentences"].map((sentence) => {
-      return (
-        <ComparisionDivRow>
-          <ComparisonContent>{sentence["content"]}</ComparisonContent>
-          <ComparisonName>{sentence["writerName"]}</ComparisonName>
-        </ComparisionDivRow>
-      );
-    });
-  }
-  function makeListAdvices() {
-    results["advices"].map((advice) => {
-      return <ComparisionDivRow2>{advice}</ComparisionDivRow2>;
-    });
-  }
   return (
     <Container>
       <ComparisionDiv>

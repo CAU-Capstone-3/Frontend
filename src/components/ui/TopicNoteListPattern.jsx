@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import COMPLETE from "../../assets/완료팀원 (1).png";
 import NOT_COMPLETE from "../../assets/미완료 팀원 (1).png";
 import NOTE_BUTTON from "../../assets/노트보기.png";
 import WRITE_BUTTON from "../../assets/글쓰기버튼.png";
 import CANT_WRITE_BUTTON from "../../assets/글쓰기불가버튼.png";
-import { myUserId, accessToken } from "../../loginInformation";
 import { TOPIC } from "../../constants/serverConstant";
 import api from "../../utils/api";
 
@@ -226,16 +225,7 @@ const TopicNoteListPattern = (results) => {
     //topicId, userId
     // POST 요청은 body에 실어 보냄
     await api
-      .post(
-        TOPIC.POST_RESULT(results["topicId"]),
-        {},
-        {
-          // groupId 받아와야함.
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        }
-      )
+      .post(TOPIC.POST_RESULT(results["topicId"]))
       .then(function (response) {
         console.log(response);
       })
@@ -259,11 +249,6 @@ const TopicNoteListPattern = (results) => {
             <TopicTitleBarText2>분석 결과</TopicTitleBarText2>
           </AdviceButton>
         </TopicTitleBarDiv2>
-        {/* <TopicTitleBarDiv2>
-          <button onClick={postResult}>
-            <TopicTitleBarText>토픽 분석</TopicTitleBarText>
-          </button>
-        </TopicTitleBarDiv2> */}
       </TopicTitleBarRow>
       {/* ----------- */}
       <ImgDiv>

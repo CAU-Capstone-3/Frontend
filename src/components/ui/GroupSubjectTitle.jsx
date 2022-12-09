@@ -10,8 +10,6 @@ const TitleDiv = styled.div`
   padding: 0rem 2rem;
   justify-content: space-between;
   align-items: center;
-  /* height: 48px;
-  width: 320px; */
   margin-top: 20px;
 `;
 const TitleResult = styled.div`
@@ -32,15 +30,7 @@ const TitleTopicDiv = styled.div`
   padding: 13px 16px;
   gap: 10px;
 `;
-const TitleTopicText = styled.div`
-  text-align: center;
-  /* vertical-align: top; */
-  font-size: 18px;
-  font-family: Gmarket Sans;
-  line-height: 22%;
-  color: #263cff;
-  font-weight: 900;
-`;
+
 const GroupManageImg = styled.img.attrs({ src: `${GROUP_MANAGE_BUTTON}` })`
   margin-top: 40px;
 `;

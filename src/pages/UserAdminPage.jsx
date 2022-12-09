@@ -1,17 +1,10 @@
-import React, { useEffect, useState, useRef, useCallback } from "react";
-import axios from "axios";
+import React from "react";
 import styled from "styled-components";
-import { useNavigate, useParams } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
-import Title from "../components/ui/Title";
-import { NOTE, TOPIC } from "../constants/serverConstant";
-import COMPLETE from "../assets/작성완료.png";
-import Loading from "../components/Loader";
-import api from "../utils/api";
 import UserGroupInvite from "../components/UserAdminComponents/UserGroupInvite";
-import WriteNoteList from "../components/UserAdminComponents/WriteNoteList";
 import EditUserInformation from "../components/UserAdminComponents/EditUserInformation";
 import Header from "../components/Header";
+
 const Container = styled.div`
   margin-left: 20px;
   display: flex;
@@ -30,10 +23,6 @@ const Container = styled.div`
 `;
 const Div = styled.div`
   /* background-color: #f6f6f6; */
-`;
-const RowDiv = styled.div`
-  display: flex;
-  flex-direction: row;
 `;
 export default function GroupAdminPage() {
   return (

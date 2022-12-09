@@ -8,8 +8,6 @@ const TitleDiv = styled.div`
   margin-left: 16rem;
   position: relative;
   padding: 0 4rem;
-  /* height: 48px;
-  width: 320px; */
   margin-top: 20px;
 `;
 const TitleResult = styled.div`
@@ -44,7 +42,6 @@ const Title = (titleName, titleText) => {
       <TitleResult>{titleName}</TitleResult>
       <TitleTopicDiv>
         <TitleTopicText>{titleText}</TitleTopicText>
-        {/* TitleTopicText안 text를 설정가능하게끔 바꾸기 */}
       </TitleTopicDiv>
     </TitleDiv>
   );

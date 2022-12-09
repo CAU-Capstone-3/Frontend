@@ -1,26 +1,13 @@
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Formik, ErrorMessage } from "formik";
-import styled from "styled-components";
+import { Formik } from "formik";
 import * as Yup from "yup";
 import { Button, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { AUTH } from "../../constants/serverConstant";
 import "./signUp.scss";
-const Container = styled.div`
-  margin-left: 20px;
-  display: flex;
-  width: auto;
-  flex-direction: column;
-  margin-left: 16rem;
-  padding: 0 4rem;
-  margin-top: 20px;
-  /* 이 아래는 삭제 해야함. */
-  border-style: solid;
-  border-top: 2px solid rgba(0, 0, 0, 0.2);
-  padding: 20px 0px;
-`;
+
 const SignUp = () => {
   const navigate = useNavigate();
   const validationSchema = Yup.object().shape({

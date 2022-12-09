@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-//userId 받아와야함
 
 const UserUpdate = styled.div`
   p {
@@ -28,9 +27,6 @@ const NameForm = styled.div`
     font-size: 16px;
     line-height: 16px;
   }
-`;
-const ButtonWithMarginTop = styled.div`
-  margin-top: 3rem;
 `;
 
 const StyledInput = styled.input`
