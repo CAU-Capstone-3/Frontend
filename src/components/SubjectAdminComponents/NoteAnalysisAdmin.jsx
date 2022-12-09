@@ -110,7 +110,7 @@ export default function NoteAnalysisAdmin(reesults) {
     function onClick() {
       postResult(topicId);
       //   window.location.href = `/group/subject/topic/notes/${topicId}`;
-      window.location.reload();
+      // window.location.reload();
     }
     if (status === "READY") status = <AnalysisButton onClick={onClick} />;
     else status = <CantAnalysisButton />;
