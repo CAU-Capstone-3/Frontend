@@ -13,6 +13,7 @@ import Login from "./pages/login/Login";
 import SignUp from "./pages/sign-up/sign-up";
 import UserAdminPage from "./pages/UserAdminPage";
 import MainPage from "./pages/MainPage";
+import NewAnalysisPage from "./pages/NewAnalysisPage";
 import Header from "./components/Header";
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
           element={<SubjectAdminPage />}
         />
         <Route path="/user/admin" element={<UserAdminPage />} />
+        <Route path="advice" element={<NewAnalysisPage />} />
       </Routes>
     </BrowserRouter>
     /* <Outlet /> */
