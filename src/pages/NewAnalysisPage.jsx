@@ -65,10 +65,10 @@ const NewAnalysisPage = () => {
         console.log(error);
       });
   }
-  //   useEffect(() => {
-  //     // 처음으로 이 페이지가 렌더링 될 때 useEffect로 함수를 실행시킨다.
-  //     getData();
-  //   }, []);
+  useEffect(() => {
+    // 처음으로 이 페이지가 렌더링 될 때 useEffect로 함수를 실행시킨다.
+    getData();
+  }, []);
 
   const textRef = useRef();
 
@@ -109,19 +109,13 @@ const NewAnalysisPage = () => {
       <Header />
       <Sidebar />
 
-      {ResultTitle("토픽이름")}
-      {ContradictionResultPattern()}
-      {NoContradictionResultPattern()}
-      {ContradictionResultPattern()}
-      {ContradictionResultPattern()}
-      {NoContradictionResultPattern()}
       {loading ? (
         <Loading></Loading>
       ) : (
         <>
           {ResultTitle(results["title"])}
           {results["advices"].map((results) => {
-            if (results["isContradiction"]) {
+            if (results["contradiction"]) {
               return (
                 <div>
                   {ContradictionResultPattern(results)}

@@ -7,7 +7,7 @@ import WRITE_BUTTON from "../../assets/글쓰기버튼.png";
 import CANT_WRITE_BUTTON from "../../assets/글쓰기불가버튼.png";
 import { myUserId, accessToken } from "../../loginInformation";
 import { TOPIC } from "../../constants/serverConstant";
-import axios from "axios";
+import api from "../../utils/api";
 
 const Container = styled.div`
   margin-left: 20px;
@@ -187,7 +187,9 @@ function UnwrittenList(topicId, userId, userName) {
   function onClick() {
     window.location.href = `/group/subject/topic/write/${topicId}`;
   }
-  if (myUserId !== userId) {
+  console.log(localStorage.getItem("userId"));
+
+  if (`${localStorage.getItem("userId")}` !== `${userId}`) {
     return (
       <li>
         <NoteListBarRow>
@@ -223,7 +225,7 @@ const TopicNoteListPattern = (results) => {
   async function postResult() {
     //topicId, userId
     // POST 요청은 body에 실어 보냄
-    await axios
+    await api
       .post(
         TOPIC.POST_RESULT(results["topicId"]),
         {},

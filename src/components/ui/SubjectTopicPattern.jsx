@@ -3,7 +3,7 @@ import styled from "styled-components";
 import IMG_BEFORE from "../../assets/분석전.png";
 import IMG_ING from "../../assets/분석중.png";
 import IMG_AFTER from "../../assets/분석완료.png";
-
+import IMG_UNREADY from "../../assets/미완료.png";
 // import Title from "./Title";
 
 const Container = styled.div`
@@ -94,9 +94,13 @@ const TopicBarText = styled.span`
 `;
 //-----------
 // img src 담당.
-const TopicBarStatusBefore = styled.img.attrs({ src: `${IMG_BEFORE}` })``;
+const TopicBarStatusReady = styled.img.attrs({ src: `${IMG_BEFORE}` })``;
 const TopicBarStatusIng = styled.img.attrs({ src: `${IMG_ING}` })``;
 const TopicBarStatusAfter = styled.img.attrs({ src: `${IMG_AFTER}` })``;
+const TopicBarStatusBefore = styled.img.attrs({ src: `${IMG_UNREADY}` })`
+  height: 24px;
+  width: 50px;
+`;
 //----------
 function TopicList(topicId, title, status, time) {
   const date = new Date(time);
@@ -104,10 +108,10 @@ function TopicList(topicId, title, status, time) {
   const month = date.getMonth() + 1;
   const day = date.getDate();
   time = `${year}.${month}.${day}`;
-  if (status === "UNREADY") status = <TopicBarStatusBefore />;
+  if (status === "READY") status = <TopicBarStatusReady />;
   else if (status === "RUNNING") status = <TopicBarStatusIng />;
   else if (status === "FINISH") status = <TopicBarStatusAfter />;
-  else status = <TopicBarStatusAfter />;
+  else if (status === "UNREADY") status = <TopicBarStatusBefore />;
   function onClick() {
     window.location.href = `/group/subject/topic/notes/${topicId}`;
   }

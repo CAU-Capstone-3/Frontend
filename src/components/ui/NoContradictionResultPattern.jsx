@@ -137,8 +137,8 @@ const NoContradictionResultPattern = (results) => {
     results["sentences"].map((sentence) => {
       return (
         <ComparisionDivRow>
-          <ComparisonContent>sentence["content"]</ComparisonContent>
-          <ComparisonName>sentence["writerName"]</ComparisonName>
+          <ComparisonContent>{sentence["content"]}</ComparisonContent>
+          <ComparisonName>{sentence["writerName"]}</ComparisonName>
         </ComparisionDivRow>
       );
     });
@@ -151,17 +151,22 @@ const NoContradictionResultPattern = (results) => {
   return (
     <Container>
       <ComparisionDiv>
-        {/* {makeNoContradiction()} */}
-        <ComparisionDivRow>
-          <ComparisonContent>sentence["content"]</ComparisonContent>
-          <ComparisonName>sentence["writerName"]</ComparisonName>
-        </ComparisionDivRow>
-        {/* makeListAdvices*/}
-        <ComparisionDivRow2>To. 장훈석 : 뭐가 빠졌어요.</ComparisionDivRow2>
-        <ComparisionDivRow2>To. 김형기 : 뭐가 빠졌어요.</ComparisionDivRow2>
+        {results["sentences"].map((sentence) => {
+          return (
+            <ComparisionDivRow>
+              <ComparisonContent>{sentence["content"]}</ComparisonContent>
+              <ComparisonName>{sentence["writerName"]}</ComparisonName>
+            </ComparisionDivRow>
+          );
+        })}
+        {results["advices"].map((advice) => {
+          if (advice.length === 0) {
+            return;
+          }
+          return <ComparisionDivRow2>{advice}</ComparisionDivRow2>;
+        })}
       </ComparisionDiv>
-
-      {/* <ul>{Comment(results["comments"])}</ul> */}
+      <ul>{Comment(results["comments"])}</ul>
     </Container>
   );
 };

@@ -138,8 +138,8 @@ const ContradictionResultPattern = (results) => {
     results["sentences"].map((sentence) => {
       return (
         <ComparisionDivRow>
-          <ComparisonContent>sentence["content"]</ComparisonContent>
-          <ComparisonName>sentence["writerName"]</ComparisonName>
+          <ComparisonContent>{sentence["content"]}</ComparisonContent>
+          <ComparisonName>{sentence["writerName"]}</ComparisonName>
         </ComparisionDivRow>
       );
     });
@@ -147,20 +147,17 @@ const ContradictionResultPattern = (results) => {
   return (
     <Container>
       <ComparisionDiv>
-        {/* {makeContradiction()} */}
-        <ComparisionDivRow>
-          <ComparisonContent>sentence["content"]</ComparisonContent>
-          <ComparisonName>sentence["writerName"]</ComparisonName>
-        </ComparisionDivRow>
-        <ComparisionDivRow>
-          <ComparisonContent>sentence["content"]</ComparisonContent>
-          <ComparisonName>sentence["writerName"]</ComparisonName>
-        </ComparisionDivRow>
-        {/* <ComparisionDivRow2>{results["advices"]}</ComparisionDivRow2> */}
-        <ComparisionDivRow2>상반되는 문장이 있어요</ComparisionDivRow2>
+        {results["sentences"].map((sentence) => {
+          return (
+            <ComparisionDivRow>
+              <ComparisonContent>{sentence["content"]}</ComparisonContent>
+              <ComparisonName>{sentence["writerName"]}</ComparisonName>
+            </ComparisionDivRow>
+          );
+        })}
+        <ComparisionDivRow2>{results["advices"]}</ComparisionDivRow2>
       </ComparisionDiv>
-
-      {/* <ul>{Comment(results["comments"])}</ul> */}
+      <ul>{Comment(results["comments"])}</ul>
     </Container>
   );
 };

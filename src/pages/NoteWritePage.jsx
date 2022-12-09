@@ -97,7 +97,7 @@ export default function SubjectTopicPage() {
           {
             //topicId, userId
             topicId: `${topicId}`,
-            userId: `${myUserId}`,
+            userId: `${localStorage.getItem("userId")}`,
             content: `${content}`,
           }
           // {
