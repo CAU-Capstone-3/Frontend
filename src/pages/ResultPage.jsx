@@ -9,7 +9,7 @@ import { TOPIC, ADVICE } from "../constants/serverConstant";
 import Sidebar from "../components/Sidebar";
 import api from "../utils/api";
 import Loading from "../components/Loader";
-import { accessToken } from "../loginInformation";
+
 import Header from "../components/Header";
 
 // 사용하지 않는 페이지

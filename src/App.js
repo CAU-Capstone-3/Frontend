@@ -17,13 +17,6 @@ import NewAnalysisPage from "./pages/NewAnalysisPage";
 import Header from "./components/Header";
 
 function App() {
-  const [isLogin, setIsLogin] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  function loginCallBack(login) {
-    setIsLogin(login);
-  }
-
   return (
     // <>
     // <div className="App">
